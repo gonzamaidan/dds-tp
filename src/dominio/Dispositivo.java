@@ -17,27 +17,13 @@ public class Dispositivo {
 	}
 
 	public boolean estaEncendido() {
-		if(estadoDispositivo.equals(EstadoDispositivo.ON)) {
-			return true;
-		}else {
-			return false;
-		}
+		return estadoDispositivo.equals(EstadoDispositivo.ON);
+		
 	}
 	
 	public boolean estaApagado() {
-		if(estadoDispositivo.equals(EstadoDispositivo.OFF)) {
-			return true;
-		}else {
-			return false;
-		}
+		return estadoDispositivo.equals(EstadoDispositivo.OFF);
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 	
 	// SETTERS Y GETTERS
