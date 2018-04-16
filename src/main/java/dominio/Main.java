@@ -1,4 +1,4 @@
-package main;
+package dominio;
 
 import dominio.Cliente;
 import dominio.Dispositivo;

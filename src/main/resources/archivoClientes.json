@@ -1,0 +1,2 @@
+// aca irian los datos de clientes para cargar.
+// Como no es parte del dominio sino un recurso para que funque el programa, lo ponemos aca en src/main/resources
