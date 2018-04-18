@@ -1,8 +1,12 @@
 package dominio;
 
-import dominio.Cliente;
+import java.time.LocalDate;
+
 import dominio.Dispositivo;
 import dominio.Dispositivo.EstadoDispositivo;
+import dominio.usuarios.Documento;
+import dominio.usuarios.TipoDocumento;
+import dominio.usuarios.UsuarioCliente;
 
 public class Main {
 
@@ -14,7 +18,15 @@ public class Main {
 		Dispositivo disp4 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
 		Dispositivo disp5 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
 		
-		Cliente cliente = new Cliente();
+		String nombreYApellido = "";
+		Integer telefono = 1;
+		String domicilio = "";
+		LocalDate fechaDeAlta = LocalDate.now();
+		String usuario = "";
+		Documento documento = new Documento(TipoDocumento.DNI,1);
+		String contrasenia = "";
+		String categoria = "";
+		UsuarioCliente cliente = new UsuarioCliente(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario, documento, contrasenia, categoria);
 		
 		cliente.agregarDispositivo(disp1);
 		cliente.agregarDispositivo(disp2);
