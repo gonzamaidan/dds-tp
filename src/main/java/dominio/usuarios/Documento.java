@@ -1,4 +1,4 @@
-package dominio.clientes;
+package dominio.usuarios;
 /**
  * Representa el documento de un usuario cliente
  *
