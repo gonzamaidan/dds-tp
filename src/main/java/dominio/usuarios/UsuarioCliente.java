@@ -1,5 +1,6 @@
 package dominio.usuarios;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import dominio.Dispositivo;
@@ -8,15 +9,16 @@ import dominio.Dispositivo;
  * Representa un usuario cliente del sistema
  *
  */
-public class UsuarioCliente {
+public class UsuarioCliente extends Usuario {
 
 	Documento documento;
 	String contrasenia;
 	String categoria; // Despues vemos si hacemos clases, por ahora lo pongo como String
 	ArrayList<Dispositivo> dispositivos = new ArrayList<>();
 
-	public UsuarioCliente(Documento documento, String contrasenia, String categoria) {
-		super();
+	public UsuarioCliente(String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta,
+			String usuario, Documento documento, String contrasenia, String categoria) {
+		super(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario);
 		this.documento = documento;
 		this.contrasenia = contrasenia;
 		this.categoria = categoria;
