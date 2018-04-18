@@ -6,8 +6,11 @@ package dominio.usuarios;
 public class Documento {
 	private TipoDocumento tipoDocumento;
 	private Integer numeroDocumento;
-
-	public Documento() {
+	
+	public Documento(TipoDocumento tipoDocumento, Integer numeroDocumento) {
+		super();
+		this.tipoDocumento = tipoDocumento;
+		this.numeroDocumento = numeroDocumento;
 	}
 
 	public TipoDocumento getTipoDocumento() {
