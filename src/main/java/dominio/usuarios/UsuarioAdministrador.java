@@ -22,7 +22,7 @@ public class UsuarioAdministrador extends Usuario {
 	}
 
 	public Long mesesComoAdministrador() {
-		return ChronoUnit.MONTHS.between(LocalDate.now(), super.getFechaDeAlta());
+		return ChronoUnit.MONTHS.between(super.getFechaDeAlta(), LocalDate.now());
 	}
 
 }
