@@ -10,16 +10,34 @@ public enum Categoria {
 	R8 (700,1400,545.96,0.851),
 	R9 (1400,999999,887.19,0.851);
 
-private final int limInferior;  
-private final int limSuperior; 
-private final double cargoFijo; // $/mes
-private final double cargoVariable;  // $/kWh
+public final  int limInferior;  
+public final  int limSuperior; 
+public final  double cargoFijo; // $/mes
+public final  double cargoVariable;  // $/kWh
 Categoria (int limInferior, int limSuperior, double cargoFijo,double cargoVariable ) {
     this.limInferior = limInferior;
     this.limSuperior = limSuperior;
     this.cargoFijo = cargoFijo;
     this.cargoVariable = cargoVariable;
 }
+public int getLimInferior() {
+	return limInferior;
+}
+public int getLimSuperior() {
+	return limSuperior;
+}
+public double getCargoFijo() {
+	return cargoFijo;
+}
+public double getCargoVariable() {
+	return cargoVariable;
+}
 
-
+private   double cargoFijo() { 
+	return cargoFijo; }
+private  double cargoVariable() {
+	return cargoVariable; }
+public  double calcularMontoMensual (double consumo) {
+	return cargoFijo() +consumo*cargoVariable();
+}
 }

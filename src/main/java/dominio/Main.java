@@ -15,13 +15,16 @@ public class Main {
 		Dispositivo disp5 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
 		
 		Cliente cliente = new Cliente();
-		
+			
 		cliente.agregarDispositivo(disp1);
 		cliente.agregarDispositivo(disp2);
 		cliente.agregarDispositivo(disp3);
 		cliente.agregarDispositivo(disp4);
 		cliente.agregarDispositivo(disp5);
 		
+		cliente.setCategoria(Categoria.R1);
+	
+		System.out.println("MontoFactura = " + cliente.calcularFactura(1));
 		System.out.println("Estado = " + disp1.getEstadoDispositivo());
 		
 		System.out.println("Dispositivos encendidos: " + cliente.cantidadDeDispositivosEncendidos());
