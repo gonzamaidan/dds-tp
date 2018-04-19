@@ -3,6 +3,7 @@ package dominio;
 import dominio.Cliente;
 import dominio.Dispositivo;
 import dominio.Dispositivo.EstadoDispositivo;
+import funcional.asignadorCategoria;
 
 public class Main {
 
@@ -33,6 +34,20 @@ public class Main {
 		System.out.println("Cantidad total de dispositivos: " + cliente.cantidadTotalDeDispositivos());
 		
 		
+		// comprobando el validador de categorias
+		asignadorCategoria v1 = new asignadorCategoria();
+		v1.agregarCategoria(Categoria.R1);
+		v1.agregarCategoria(Categoria.R2);
+		v1.agregarCategoria(Categoria.R3);
+		v1.agregarCategoria(Categoria.R4);
+		v1.agregarCategoria(Categoria.R5);
+		v1.agregarCategoria(Categoria.R6);
+		v1.agregarCategoria(Categoria.R7);
+		v1.agregarCategoria(Categoria.R8);
+		v1.agregarCategoria(Categoria.R9);
+		v1.categoriaCorrespondiente(120.90);
+		
+		System.out.println("De que categoria sos? = " + v1.categoriaCorrespondiente(456.90));
 		
 
 	}

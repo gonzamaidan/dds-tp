@@ -35,9 +35,22 @@ public double getCargoVariable() {
 
 private   double cargoFijo() { 
 	return cargoFijo; }
+
 private  double cargoVariable() {
 	return cargoVariable; }
+
+private   int limInferior() { 
+	return limInferior; }
+
+private  int limSuperior() {
+	return limSuperior; }
+
+
 public  double calcularMontoMensual (double consumo) {
 	return cargoFijo() +consumo*cargoVariable();
+}
+public boolean dentroDeCategoria(Double monto) {
+	// TODO Auto-generated method stub
+	return monto>limInferior() && monto<limSuperior()   ;
 }
 }
