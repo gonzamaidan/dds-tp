@@ -7,9 +7,11 @@ import java.time.LocalDate;
 import org.junit.Before;
 import org.junit.Test;
 
+import dominio.administradores.Administrador;
+
 public class AdministradorTest {
 	private static final Long MESES_ANTES = 4L;
-	private UsuarioAdministrador admin;
+	private Administrador admin;
 	
 	@Before
 	public void init() {
@@ -19,7 +21,7 @@ public class AdministradorTest {
 		LocalDate fechaDeAlta = LocalDate.now().minusMonths(MESES_ANTES);
 		String usuario = "";
 		Integer idSistema = 1;
-		admin = new UsuarioAdministrador(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario, idSistema);
+		admin = new Administrador(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario, idSistema);
 	}
 	
 	@Test
