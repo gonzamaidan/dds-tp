@@ -1,28 +1,26 @@
-package dominio.usuarios;
+package dominio.clientes;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 
+import dominio.Categoria;
 import dominio.Dispositivo;
-import dominio.clientes.Documento;
-import dominio.usuarios.Usuario;
 
-/**
- * Representa un usuario cliente del sistema
- *
- */
-public class UsuarioCliente extends Usuario {
+public class Cliente {
 
-	Documento documento;
-	String contrasenia;
-	String categoria; // Despues vemos si hacemos clases, por ahora lo pongo como String
-	ArrayList<Dispositivo> dispositivos = new ArrayList<>();
+	private Documento documento;
+	private String nombreYApellido;
+	private String domicilio;
+	private LocalDate fechaDeAlta;
+	private ArrayList<Dispositivo> dispositivos;
+	private Categoria categoria;
 
-	public UsuarioCliente(String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta,
-			String usuario, Documento documento, String contrasenia, String categoria) {
-		super(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario);
+	public Cliente(Documento documento, String nombreYApellido, String domicilio, LocalDate fechaDeAlta, Categoria categoria) {
 		this.documento = documento;
-		this.contrasenia = contrasenia;
+		this.nombreYApellido = nombreYApellido;
+		this.domicilio = domicilio;
+		this.fechaDeAlta = fechaDeAlta;
+		this.dispositivos = new ArrayList<>();
 		this.categoria = categoria;
 	}
 
@@ -46,4 +44,7 @@ public class UsuarioCliente extends Usuario {
 		return dispositivos.size();
 	}
 
+	public double calcularFactura(double consumo) {
+		return this.categoria.calcularMontoMensual(consumo);
+	}
 }

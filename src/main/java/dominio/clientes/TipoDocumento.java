@@ -1,4 +1,4 @@
-package dominio.usuarios;
+package dominio.clientes;
 /**
  * Son los distintos tipos de documentos que podemos tener
  *

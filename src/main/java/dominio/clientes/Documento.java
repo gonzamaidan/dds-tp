@@ -1,4 +1,4 @@
-package dominio.usuarios;
+package dominio.clientes;
 /**
  * Representa el documento de un usuario cliente
  *
@@ -6,7 +6,7 @@ package dominio.usuarios;
 public class Documento {
 	private TipoDocumento tipoDocumento;
 	private Integer numeroDocumento;
-	
+
 	public Documento(TipoDocumento tipoDocumento, Integer numeroDocumento) {
 		super();
 		this.tipoDocumento = tipoDocumento;
