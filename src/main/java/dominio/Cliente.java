@@ -12,7 +12,7 @@ public class Cliente {
 	Integer telefono;
 	String domicilioServicio;
 	Date fechaDeAlta;
-	String categoria; //Despues vemos si hacemos clases, por ahora lo pongo como String
+	Categoria categoria; //Despues vemos si hacemos clases, por ahora lo pongo como String
 	String usuario;
 	String contrasenia;
 	ArrayList<Dispositivo> dispositivos = new ArrayList<>();
@@ -37,5 +37,19 @@ public class Cliente {
 	public int cantidadTotalDeDispositivos() {
 		return dispositivos.size();
 	}
+	
+	public Categoria getCategoria() {
+		return categoria;
+	}
+	public double  calcularFactura(double consumo) {
+		return (this.getCategoria().calcularMontoMensual(consumo));
+	}
 
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
+
+
+	
 }
