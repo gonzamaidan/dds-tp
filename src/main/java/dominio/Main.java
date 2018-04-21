@@ -29,7 +29,7 @@ public class Main {
 		
 
 		
-		Cliente cliente = new Cliente(documento, nombreYApellido, domicilio, fechaDeAlta, Categoria.R1);
+		Cliente cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta, usuario, Categoria.R1);
 		cliente.agregarDispositivo(disp1);
 		cliente.agregarDispositivo(disp2);
 		cliente.agregarDispositivo(disp3);

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import dominio.Categoria;
 import dominio.Dispositivo;
+import dominio.usuarios.DatosUsuario;
 
 /**
  * Representa un usuario cliente del sistema
@@ -13,17 +14,13 @@ import dominio.Dispositivo;
 public class Cliente {
 
 	private Documento documento;
-	private String nombreYApellido;
-	private String domicilio;
-	private LocalDate fechaDeAlta;
+	private DatosUsuario datosDeUsuario;
 	private ArrayList<Dispositivo> dispositivos;
 	private Categoria categoria;
 
-	public Cliente(Documento documento, String nombreYApellido, String domicilio, LocalDate fechaDeAlta, Categoria categoria) {
+	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario, Categoria categoria) {
 		this.documento = documento;
-		this.nombreYApellido = nombreYApellido;
-		this.domicilio = domicilio;
-		this.fechaDeAlta = fechaDeAlta;
+		this.datosDeUsuario = new DatosUsuario(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario);
 		this.dispositivos = new ArrayList<>();
 		this.categoria = categoria;
 	}

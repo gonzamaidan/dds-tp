@@ -2,6 +2,8 @@ package dominio.administradores;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+
+import dominio.usuarios.DatosUsuario;
 /**
  * Representa un usuario administrador del sistema
  *
@@ -9,22 +11,18 @@ import java.time.temporal.ChronoUnit;
 public class Administrador {
 
 	private Integer idSistema;
-	private String nombreYApellido;
-	private String domicilio;
-	private LocalDate fechaDeAlta;
+	private DatosUsuario datosDeUsuario;
 
-	public Administrador(String nombreYApellido, String domicilio, LocalDate fechaDeAlta, Integer idSistema) {
-		this.nombreYApellido = nombreYApellido;
-		this.domicilio = domicilio;
-		this.fechaDeAlta = fechaDeAlta;
+	public Administrador(String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario, Integer idSistema) {
+		this.datosDeUsuario = new DatosUsuario(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario);
 		this.idSistema = idSistema;
 	}
 
 	public LocalDate getFechaDeAlta() {
-		return fechaDeAlta;
+		return datosDeUsuario.getFechaDeAlta();
 	}
 
 	public Long mesesComoAdministrador() {
-		return ChronoUnit.MONTHS.between(this.fechaDeAlta, LocalDate.now());
+		return ChronoUnit.MONTHS.between(this.getFechaDeAlta(), LocalDate.now());
 	}
 }
