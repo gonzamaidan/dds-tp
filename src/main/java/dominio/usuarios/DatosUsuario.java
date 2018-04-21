@@ -2,14 +2,14 @@ package dominio.usuarios;
 
 import java.time.LocalDate;
 
-public abstract class Usuario {
+public class DatosUsuario {
 	String nombreYApellido;
 	Integer telefono;
 	String domicilio;
 	LocalDate fechaDeAlta;
 	String usuario;
 
-	public Usuario(String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
+	public DatosUsuario(String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
 		super();
 		this.nombreYApellido = nombreYApellido;
 		this.telefono = telefono;
