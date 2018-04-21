@@ -2,7 +2,10 @@ package dominio.administradores;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-
+/**
+ * Representa un usuario administrador del sistema
+ *
+ */
 public class Administrador {
 
 	private Integer idSistema;

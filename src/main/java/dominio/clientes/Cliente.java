@@ -6,6 +6,10 @@ import java.util.ArrayList;
 import dominio.Categoria;
 import dominio.Dispositivo;
 
+/**
+ * Representa un usuario cliente del sistema
+ *
+ */
 public class Cliente {
 
 	private Documento documento;
