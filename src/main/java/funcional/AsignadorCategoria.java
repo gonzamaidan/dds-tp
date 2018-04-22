@@ -5,10 +5,10 @@ import java.util.List;
 
 import dominio.Categoria;
 
-public class asignadorCategoria {
+public class AsignadorCategoria {
 	List<Categoria> Categorias;
 
-public asignadorCategoria() {
+public AsignadorCategoria() {
 	this.Categorias=  new ArrayList<Categoria>();
 }
 	
