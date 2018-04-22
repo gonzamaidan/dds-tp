@@ -15,7 +15,7 @@ public class Cliente {
 	private ArrayList<Dispositivo> dispositivos;
 	private Categoria categoria;
 
-	Cliente(Documento documento, String nombreYApellido, String domicilio, LocalDate fechaDeAlta, ArrayList<Dispositivo> dispositivos, Categoria categoria) {
+	public Cliente(Documento documento, String nombreYApellido, String domicilio, LocalDate fechaDeAlta, ArrayList<Dispositivo> dispositivos, Categoria categoria) {
 		this.documento = documento;
 		this.nombreYApellido = nombreYApellido;
 		this.domicilio = domicilio;
