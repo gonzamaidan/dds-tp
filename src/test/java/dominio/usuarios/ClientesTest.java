@@ -1,5 +1,6 @@
 package dominio.usuarios;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import java.time.LocalDate;
@@ -50,7 +51,12 @@ public class ClientesTest {
 		assertTrue(cliente.tieneAlgunDispositivoEncendido());
 	}
 	
-	
+	@Test
+	public void clienteSabeLaCantidadDeDispositivosEncendidos() {
+		cliente.agregarDispositivo(dispositivo1);
+		cliente.agregarDispositivo(dispositivo2);
+		assertEquals(1, cliente.cantidadDeDispositivosEncendidos());
+	}
 	
 	
 	
