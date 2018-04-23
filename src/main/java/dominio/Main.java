@@ -1,8 +1,11 @@
 package dominio;
 
-import dominio.Cliente;
-import dominio.Dispositivo;
+import java.time.LocalDate;
+
 import dominio.Dispositivo.EstadoDispositivo;
+import dominio.clientes.Cliente;
+import dominio.clientes.Documento;
+import dominio.clientes.TipoDocumento;
 import funcional.asignadorCategoria;
 
 public class Main {
@@ -15,15 +18,24 @@ public class Main {
 		Dispositivo disp4 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
 		Dispositivo disp5 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
 		
-		Cliente cliente = new Cliente();
-			
+		String nombreYApellido = "";
+		Integer telefono = 1;
+		String domicilio = "";
+		LocalDate fechaDeAlta = LocalDate.now();
+		String usuario = "";
+		Documento documento = new Documento(TipoDocumento.DNI,1);
+		String contrasenia = "";
+		String categoria = "";
+		
+
+		
+		Cliente cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta, usuario, Categoria.R1);
 		cliente.agregarDispositivo(disp1);
 		cliente.agregarDispositivo(disp2);
 		cliente.agregarDispositivo(disp3);
 		cliente.agregarDispositivo(disp4);
 		cliente.agregarDispositivo(disp5);
 		
-		cliente.setCategoria(Categoria.R1);
 	
 		System.out.println("MontoFactura = " + cliente.calcularFactura(1));
 		System.out.println("Estado = " + disp1.getEstadoDispositivo());
