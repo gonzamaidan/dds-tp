@@ -39,9 +39,10 @@ public class ClientesTest {
 		String nombreYApellido = "Cliente";
 		String domicilio = "Calle falsa 123";
 		LocalDate fechaDeAlta = LocalDate.of(1990, 5, 28);
-		ArrayList<Dispositivo> dispositivos = new ArrayList<>();
 		Categoria categoria = Categoria.R3;
-		cliente = new Cliente(documento, nombreYApellido, domicilio, fechaDeAlta, dispositivos, categoria);
+		Integer telefono = 44444444;
+		String usuario = "clienteUser";
+		cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta,  usuario, categoria);
 	}
 	
 	@Test
