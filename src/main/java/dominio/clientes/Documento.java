@@ -7,14 +7,8 @@ public class Documento {
 	private TipoDocumento tipoDocumento;
 	private Integer numeroDocumento;
 
-<<<<<<< HEAD
 	public Documento(TipoDocumento tipo, Integer numeroDocumento) {
 		this.tipoDocumento = tipo;
-=======
-	public Documento(TipoDocumento tipoDocumento, Integer numeroDocumento) {
-		super();
-		this.tipoDocumento = tipoDocumento;
->>>>>>> master
 		this.numeroDocumento = numeroDocumento;
 	}
 
