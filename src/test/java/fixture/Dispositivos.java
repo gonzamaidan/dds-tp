@@ -6,12 +6,12 @@ import dominio.Dispositivo.EstadoDispositivo;
 public class Dispositivos {
 
 	public static Dispositivo dispositivoGenerico() {
-		return new Dispositivo("X", 1, EstadoDispositivo.ON);
+		return new Dispositivo("X", new Double(1), EstadoDispositivo.ON);
 	}
 	
-	public static Dispositivo dipositivoConConsumo(Integer consumo) {
+	public static Dispositivo dipositivoConConsumo(Double consumo) {
 		Dispositivo dispositivo = dispositivoGenerico();
-		dispositivo.setkWConsumePorHora(consumo);
+		dispositivo.setConsumo(consumo);
 		return dispositivo;
 	}
 	

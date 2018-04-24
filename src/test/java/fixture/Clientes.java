@@ -12,7 +12,7 @@ public class Clientes {
 	}
 
 	// TODO: la categoria tiene que actualizarse aca para el fixture.
-	public static Cliente clientePorConsumo(Integer consumo) {
+	public static Cliente clientePorConsumo(Double consumo) {
 		Cliente cliente = clienteGenerico();
 		cliente.agregarDispositivo(Dispositivos.dipositivoConConsumo(consumo));
 		return cliente;

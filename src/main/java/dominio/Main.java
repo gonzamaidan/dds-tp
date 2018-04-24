@@ -12,11 +12,11 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		Dispositivo disp1 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.OFF);
-		Dispositivo disp2 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
-		Dispositivo disp3 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
-		Dispositivo disp4 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
-		Dispositivo disp5 = new Dispositivo("Heladera", new Integer(50), EstadoDispositivo.ON);
+		Dispositivo disp1 = new Dispositivo("Heladera", new Double(50), EstadoDispositivo.OFF);
+		Dispositivo disp2 = new Dispositivo("Heladera", new Double(50), EstadoDispositivo.ON);
+		Dispositivo disp3 = new Dispositivo("Heladera", new Double(50), EstadoDispositivo.ON);
+		Dispositivo disp4 = new Dispositivo("Heladera", new Double(50), EstadoDispositivo.ON);
+		Dispositivo disp5 = new Dispositivo("Heladera", new Double(50), EstadoDispositivo.ON);
 		
 		String nombreYApellido = "";
 		Integer telefono = 1;
@@ -26,8 +26,6 @@ public class Main {
 		Documento documento = new Documento(TipoDocumento.DNI,1);
 		String contrasenia = "";
 		String categoria = "";
-		
-
 		
 		Cliente cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta, usuario, Categoria.R1);
 		cliente.agregarDispositivo(disp1);
