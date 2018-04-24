@@ -1,2 +1,51 @@
-// aca irian los datos de clientes para cargar.
-// Como no es parte del dominio sino un recurso para que funque el programa, lo ponemos aca en src/main/resources
+[
+  {
+    documento: {
+      tipoDocumento: "DNI",
+      numeroDocumento: 12000000
+    },
+    nombreYApellido: "Alberto Abaco",
+    domicilio: "Calle falsa 123",
+    fechaDeAlta: "1990-05-28",
+    dispositivos: [
+      {
+        nombreGenerico: "heladera",
+        kWConsumePorHora: 75,
+        estadoDispositivo: "ON"
+      },
+      {
+        nombreGenerico: "televisor",
+        kWConsumePorHora: 20,
+        estadoDispositivo: "OFF"
+      },
+      {
+        nombreGenerico: "koh-i-noor",
+        kWConsumePorHora: 100,
+        estadoDispositivo: "ON"
+      }
+    ],
+    categoria: "R1"
+  },
+  {
+    documento: {
+      tipoDocumento: "DNI",
+      numeroDocumento: 13000000
+    },
+    nombreYApellido: "Benito Bueno",
+    domicilio: "Calle cierta 321",
+    fechaDeAlta: "1999-08-14",
+    dispositivos: [
+      {
+        nombreGenerico: "laptop",
+        kWConsumePorHora: 15,
+        estadoDispositivo: "OFF"
+      },
+      {
+        nombreGenerico: "radio",
+        kWConsumePorHora: 3,
+        estadoDispositivo: "ON"
+      }
+    ],
+    categoria: "R1"
+  }
+]
