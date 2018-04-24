@@ -3,12 +3,12 @@ package dominio;
 public class Dispositivo {
 	
 	String nombreGenerico;
-	Integer kWConsumePorHora;
+	Double consumo;
 	EstadoDispositivo estadoDispositivo;
 	
-	public Dispositivo(String nombreGenerico, Integer kWConsumePorHora, EstadoDispositivo estadoDispositivo) {
+	public Dispositivo(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
 		this.nombreGenerico = nombreGenerico;
-		this.kWConsumePorHora = kWConsumePorHora;
+		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
 	}
 
@@ -26,7 +26,7 @@ public class Dispositivo {
 	}
 	
 	
-	// SETTERS Y GETTERS
+	// SETTERS Y GETTERS (Accessors ;D)
 	
 	public String getNombreGenerico() {
 		return nombreGenerico;
@@ -36,12 +36,12 @@ public class Dispositivo {
 		this.nombreGenerico = nombreGenerico;
 	}
 
-	public Integer getkWConsumePorHora() {
-		return kWConsumePorHora;
+	public Double getConsumo() {
+		return consumo;
 	}
 
-	public void setkWConsumePorHora(Integer kWConsumePorHora) {
-		this.kWConsumePorHora = kWConsumePorHora;
+	public void setConsumo(Double consumo) {
+		this.consumo = consumo;
 	}
 
 	public EstadoDispositivo getEstadoDispositivo() {
