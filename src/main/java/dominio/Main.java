@@ -6,7 +6,7 @@ import dominio.Dispositivo.EstadoDispositivo;
 import dominio.clientes.Cliente;
 import dominio.clientes.Documento;
 import dominio.clientes.TipoDocumento;
-import funcional.asignadorCategoria;
+import funcional.AsignadorCategoria;
 
 public class Main {
 
@@ -47,17 +47,7 @@ public class Main {
 		
 		
 		// comprobando el validador de categorias
-		asignadorCategoria v1 = new asignadorCategoria();
-		v1.agregarCategoria(Categoria.R1);
-		v1.agregarCategoria(Categoria.R2);
-		v1.agregarCategoria(Categoria.R3);
-		v1.agregarCategoria(Categoria.R4);
-		v1.agregarCategoria(Categoria.R5);
-		v1.agregarCategoria(Categoria.R6);
-		v1.agregarCategoria(Categoria.R7);
-		v1.agregarCategoria(Categoria.R8);
-		v1.agregarCategoria(Categoria.R9);
-		v1.categoriaCorrespondiente(120.90);
+		AsignadorCategoria v1 = new AsignadorCategoria();
 		
 		System.out.println("De que categoria sos? = " + v1.categoriaCorrespondiente(456.90));
 		

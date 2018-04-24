@@ -7,9 +7,8 @@ public class Documento {
 	private TipoDocumento tipoDocumento;
 	private Integer numeroDocumento;
 
-	public Documento(TipoDocumento tipoDocumento, Integer numeroDocumento) {
-		super();
-		this.tipoDocumento = tipoDocumento;
+	public Documento(TipoDocumento tipo, Integer numeroDocumento) {
+		this.tipoDocumento = tipo;
 		this.numeroDocumento = numeroDocumento;
 	}
 
