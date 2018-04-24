@@ -58,18 +58,26 @@ public class ClientesTest {
 	}
 	
 	@Test
-	public void clienteSabeLaCantidadDeDispositivosAgregados() {
+	public void clienteTieneDosDispositivos() {
 		cliente.agregarDispositivo(dispositivo1);
 		cliente.agregarDispositivo(dispositivo2);
 		assertEquals(2, cliente.cantidadTotalDeDispositivos());
 	}
 	
 	@Test
-	public void clienteSabeLaCantidadDeDispositivosApagados() {
+	public void clienteYieneUnDispositivoApagado() {
 		cliente.agregarDispositivo(dispositivo1);
 		cliente.agregarDispositivo(dispositivo2);
 		assertEquals(1, cliente.cantidadDeDispositivosApagados());
 	}
+	
+	@Test
+	public void clienteNoTieneDispositivosEncendidos() {
+		cliente.agregarDispositivo(dispositivo2);
+		assertEquals(0, cliente.cantidadDeDispositivosEncendidos());
+	}
+	
+	
 	
 	
 	
