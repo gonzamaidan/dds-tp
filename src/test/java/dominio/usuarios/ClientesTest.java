@@ -24,12 +24,12 @@ public class ClientesTest {
 	@Before
 	public void init() {
 		String nombre1 = "dispositivo 1";
-		Integer kwPorHora1 = 1234;
+		Double kwPorHora1 = 1234.0;
 		EstadoDispositivo estado1 = EstadoDispositivo.ON;
 		dispositivo1 = new Dispositivo(nombre1, kwPorHora1, estado1);
 		
 		String nombre2 = "dispositivo 2";
-		Integer kwPorHora2 = 123;
+		Double kwPorHora2 = 123.0;
 		EstadoDispositivo estado2 = EstadoDispositivo.OFF;
 		dispositivo2 = new Dispositivo(nombre2, kwPorHora2, estado2);
 		
