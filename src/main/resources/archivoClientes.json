@@ -4,9 +4,14 @@
       tipoDocumento: "DNI",
       numeroDocumento: 12000000
     },
+
+    datosDeUsuario: {
     nombreYApellido: "Alberto Abaco",
     domicilio: "Calle falsa 123",
     fechaDeAlta: "1990-05-28",
+    usuario: "AAbaco"
+    },
+
     dispositivos: [
       {
         nombreGenerico: "heladera",
@@ -24,16 +29,23 @@
         estadoDispositivo: "ON"
       }
     ],
+
     categoria: "R1"
   },
+
   {
     documento: {
       tipoDocumento: "DNI",
       numeroDocumento: 13000000
     },
-    nombreYApellido: "Benito Bueno",
-    domicilio: "Calle cierta 321",
-    fechaDeAlta: "1999-08-14",
+
+    datosDeUsuario: {
+      nombreYApellido: "Benito Bueno",
+      domicilio: "Calle cierta 321",
+      fechaDeAlta: "1999-08-14",
+      usaurio: "BBueno"
+    },
+
     dispositivos: [
       {
         nombreGenerico: "laptop",
@@ -46,6 +58,41 @@
         estadoDispositivo: "ON"
       }
     ],
+
     categoria: "R1"
-  }
+  },
+
+  {
+    documento: {
+      tipoDocumento: "CL",
+      numeroDocumento: 99000456
+    },
+
+    datosDeUsuario: {
+      nombreYApellido: "Carlos Calvo",
+      domicilio: "Otra calle distinta 28",
+      fechaDeAlta: "1970-10-03",
+      usuario: "CCalvo"
+    },
+
+    dispositivos: [
+      {
+        nombreGenerico: "freezer",
+        kWConsumePorHora: 90,
+        estadoDispositivo: "ON"
+      },
+      {
+        nombreGenerico: "guitarra electrica",
+        kWConsumePorHora: 20,
+        estadoDispositivo: "OFF"
+      },
+      {
+        nombreGenerico: "alto estereo",
+        kWConsumePorHora: 470,
+        estadoDispositivo: "ON"
+      }
+    ],
+
+    categoria: "R1"
+  },
 ]
