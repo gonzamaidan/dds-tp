@@ -65,7 +65,7 @@ public class ClientesTest {
 	}
 	
 	@Test
-	public void clienteYieneUnDispositivoApagado() {
+	public void clienteTieneUnDispositivoApagado() {
 		cliente.agregarDispositivo(dispositivo1);
 		cliente.agregarDispositivo(dispositivo2);
 		assertEquals(1, cliente.cantidadDeDispositivosApagados());
