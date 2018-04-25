@@ -44,6 +44,13 @@ public class Cliente {
 	public int cantidadTotalDeDispositivos() {
 		return dispositivos.size();
 	}
+	
+	public double calcularConsumoTotal() {
+		return dispositivos.stream()
+				.filter(disp -> disp.estaEncendido())
+				.mapToDouble(disp -> disp.getConsumo())
+				.sum();
+	}
 
 	public double calcularFactura(double consumo) {
 		return this.categoria.calcularMontoMensual(consumo);

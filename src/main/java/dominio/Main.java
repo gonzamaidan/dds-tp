@@ -49,6 +49,8 @@ public class Main {
 		
 		System.out.println("De que categoria sos? = " + v1.categoriaCorrespondiente(456.90));
 		
+		System.out.println("El consumo total es:" + cliente.calcularConsumoTotal());
+		
 
 	}
 
