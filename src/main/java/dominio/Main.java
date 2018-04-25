@@ -34,6 +34,8 @@ public class Main {
 		cliente.agregarDispositivo(disp4);
 		cliente.agregarDispositivo(disp5);
 		
+		cliente.asignarCategoria();
+		
 	
 		System.out.println("MontoFactura = " + cliente.calcularFactura(1));
 		System.out.println("Estado = " + disp1.getEstadoDispositivo());
@@ -47,7 +49,10 @@ public class Main {
 		// comprobando el validador de categorias
 		AsignadorCategoria v1 = new AsignadorCategoria();
 		
-		System.out.println("De que categoria sos? = " + v1.categoriaCorrespondiente(456.90));
+		System.out.println("De que categoria sos? = " + v1.asignarCategoriaSegun(456.90));
+		
+		System.out.println("El consumo total es:" + cliente.calcularConsumoTotal());
+		System.out.println("La categoria del cliente es es:" + cliente.getCategoria());
 		
 
 	}
