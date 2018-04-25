@@ -17,11 +17,11 @@ public class Cliente {
 	private Documento documento;
 	private DatosUsuario datosDeUsuario;
 	private ArrayList<Dispositivo> dispositivos;
-	private Categoria categoria;
+	private Categoria categoria = Categoria.R1;
 	private AsignadorCategoria asignador = new AsignadorCategoria();
 	
 
-	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario, Categoria categoria) {
+	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
 		this.documento = documento;
 		this.datosDeUsuario = new DatosUsuario(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario);
 		this.dispositivos = new ArrayList<>();
