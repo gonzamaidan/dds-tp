@@ -23,7 +23,7 @@ public class RepositorioUsuarios {
 	private List<Cliente> clientes;
 	private static RepositorioUsuarios repositorio = null;
 
-	protected RepositorioUsuarios() {
+	private RepositorioUsuarios() {
 		// para evitar otras instanciaciones
 	}
 	
@@ -34,9 +34,9 @@ public class RepositorioUsuarios {
 		return repositorio;
 	}
 	
-	public void load(Path archivoClientes) throws FileNotFoundException {
-		Gson gson = new GsonBuilder().
-				registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
+	public void cargarClientes(Path archivoClientes) throws FileNotFoundException {
+		Gson gson = new GsonBuilder()
+				.registerTypeAdapter(LocalDate.class, new JsonDeserializer<LocalDate>() {
 					@Override
 					public LocalDate deserialize(JsonElement json, Type type,
 					JsonDeserializationContext jsonDeserializationContext) throws JsonParseException {
