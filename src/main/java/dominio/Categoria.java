@@ -60,7 +60,7 @@ public enum Categoria {
 	}
 
 	public boolean dentroDeCategoria(Double monto) {
-		return monto > limInferior() && monto < limSuperior();
+		return monto > limInferior() && monto <= limSuperior();
 	}
 	
 }
