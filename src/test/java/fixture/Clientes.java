@@ -2,13 +2,12 @@ package fixture;
 
 import java.time.LocalDate;
 
-import dominio.Categoria;
 import dominio.clientes.*;
 
 public class Clientes {
 
 	public static Cliente clienteGenerico() {
-		return new Cliente(new Documento(TipoDocumento.DNI, 11222333), "X Y", 12345678, "z", LocalDate.now(), "x.y", Categoria.R1);
+		return new Cliente(new Documento(TipoDocumento.DNI, 11222333), "X Y", 12345678, "z", LocalDate.now(), "x.y");
 	}
 
 	// TODO: la categoria tiene que actualizarse aca para el fixture.

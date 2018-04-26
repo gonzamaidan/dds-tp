@@ -36,6 +36,13 @@ public class ClientesTest {
 
 		assertEquals(cantidad, cliente.cantidadTotalDeDispositivos());
 	}
+	
+	@Test
+	public void clienteTieneDosDispositivos() {
+		Cliente cliente = Clientes.clienteConDispositivos(2);
+
+		assertEquals(2, cliente.cantidadTotalDeDispositivos());
+	}
 
 	@Test
 	public void clienteSabeLaCantidadDeDispositivosApagados() {
