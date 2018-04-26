@@ -37,10 +37,9 @@ public class ClientesTest {
 		String nombreYApellido = "Cliente";
 		String domicilio = "Calle falsa 123";
 		LocalDate fechaDeAlta = LocalDate.of(1990, 5, 28);
-		Categoria categoria = Categoria.R3;
 		Integer telefono = 44444444;
 		String usuario = "clienteUser";
-		cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta,  usuario, categoria);
+		cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta,  usuario);
 	}
 	
 	@Test
@@ -58,18 +57,26 @@ public class ClientesTest {
 	}
 	
 	@Test
-	public void clienteSabeLaCantidadDeDispositivosAgregados() {
+	public void clienteTieneDosDispositivos() {
 		cliente.agregarDispositivo(dispositivo1);
 		cliente.agregarDispositivo(dispositivo2);
 		assertEquals(2, cliente.cantidadTotalDeDispositivos());
 	}
 	
 	@Test
-	public void clienteSabeLaCantidadDeDispositivosApagados() {
+	public void clienteTieneUnDispositivoApagado() {
 		cliente.agregarDispositivo(dispositivo1);
 		cliente.agregarDispositivo(dispositivo2);
 		assertEquals(1, cliente.cantidadDeDispositivosApagados());
 	}
+	
+	@Test
+	public void clienteNoTieneDispositivosEncendidos() {
+		cliente.agregarDispositivo(dispositivo2);
+		assertEquals(0, cliente.cantidadDeDispositivosEncendidos());
+	}
+	
+	
 	
 	
 	

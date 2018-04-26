@@ -12,11 +12,11 @@ public class AsignadorCategoria {
 		this.categorias = Arrays.asList(Categoria.values());
 	}
 
-	public Categoria categoriaCorrespondiente(Double monto) {
+	public Categoria asignarCategoriaSegun(Double consumo) {
 		// Categoria categoriaAsignada;
 		// List<Categoria> categoriaFiltrada;
 		// ;
-		return categorias.stream().filter(cat -> cat.dentroDeCategoria(monto)).findAny().get();
+		return categorias.stream().filter(cat -> cat.dentroDeCategoria(consumo)).findAny().get();
 	}
 
 	public void agregarCategoria(Categoria cat) {

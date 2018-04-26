@@ -27,12 +27,14 @@ public class Main {
 		String contrasenia = "";
 		String categoria = "";
 		
-		Cliente cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta, usuario, Categoria.R1);
+		Cliente cliente = new Cliente(documento, nombreYApellido, telefono, domicilio, fechaDeAlta, usuario);
 		cliente.agregarDispositivo(disp1);
 		cliente.agregarDispositivo(disp2);
 		cliente.agregarDispositivo(disp3);
 		cliente.agregarDispositivo(disp4);
 		cliente.agregarDispositivo(disp5);
+		
+		cliente.asignarCategoria();
 		
 	
 		System.out.println("MontoFactura = " + cliente.calcularFactura(1));
@@ -47,7 +49,10 @@ public class Main {
 		// comprobando el validador de categorias
 		AsignadorCategoria v1 = new AsignadorCategoria();
 		
-		System.out.println("De que categoria sos? = " + v1.categoriaCorrespondiente(456.90));
+		System.out.println("De que categoria sos? = " + v1.asignarCategoriaSegun(456.90));
+		
+		System.out.println("El consumo total es:" + cliente.calcularConsumoTotal());
+		System.out.println("La categoria del cliente es es:" + cliente.getCategoria());
 		
 
 	}
