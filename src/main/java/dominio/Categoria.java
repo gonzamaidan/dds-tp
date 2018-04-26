@@ -61,7 +61,7 @@ public enum Categoria {
 
 	public boolean dentroDeCategoria(Double monto) {
 		// TODO Auto-generated method stub
-		return monto > limInferior() && monto < limSuperior();
+		return monto > limInferior() && monto <= limSuperior();
 	}
 	
 }
