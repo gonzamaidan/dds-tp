@@ -2,6 +2,8 @@ package funcional;
 
 import static org.junit.Assert.*;
 
+import java.util.NoSuchElementException;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -79,4 +81,8 @@ public class AsignadorEntrega0Test {
 		assertEquals("Testeando categoria R9", Categoria.R9, resultadoR9);
 	}
 	
+	@Test(expected = NoSuchElementException.class)
+	public void testIndexOutOfBoundsException() {	    
+	     asignadorTeasteado.asignarCategoriaSegun(-1.59);
+	}
 }
