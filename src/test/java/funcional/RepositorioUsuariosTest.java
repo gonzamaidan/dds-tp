@@ -8,6 +8,7 @@ import static org.junit.Assert.assertNotNull;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -23,10 +24,14 @@ public class RepositorioUsuariosTest {
 	RepositorioUsuarios repo;
 	
 	@Before
-	public void TestSetup() {
-		pathClientes = Paths.get("/home/lain/eclipse-workspace/2018-vn-group-17/src/test/resources/archivoClientes.json");
-		pathClientesDefectuoso = Paths.get("/home/lain/eclipse-workspace/2018-vn-group-17/src/test/resources/archivoClientesDefectuoso.json");
+	public void TestSetup() throws URISyntaxException {
+		pathClientes = obtenerPath("archivoClientes.json");
+		pathClientesDefectuoso = obtenerPath("archivoClientesDefectuoso.json");
 		repo = RepositorioUsuarios.getRepositorio();
+	}
+
+	private Path obtenerPath(String pathString) throws URISyntaxException {
+		return Paths.get(this.getClass().getClassLoader().getResource(pathString).toURI());
 	}
 	
 	@Test
