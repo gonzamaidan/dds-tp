@@ -27,7 +27,7 @@ public class RepositorioUsuarios {
 		// para evitar otras instanciaciones
 	}
 	
-	public RepositorioUsuarios getRepositorio() {
+	public static RepositorioUsuarios getRepositorio() {
 		if (repositorio == null) {
 			repositorio = new RepositorioUsuarios();
 		}
