@@ -5,10 +5,9 @@ import java.util.ArrayList;
 
 import dominio.Categoria;
 import dominio.Dispositivo;
-import dominio.usuarios.DatosUsuario;
 import funcional.AsignadorCategoria;
 
-/**
+/*
  * Representa un usuario cliente del sistema
  *
  */
