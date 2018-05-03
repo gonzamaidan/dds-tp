@@ -15,7 +15,11 @@ import funcional.AsignadorCategoria;
 public class Cliente {
 
 	private Documento documento;
-	private DatosUsuario datosDeUsuario;
+	private String nombreYApellido;
+	private Integer telefono;
+	private String domicilio;
+	private LocalDate fechaDeAlta;
+	private String usuario;
 	private ArrayList<Dispositivo> dispositivos;
 	private Categoria categoria = Categoria.R1;
 	private AsignadorCategoria asignador = new AsignadorCategoria();
@@ -23,7 +27,10 @@ public class Cliente {
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
 		this.documento = documento;
-		this.datosDeUsuario = new DatosUsuario(nombreYApellido, telefono, domicilio, fechaDeAlta, usuario);
+		this.nombreYApellido = nombreYApellido;
+		this.telefono = telefono;
+		this.fechaDeAlta = fechaDeAlta;
+		this.usuario = usuario;
 		this.dispositivos = new ArrayList<>();
 		
 	}
