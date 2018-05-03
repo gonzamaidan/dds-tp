@@ -22,7 +22,7 @@ public class Dispositivo {
 	}
 	
 	public boolean estaApagado() {
-		return estadoDispositivo.equals(EstadoDispositivo.OFF);
+		return !this.estaEncendido();
 	}
 	
 	
