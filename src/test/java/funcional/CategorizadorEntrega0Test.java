@@ -9,7 +9,7 @@ import org.junit.Test;
 
 import dominio.Categoria;
 
-public class AsignadorEntrega0Test {
+public class CategorizadorEntrega0Test {
 
 	private Categoria resultadoR1 ;
 	private Categoria resultadoR2 ;
@@ -20,69 +20,69 @@ public class AsignadorEntrega0Test {
 	private Categoria resultadoR7 ;
 	private Categoria resultadoR8 ;
 	private Categoria resultadoR9 ;	
-	private AsignadorCategoria asignadorTeasteado;
+	private Categorizador categorizadorTeasteado;
 	@Before
 	public void antesDeProbarAsignadorCategoria(){
-			asignadorTeasteado = new AsignadorCategoria();
+			categorizadorTeasteado = new Categorizador();
 					
  }
 			
 	@Test
-	public void AsignadorRetornaCategoriaR1Test() {
-		resultadoR1= asignadorTeasteado.asignarCategoriaSegun(135.00);
+	public void categorizadorRetornaCategoriaR1Test() {
+		resultadoR1= categorizadorTeasteado.calcularCategoriaSegun(135.00);
 		assertEquals("Testeando categoria R1", Categoria.R1, resultadoR1);
 	}
 	
 	@Test
-	public void AsignadorRetornaCategoriaR2Test() {
-		resultadoR2= asignadorTeasteado.asignarCategoriaSegun(325.00);
+	public void categorizadorRetornaCategoriaR2Test() {
+		resultadoR2= categorizadorTeasteado.calcularCategoriaSegun(325.00);
 		assertEquals("Testeando categoria R2", Categoria.R2, resultadoR2);
 	}
 	
 	@Test
-	public void AsignadorRetornaCategoriaR3Test() {
-		resultadoR3= asignadorTeasteado.asignarCategoriaSegun(325.01);
+	public void categorizadorRetornaCategoriaR3Test() {
+		resultadoR3= categorizadorTeasteado.calcularCategoriaSegun(325.01);
 		assertEquals("Testeando categoria R3", Categoria.R3, resultadoR3);
 	}
 	
 	@Test
-	public void AsignadorRetornaCategoriaR4Test() {
-		resultadoR4= asignadorTeasteado.asignarCategoriaSegun(430.00);
+	public void categorizadorRetornaCategoriaR4Test() {
+		resultadoR4= categorizadorTeasteado.calcularCategoriaSegun(430.00);
 		assertEquals("Testeando categoria R4", Categoria.R4, resultadoR4);
 	}
 	
 	@Test
-	public void AsignadorRetornaCategoriaR5Test() {
-		resultadoR5= asignadorTeasteado.asignarCategoriaSegun(465.00);
+	public void categorizadorRetornaCategoriaR5Test() {
+		resultadoR5= categorizadorTeasteado.calcularCategoriaSegun(465.00);
 		assertEquals("Testeando categoria R5", Categoria.R5, resultadoR5);
 	}
 	
 	@Test
-	public void AsignadorRetornaCategoriaR6Test() {
-		resultadoR6= asignadorTeasteado.asignarCategoriaSegun(501.00);
+	public void categorizadorRetornaCategoriaR6Test() {
+		resultadoR6= categorizadorTeasteado.calcularCategoriaSegun(501.00);
 		assertEquals("Testeando categoria R6", Categoria.R6, resultadoR6);
 	}
 	
 	@Test
-	public void AsignadorRetornaCategoriaR7Test() {
-		resultadoR7= asignadorTeasteado.asignarCategoriaSegun(699.99);
+	public void categorizadorRetornaCategoriaR7Test() {
+		resultadoR7= categorizadorTeasteado.calcularCategoriaSegun(699.99);
 		assertEquals("Testeando categoria R7", Categoria.R7, resultadoR7);
 	}
 	
 	@Test
-	public void AsignadorRetornaCategoriaR8Test() {
-		resultadoR8= asignadorTeasteado.asignarCategoriaSegun(700.01);
+	public void categorizadorRetornaCategoriaR8Test() {
+		resultadoR8= categorizadorTeasteado.calcularCategoriaSegun(700.01);
 		assertEquals("Testeando categoria R8", Categoria.R8, resultadoR8);
 	}
 
 	@Test
-	public void AsignadorRetornaCategoriaR9Test() {
-		resultadoR9= asignadorTeasteado.asignarCategoriaSegun(2001.59);
+	public void categorizadorRetornaCategoriaR9Test() {
+		resultadoR9= categorizadorTeasteado.calcularCategoriaSegun(2001.59);
 		assertEquals("Testeando categoria R9", Categoria.R9, resultadoR9);
 	}
 	
 	@Test(expected = NoSuchElementException.class)
 	public void testIndexOutOfBoundsException() {	    
-	     asignadorTeasteado.asignarCategoriaSegun(-1.59);
+	     categorizadorTeasteado.calcularCategoriaSegun(-1.59);
 	}
 }
