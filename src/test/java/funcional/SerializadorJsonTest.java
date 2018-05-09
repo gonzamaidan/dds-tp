@@ -18,7 +18,7 @@ import com.google.gson.JsonSyntaxException;
 
 import dominio.clientes.Cliente;
 
-public class RepositorioUsuariosTest {
+public class SerializadorJsonTest {
 
 	Path pathClientes;
 	Path pathClientesDefectuoso;
@@ -36,12 +36,12 @@ public class RepositorioUsuariosTest {
 	}
 	
 	@Test
-	public void elRepositorioPuedeLevantarElArchivoDeClientes() throws FileNotFoundException {
+	public void elSerializadorPuedeDeserializarElArchivoDeClientes() throws FileNotFoundException {
 		assertNotNull(serializador.deserializarClientes(pathClientes));
 	}
 
 	@Test
-	public void elRepositorioPuedeLevantarArchivosDeClientesVacios() throws FileNotFoundException, IOException{
+	public void elSerializadorPuedeDeserializarArchivosDeClientesVacios() throws FileNotFoundException, IOException{
 		File dummyFile = new File("clientesDummy.json");
 		dummyFile.createNewFile();
 		Path dummyJson = Paths.get(dummyFile.getAbsolutePath());
@@ -52,20 +52,10 @@ public class RepositorioUsuariosTest {
 
 	// TODO: este test estaria muy acoplado al archivo del dominio, que va a cambiar mucho...
 	@Test
-	public void cargarUnArchivoConTresClientesTraeLosTres() throws FileNotFoundException{
+	public void deserializarUnArchivoConTresClientesTraeLosTres() throws FileNotFoundException{
 		int cantidadEsperada = 3;
 		List<Cliente> clientes = serializador.deserializarClientes(pathClientes);		
 		assertEquals(cantidadEsperada, clientes.size());
-	}
-	
-	@Test
-	public void cargarElRepositorioMasDeUnaVezNoExtiendeLaListaDeClientes() throws FileNotFoundException {
-		List<Cliente> clientes = serializador.deserializarClientes(pathClientes);		
-		int sizeInicial = clientes.size();
-		
-		clientes = serializador.deserializarClientes(pathClientes);
-		
-		assertEquals(sizeInicial, clientes.size());
 	}
 
 	// TODO: creo que habria que ver que onda con que casos de error prevenir
