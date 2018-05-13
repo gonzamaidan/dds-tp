@@ -1,10 +1,7 @@
 package dominio;
 
-public class Actuador {
+public interface Actuador {
 
-	public Object actuar(double medicion, Magnitud magnitud) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Object actuar(double medicion, Magnitud magnitud);
 
 }
