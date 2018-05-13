@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 import dominio.Categoria;
 import dominio.Dispositivo;
-import funcional.AsignadorCategoria;
+import funcional.Categorizador;
 
 /*
  * Representa un usuario cliente del sistema
@@ -21,7 +21,7 @@ public class Cliente {
 	private String usuario;
 	private ArrayList<Dispositivo> dispositivos;
 	private Categoria categoria = Categoria.R1;
-	private AsignadorCategoria asignador = new AsignadorCategoria();
+	private Categorizador asignador = new Categorizador();
 	
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
@@ -34,8 +34,8 @@ public class Cliente {
 		
 	}
 	
-	public void asignarCategoria() {
-		this.categoria = asignador.asignarCategoriaSegun(this.calcularConsumoTotal());
+	public void consultarCategoria() {
+		this.categoria = asignador.calcularCategoriaSegun(this.calcularConsumoTotal());
 	}
 	
 
