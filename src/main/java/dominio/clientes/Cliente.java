@@ -102,4 +102,8 @@ public class Cliente {
 	public int cantidadDeDispositivosEstandar() {
 		return this.dispositivosEstandar.size();
 	}
+
+	public int cantidadDeDispositivosInteligentes() {
+		return this.dispositivos.size();
+	}
 }
