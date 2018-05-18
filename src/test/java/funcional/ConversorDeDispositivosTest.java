@@ -13,6 +13,7 @@ import dominio.clientes.TipoDocumento;
 import dominio.dispositivo.ConversorDeDispositivos;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 
 public class ConversorDeDispositivosTest {
 	
@@ -24,8 +25,8 @@ public class ConversorDeDispositivosTest {
 	@Before
 	public void init() {
 		conversor = new ConversorDeDispositivos();
-		dispositivoEstandar = new DispositivoEstandar();
-		dispositivoInteligente = new DispositivoInteligente();
+		dispositivoEstandar = new DispositivoEstandar("X", new Double(1));
+		dispositivoInteligente = new DispositivoInteligente("X", new Double(1), EstadoDispositivo.ON);
 		Documento documento = new Documento(TipoDocumento.DNI, 12345678);
 		String nombreYApellido = "Nuevo Usuario";
 		Integer telefono = 0303456;

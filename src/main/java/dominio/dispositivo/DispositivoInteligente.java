@@ -2,7 +2,6 @@ package dominio.dispositivo;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
-import java.util.Date;
 
 public class DispositivoInteligente {
 	
@@ -10,11 +9,13 @@ public class DispositivoInteligente {
 	Double consumo;
 	EstadoDispositivo estadoDispositivo;
 	
-	public DispositivoInteligente() {
+		public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
 	}
+
+	public DispositivoInteligente(DispositivoEstandar dispositivo) {}
 
 	public enum EstadoDispositivo{
 		ON, OFF, MODO_AHORRO;
