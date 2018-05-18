@@ -84,4 +84,8 @@ public class Cliente {
 	public void sumarPuntos(Integer puntos) {
 		this.puntaje += puntos;
 	}
+
+	public void sacarDispositivoEstandar(DispositivoEstandar dispositivo) {
+		this.dispositivosEstandar.remove(dispositivo);
+	}
 }
