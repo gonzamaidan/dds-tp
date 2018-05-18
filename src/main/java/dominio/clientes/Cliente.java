@@ -81,7 +81,7 @@ public class Cliente {
 		return this.categoria.calcularMontoMensual(consumo);
 	}
 	
-	public void sumarPuntos(Integer puntaje) {
-		this.puntaje += puntaje;
+	public void sumarPuntos(Integer puntos) {
+		this.puntaje += puntos;
 	}
 }
