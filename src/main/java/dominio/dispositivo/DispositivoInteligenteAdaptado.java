@@ -7,4 +7,9 @@ public class DispositivoInteligenteAdaptado extends DispositivoInteligente {
 	public DispositivoInteligenteAdaptado(DispositivoEstandar dispositivo) {
 		this.dispositivoConvertido = dispositivo;
 	}
+	
+	@Override
+	public DispositivoEstandar getDispositivoAdaptado() {
+		return this.dispositivoConvertido;
+	}
 }

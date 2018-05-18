@@ -49,7 +49,10 @@ public class Cliente {
 	public Categoria getCategoria() {
 		return categoria;
 	}
-
+	
+	public ArrayList<DispositivoInteligente> getDispositivosInteligentes() {
+		return this.dispositivos;
+	}
 
 
 	public void agregarDispositivo(DispositivoInteligente dispositivoInteligenteAdaptado) {

@@ -3,7 +3,6 @@ package funcional;
 import static org.junit.Assert.assertEquals;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -61,6 +60,15 @@ public class ConversorDeDispositivosTest {
 		conversor.convertir(dispositivoEstandar, cliente);
 		
 		assertEquals(2, cliente.cantidadDeDispositivosInteligentes());
+	}
+	
+	@Test
+	public void elDispositivoEstandarConvertidoSeGuardaComoReferenciaEnElNuevoDispositivo() {
+		cliente.agregarDispositivoEstandar(dispositivoEstandar);
+		conversor.convertir(dispositivoEstandar, cliente);
+		
+		assertEquals(cliente.getDispositivosInteligentes().stream().findAny().get().getDispositivoAdaptado(), 
+				dispositivoEstandar);
 	}
 	
 }

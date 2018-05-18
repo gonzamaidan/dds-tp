@@ -51,6 +51,10 @@ public class DispositivoInteligente {
 	public void setEstadoDispositivo(EstadoDispositivo estadoDispositivo) {
 		this.estadoDispositivo = estadoDispositivo;
 	}
+
+	public DispositivoEstandar getDispositivoAdaptado() {
+		return null;
+	}
 	
 	
 
