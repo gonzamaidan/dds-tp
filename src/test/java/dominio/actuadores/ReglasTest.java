@@ -19,7 +19,7 @@ public class ReglasTest {
 	private Regla regla;
 	@Before
 	public void before() {
-		dispositivoGenerico = Dispositivos.dispositivoGenerico();
+		dispositivoGenerico = new Dispositivos().dispositivoGenerico();
 		apagar = new Actuador(new ComandoApagar(), dispositivoGenerico);
 		regla = new Regla((medicion,  magnitud) -> {
 			return medicion > 1.0 && Magnitud.Luminusidad.equals(magnitud);
@@ -29,18 +29,23 @@ public class ReglasTest {
 	
 	@Test
 	public void ReglaDeberiaEjecutarseTest() {
-		assertEquals("El dispositivo inicia encendido", EstadoDispositivo.ON, dispositivoGenerico.getEstadoDispositivo());
+		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.ON);
+
 		regla.ejecutarSi(5.0, Magnitud.Luminusidad);
 		assertEquals("Se ejecuta la regla de apagar", EstadoDispositivo.OFF, dispositivoGenerico.getEstadoDispositivo());
 	}
 	
 	@Test
 	public void ReglaNoDeberiaEjecutarsePorMagnitudTest() {
+		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.ON);
+
 		regla.ejecutarSi(5.0, Magnitud.Humedad);
 		assertEquals("No se ejecuta la regla de apagar", EstadoDispositivo.ON, dispositivoGenerico.getEstadoDispositivo());
 	}
 	@Test
 	public void ReglaNoDeberiaEjecutarsePorMedicionTest() {
+		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.ON);
+
 		regla.ejecutarSi(1.0, Magnitud.Luminusidad);
 		assertEquals("No se ejecuta la regla de apagar", EstadoDispositivo.ON, dispositivoGenerico.getEstadoDispositivo());
 	}

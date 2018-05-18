@@ -17,13 +17,14 @@ public class ActuadorTest {
 	
 	@Before
 	public void before() {
-		dispositivoGenerico = Dispositivos.dispositivoGenerico();
+		dispositivoGenerico = new Dispositivos().dispositivoGenerico();
 	}
 	
 	@Test
 	public void ComandoApagarTest() {
 		Actuador actuador = new Actuador(new ComandoApagar(), dispositivoGenerico);
-		assertEquals("El dispositivo esta encendido antes de ejecutar el actuador", EstadoDispositivo.ON, dispositivoGenerico.getEstadoDispositivo());
+		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.ON);
+
 		actuador.actuar();
 		assertEquals("El dispositivo esta apagado despues de ejecutar el actuador", EstadoDispositivo.OFF, dispositivoGenerico.getEstadoDispositivo());
 	}
@@ -32,6 +33,7 @@ public class ActuadorTest {
 	public void ComandoEncenderTest() {
 		Actuador actuador = new Actuador(new ComandoEncender(), dispositivoGenerico);
 		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.OFF);
+
 		actuador.actuar();
 		assertEquals("El dispositivo esta encendido despues de ejecutar el actuador", EstadoDispositivo.ON, dispositivoGenerico.getEstadoDispositivo());
 	}
