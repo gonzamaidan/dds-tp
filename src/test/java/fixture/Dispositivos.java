@@ -1,22 +1,22 @@
 package fixture;
 
-import dominio.Dispositivo;
-import dominio.Dispositivo.EstadoDispositivo;
+import dominio.dispositivo.DispositivoInteligente;
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 
 public class Dispositivos {
 
-	public Dispositivo dispositivoGenerico() {
-		return new Dispositivo("X", new Double(1), EstadoDispositivo.ON);
+	public DispositivoInteligente dispositivoGenerico() {
+		return new DispositivoInteligente("X", new Double(1), EstadoDispositivo.ON);
 	}
 	
-	public Dispositivo dipositivoConConsumo(Double consumo) {
-		Dispositivo dispositivo = this.dispositivoGenerico();
+	public DispositivoInteligente dipositivoConConsumo(Double consumo) {
+		DispositivoInteligente dispositivo = dispositivoGenerico();
 		dispositivo.setConsumo(consumo);
 		return dispositivo;
 	}
 	
-	public Dispositivo dipositivoConEstado(EstadoDispositivo estado) {
-		Dispositivo dispositivo = this.dispositivoGenerico();
+	public DispositivoInteligente dipositivoConEstado(EstadoDispositivo estado) {
+		DispositivoInteligente dispositivo = dispositivoGenerico();
 		dispositivo.setEstadoDispositivo(estado);
 		return dispositivo;
 	}

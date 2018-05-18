@@ -1,8 +1,7 @@
 package dominio.actuadores.comandos;
 
-import dominio.Dispositivo;
+import dominio.dispositivo.DispositivoInteligente;
 
 public interface Comando {
-	//TODO Cuando tenga los dispositivos inteligentes lo cambio
-	public void ejecutarSobre(Dispositivo dispositivo);
+	public void ejecutarSobre(DispositivoInteligente dispositivo);
 }

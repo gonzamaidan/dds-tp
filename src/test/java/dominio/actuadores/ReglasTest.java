@@ -5,16 +5,16 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import dominio.Dispositivo;
+import dominio.dispositivo.DispositivoInteligente;
 import dominio.Magnitud;
 import dominio.Regla;
-import dominio.Dispositivo.EstadoDispositivo;
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import dominio.actuadores.comandos.ComandoApagar;
 import fixture.Dispositivos;
 
 public class ReglasTest {
 
-	private Dispositivo dispositivoGenerico;
+	private DispositivoInteligente dispositivoGenerico;
 	private Actuador apagar;
 	private Regla regla;
 	@Before

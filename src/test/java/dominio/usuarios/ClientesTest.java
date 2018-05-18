@@ -7,8 +7,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import dominio.Dispositivo.EstadoDispositivo;
 import dominio.clientes.Cliente;
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 
 public class ClientesTest {
 

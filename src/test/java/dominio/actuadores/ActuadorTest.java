@@ -5,15 +5,15 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import dominio.Dispositivo;
-import dominio.Dispositivo.EstadoDispositivo;
+import dominio.dispositivo.DispositivoInteligente;
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import dominio.actuadores.comandos.ComandoApagar;
 import dominio.actuadores.comandos.ComandoEncender;
 import fixture.Dispositivos;
 
 public class ActuadorTest {
 
-	private Dispositivo dispositivoGenerico;
+	private DispositivoInteligente dispositivoGenerico;
 	
 	@Before
 	public void before() {

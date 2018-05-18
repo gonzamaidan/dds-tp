@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import dominio.Categoria;
-import dominio.Dispositivo;
+import dominio.dispositivo.DispositivoEstandar;
+import dominio.dispositivo.DispositivoInteligente;
 import funcional.Categorizador;
 
 /*
@@ -19,9 +20,13 @@ public class Cliente {
 	private String domicilio;
 	private LocalDate fechaDeAlta;
 	private String usuario;
-	private ArrayList<Dispositivo> dispositivos;
+	private ArrayList<DispositivoInteligente> dispositivos;
+	//agrego la otra lista de dispositivos estandar
+	private ArrayList<DispositivoEstandar> dispositivosEstandar;
 	private Categoria categoria = Categoria.R1;
 	private Categorizador asignador = new Categorizador();
+	//agrego atributo de puntaje
+	private Integer puntaje;
 	
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
@@ -31,6 +36,8 @@ public class Cliente {
 		this.fechaDeAlta = fechaDeAlta;
 		this.usuario = usuario;
 		this.dispositivos = new ArrayList<>();
+		this.puntaje = 0;
+		this.dispositivosEstandar = new ArrayList<>();
 		
 	}
 	
@@ -42,11 +49,18 @@ public class Cliente {
 	public Categoria getCategoria() {
 		return categoria;
 	}
+	
+	public ArrayList<DispositivoInteligente> getDispositivosInteligentes() {
+		return this.dispositivos;
+	}
 
 
-
-	public void agregarDispositivo(Dispositivo dispositivo) {
-		dispositivos.add(dispositivo);
+	public void agregarDispositivo(DispositivoInteligente dispositivoInteligenteAdaptado) {
+		dispositivos.add(dispositivoInteligenteAdaptado);
+	}
+	
+	public void agregarDispositivoEstandar(DispositivoEstandar dispositivo) {
+		dispositivosEstandar.add(dispositivo);
 	}
 
 	public boolean tieneAlgunDispositivoEncendido() {
@@ -65,7 +79,19 @@ public class Cliente {
 		return dispositivos.size();
 	}
 	
-	public double calcularConsumoTotal() {
+	public double calcularConsumoTotal(){
+		return this.calcularConsumoDispositivosEstandar() + this.calcularConsumoDispositivosInteligentes();
+		
+	}
+	
+	public double calcularConsumoDispositivosEstandar() {
+		return dispositivosEstandar.stream()
+				.mapToDouble(disp -> disp.getConsumo())
+				.sum();
+				
+	}
+	
+	public double calcularConsumoDispositivosInteligentes() {
 		return dispositivos.stream()
 				.filter(disp -> disp.estaEncendido())
 				.mapToDouble(disp -> disp.getConsumo())
@@ -74,5 +100,25 @@ public class Cliente {
 
 	public double calcularFactura(double consumo) {
 		return this.categoria.calcularMontoMensual(consumo);
+	}
+	
+	public void sumarPuntos(Integer puntos) {
+		this.puntaje += puntos;
+	}
+
+	public void sacarDispositivoEstandar(DispositivoEstandar dispositivo) {
+		this.dispositivosEstandar.remove(dispositivo);
+	}
+
+	public int getPuntaje() {
+		return this.puntaje;
+	}
+
+	public int cantidadDeDispositivosEstandar() {
+		return this.dispositivosEstandar.size();
+	}
+
+	public int cantidadDeDispositivosInteligentes() {
+		return this.dispositivos.size();
 	}
 }
