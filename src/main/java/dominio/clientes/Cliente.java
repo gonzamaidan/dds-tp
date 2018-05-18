@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import dominio.Categoria;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
-import dominio.dispositivo.DispositivoInteligenteAdaptado;
 import funcional.Categorizador;
 
 /*
