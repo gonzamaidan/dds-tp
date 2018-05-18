@@ -1,12 +1,12 @@
-package dominio;
+package dominio.dispositivo;
 
-public class Dispositivo {
+public class DispositivoInteligente {
 	
 	String nombreGenerico;
 	Double consumo;
 	EstadoDispositivo estadoDispositivo;
 	
-	public Dispositivo(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
+	public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;

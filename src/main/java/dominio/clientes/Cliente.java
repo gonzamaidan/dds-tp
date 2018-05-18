@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 import dominio.Categoria;
-import dominio.Dispositivo;
+import dominio.dispositivo.DispositivoEstandar;
+import dominio.dispositivo.DispositivoInteligente;
 import funcional.Categorizador;
 
 /*
@@ -19,9 +20,13 @@ public class Cliente {
 	private String domicilio;
 	private LocalDate fechaDeAlta;
 	private String usuario;
-	private ArrayList<Dispositivo> dispositivos;
+	private ArrayList<DispositivoInteligente> dispositivos;
+	//agrego la otra lista de dispositivos estandar
+	private ArrayList<DispositivoEstandar> dispositivosEstandar;
 	private Categoria categoria = Categoria.R1;
 	private Categorizador asignador = new Categorizador();
+	//agrego atributo de puntaje
+	private Integer puntaje;
 	
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
@@ -45,7 +50,7 @@ public class Cliente {
 
 
 
-	public void agregarDispositivo(Dispositivo dispositivo) {
+	public void agregarDispositivo(DispositivoInteligente dispositivo) {
 		dispositivos.add(dispositivo);
 	}
 
@@ -74,5 +79,9 @@ public class Cliente {
 
 	public double calcularFactura(double consumo) {
 		return this.categoria.calcularMontoMensual(consumo);
+	}
+	
+	public void sumarPuntos(Integer puntaje) {
+		this.puntaje += puntaje;
 	}
 }
