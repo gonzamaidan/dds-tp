@@ -15,6 +15,10 @@ public class DispositivoInteligente {
 	public enum EstadoDispositivo{
 		ON, OFF, MODO_AHORRO;
 	}
+	
+	public double consumoEnUltimasHoras(int horas) {
+		return horas * consumo;
+	}
 
 	public boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
