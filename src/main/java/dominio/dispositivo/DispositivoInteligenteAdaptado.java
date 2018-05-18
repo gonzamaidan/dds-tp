@@ -1,18 +1,10 @@
 package dominio.dispositivo;
 
-
-public class DispositivoInteligenteAdaptado {
+public class DispositivoInteligenteAdaptado extends DispositivoInteligente {
 	
-	String nombre;
-	Double consumo;
+	DispositivoEstandar dispositivoConvertido;
 	
-	public DispositivoInteligenteAdaptado(String nombre, Double consumo) {
-		this.nombre = nombre;
-		this.consumo = consumo;
+	public DispositivoInteligenteAdaptado(DispositivoEstandar dispositivo) {
+		this.dispositivoConvertido = dispositivo;
 	}
-
-	public Double getConsumo() {
-		return consumo;
-	}
-
 }

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import dominio.Categoria;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
+import dominio.dispositivo.DispositivoInteligenteAdaptado;
 import funcional.Categorizador;
 
 /*
@@ -50,8 +51,8 @@ public class Cliente {
 
 
 
-	public void agregarDispositivo(DispositivoInteligente dispositivo) {
-		dispositivos.add(dispositivo);
+	public void agregarDispositivo(DispositivoInteligente dispositivoInteligenteAdaptado) {
+		dispositivos.add(dispositivoInteligenteAdaptado);
 	}
 
 	public boolean tieneAlgunDispositivoEncendido() {

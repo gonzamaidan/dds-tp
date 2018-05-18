@@ -6,7 +6,7 @@ public class DispositivoInteligente {
 	Double consumo;
 	EstadoDispositivo estadoDispositivo;
 	
-	public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
+	public DispositivoInteligente() {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
