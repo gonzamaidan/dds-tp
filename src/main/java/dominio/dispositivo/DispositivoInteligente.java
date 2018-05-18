@@ -1,6 +1,7 @@
 package dominio.dispositivo;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
 public class DispositivoInteligente {
@@ -19,12 +20,13 @@ public class DispositivoInteligente {
 		ON, OFF, MODO_AHORRO;
 	}
 	
-	public long consumoEnElPeriodo(Date fecha1, Date fecha2) {
+	public double consumoEnElPeriodo(LocalDate fechaInicio, LocalDate fechaFin) {
 		
-		return 0; //Falta implementar este metodo
+		double horasConsumindas = ChronoUnit.HOURS.between(fechaInicio, fechaFin);
+		return this.consumoEnUltimasHoras(horasConsumindas);
 	}
 	
-	public double consumoEnUltimasHoras(int horas) {
+	public double consumoEnUltimasHoras(double horas) {
 		return horas * consumo;
 	}
 	
