@@ -5,18 +5,18 @@ import dominio.Dispositivo.EstadoDispositivo;
 
 public class Dispositivos {
 
-	public static Dispositivo dispositivoGenerico() {
+	public Dispositivo dispositivoGenerico() {
 		return new Dispositivo("X", new Double(1), EstadoDispositivo.ON);
 	}
 	
-	public static Dispositivo dipositivoConConsumo(Double consumo) {
-		Dispositivo dispositivo = dispositivoGenerico();
+	public Dispositivo dipositivoConConsumo(Double consumo) {
+		Dispositivo dispositivo = this.dispositivoGenerico();
 		dispositivo.setConsumo(consumo);
 		return dispositivo;
 	}
 	
-	public static Dispositivo dipositivoConEstado(EstadoDispositivo estado) {
-		Dispositivo dispositivo = dispositivoGenerico();
+	public Dispositivo dipositivoConEstado(EstadoDispositivo estado) {
+		Dispositivo dispositivo = this.dispositivoGenerico();
 		dispositivo.setEstadoDispositivo(estado);
 		return dispositivo;
 	}
