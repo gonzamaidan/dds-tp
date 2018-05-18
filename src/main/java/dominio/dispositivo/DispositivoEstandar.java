@@ -14,6 +14,7 @@ public class DispositivoEstandar {
 		return consumo;
 	}
 	
-	
-
+	public String getNombreGenerico() {
+		return nombreGenerico;
+	}
 }

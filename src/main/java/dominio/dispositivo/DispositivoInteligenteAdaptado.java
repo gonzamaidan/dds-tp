@@ -6,6 +6,9 @@ public class DispositivoInteligenteAdaptado extends DispositivoInteligente {
 	
 	public DispositivoInteligenteAdaptado(DispositivoEstandar dispositivo) {
 		this.dispositivoConvertido = dispositivo;
+		this.consumo = dispositivo.getConsumo();
+		this.nombreGenerico = dispositivo.getNombreGenerico();
+		this.estadoDispositivo = EstadoDispositivo.ON;
 	}
 	
 	@Override
