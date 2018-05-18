@@ -37,6 +37,7 @@ public class Cliente {
 		this.usuario = usuario;
 		this.dispositivos = new ArrayList<>();
 		this.puntaje = 0;
+		this.dispositivosEstandar = new ArrayList<>();
 		
 	}
 	
@@ -92,5 +93,9 @@ public class Cliente {
 
 	public void sacarDispositivoEstandar(DispositivoEstandar dispositivo) {
 		this.dispositivosEstandar.remove(dispositivo);
+	}
+
+	public int getPuntaje() {
+		return this.puntaje;
 	}
 }
