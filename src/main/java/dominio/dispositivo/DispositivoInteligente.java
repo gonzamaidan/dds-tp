@@ -19,6 +19,20 @@ public class DispositivoInteligente {
 	public double consumoEnUltimasHoras(int horas) {
 		return horas * consumo;
 	}
+	
+	public void apagarse() {
+		if (!this.estaApagado()) {
+			this.estadoDispositivo = EstadoDispositivo.OFF;
+		}
+		
+	}
+	
+	public void encenderse() {
+		if (this.estaApagado() || this.estaEnModoAhorro()) {
+			this.estadoDispositivo = EstadoDispositivo.ON;
+		}
+		
+	}
 
 	public boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
@@ -27,6 +41,10 @@ public class DispositivoInteligente {
 	
 	public boolean estaApagado() {
 		return estadoDispositivo.equals(EstadoDispositivo.OFF);
+	}
+	
+	public boolean estaEnModoAhorro() {
+		return estadoDispositivo.equals(EstadoDispositivo.MODO_AHORRO);
 	}
 	
 	
