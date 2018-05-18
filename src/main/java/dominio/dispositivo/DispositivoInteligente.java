@@ -13,7 +13,7 @@ public class DispositivoInteligente {
 	}
 
 	public enum EstadoDispositivo{
-		ON, OFF
+		ON, OFF, MODO_AHORRO;
 	}
 
 	public boolean estaEncendido() {
