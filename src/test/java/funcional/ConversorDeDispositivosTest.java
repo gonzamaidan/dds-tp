@@ -45,4 +45,13 @@ public class ConversorDeDispositivosTest {
 		assertEquals(10, cliente.getPuntaje());
 	}
 	
+	@Test
+	public void cuandoConviertoUnDispositivoSeBorraDeLaListaDeEstandar() {
+		cliente.agregarDispositivo(dispositivoInteligente);
+		cliente.agregarDispositivoEstandar(dispositivoEstandar);
+		conversor.convertir(dispositivoEstandar, cliente);
+		
+		assertEquals(0, cliente.cantidadDeDispositivosEstandar());
+	}
+	
 }

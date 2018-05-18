@@ -98,4 +98,8 @@ public class Cliente {
 	public int getPuntaje() {
 		return this.puntaje;
 	}
+
+	public int cantidadDeDispositivosEstandar() {
+		return this.dispositivosEstandar.size();
+	}
 }
