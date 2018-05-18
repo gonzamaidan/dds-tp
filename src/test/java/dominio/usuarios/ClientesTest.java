@@ -12,19 +12,22 @@ import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 
 public class ClientesTest {
 
+	private Clientes clientes = new Clientes();
+	private Dispositivos dispositivos = new Dispositivos();
+	
 	@Test
 	public void clienteSabeSiAlgunoDeSusDispositivosEstaEncendido() {
-		Cliente cliente = Clientes.clienteConDispositivos(3);
-		cliente.agregarDispositivo(Dispositivos.dipositivoConEstado(EstadoDispositivo.ON));
+		Cliente cliente = clientes.clienteConDispositivos(3);
+		cliente.agregarDispositivo(dispositivos.dipositivoConEstado(EstadoDispositivo.ON));
 
 		assertTrue(cliente.tieneAlgunDispositivoEncendido());
 	}
 
 	@Test
 	public void clienteSabeLaCantidadDeDispositivosEncendidos() {
-		Cliente cliente = Clientes.clienteGenerico();
-		cliente.agregarDispositivo(Dispositivos.dipositivoConEstado(EstadoDispositivo.ON));
-		cliente.agregarDispositivo(Dispositivos.dipositivoConEstado(EstadoDispositivo.OFF));
+		Cliente cliente = clientes.clienteGenerico();
+		cliente.agregarDispositivo(dispositivos.dipositivoConEstado(EstadoDispositivo.ON));
+		cliente.agregarDispositivo(dispositivos.dipositivoConEstado(EstadoDispositivo.OFF));
 
 		assertEquals(1, cliente.cantidadDeDispositivosEncendidos());
 	}
@@ -32,23 +35,23 @@ public class ClientesTest {
 	@Test
 	public void clienteSabeLaCantidadDeDispositivosAgregados() {
 		int cantidad = 5;
-		Cliente cliente = Clientes.clienteConDispositivos(cantidad);
+		Cliente cliente = clientes.clienteConDispositivos(cantidad);
 
 		assertEquals(cantidad, cliente.cantidadTotalDeDispositivos());
 	}
 	
 	@Test
 	public void clienteTieneDosDispositivos() {
-		Cliente cliente = Clientes.clienteConDispositivos(2);
+		Cliente cliente = clientes.clienteConDispositivos(2);
 
 		assertEquals(2, cliente.cantidadTotalDeDispositivos());
 	}
 
 	@Test
 	public void clienteSabeLaCantidadDeDispositivosApagados() {
-		Cliente cliente = Clientes.clienteGenerico();
-		cliente.agregarDispositivo(Dispositivos.dipositivoConEstado(EstadoDispositivo.ON));
-		cliente.agregarDispositivo(Dispositivos.dipositivoConEstado(EstadoDispositivo.OFF));
+		Cliente cliente = clientes.clienteGenerico();
+		cliente.agregarDispositivo(dispositivos.dipositivoConEstado(EstadoDispositivo.ON));
+		cliente.agregarDispositivo(dispositivos.dipositivoConEstado(EstadoDispositivo.OFF));
 
 		assertEquals(1, cliente.cantidadDeDispositivosApagados());
 	}

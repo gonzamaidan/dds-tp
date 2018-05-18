@@ -1,7 +1,5 @@
 package funcional;
 
-import funcional.RepositorioUsuarios;
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -11,23 +9,26 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
 import com.google.gson.JsonSyntaxException;
 
-public class RepositorioUsuariosTest {
+import dominio.clientes.Cliente;
+
+public class SerializadorJsonTest {
 
 	Path pathClientes;
 	Path pathClientesDefectuoso;
-	RepositorioUsuarios repo;
+	SerializadorJson serializador;
 	
 	@Before
 	public void TestSetup() throws URISyntaxException {
 		pathClientes = obtenerPath("archivoClientes.json");
 		pathClientesDefectuoso = obtenerPath("archivoClientesDefectuoso.json");
-		repo = RepositorioUsuarios.getRepositorio();
+		serializador = new SerializadorJson();
 	}
 
 	private Path obtenerPath(String pathString) throws URISyntaxException {
@@ -35,43 +36,31 @@ public class RepositorioUsuariosTest {
 	}
 	
 	@Test
-	public void elRepositorioPuedeLevantarElArchivoDeClientes() throws FileNotFoundException {
-		repo.cargarClientes(pathClientes);
-		assertNotNull(repo.getClientes());
+	public void elSerializadorPuedeDeserializarElArchivoDeClientes() throws FileNotFoundException {
+		assertNotNull(serializador.deserializarClientes(pathClientes));
 	}
 
 	@Test
-	public void elRepositorioPuedeLevantarArchivosDeClientesVacios() throws FileNotFoundException, IOException{
+	public void elSerializadorPuedeDeserializarArchivosDeClientesVacios() throws FileNotFoundException, IOException{
 		File dummyFile = new File("clientesDummy.json");
 		dummyFile.createNewFile();
 		Path dummyJson = Paths.get(dummyFile.getAbsolutePath());
 
-		repo.cargarClientes(dummyJson);
+		serializador.deserializarClientes(dummyJson);
 		dummyFile.delete();
 	}
 
 	// TODO: este test estaria muy acoplado al archivo del dominio, que va a cambiar mucho...
 	@Test
-	public void cargarUnArchivoConTresClientesTraeLosTres() throws FileNotFoundException{
+	public void deserializarUnArchivoConTresClientesTraeLosTres() throws FileNotFoundException{
 		int cantidadEsperada = 3;
-		repo.cargarClientes(pathClientes);
-		
-		assertEquals(cantidadEsperada, repo.getClientes().size());
+		List<Cliente> clientes = serializador.deserializarClientes(pathClientes);		
+		assertEquals(cantidadEsperada, clientes.size());
 	}
-	
-	@Test
-	public void cargarElRepositorioMasDeUnaVezNoExtiendeLaListaDeClientes() throws FileNotFoundException {
-		repo.cargarClientes(pathClientes);
-		int sizeInicial = repo.getClientes().size();
-		
-		repo.cargarClientes(pathClientes);
-		
-		assertEquals(sizeInicial, repo.getClientes().size());
-	}
-	
+
 	// TODO: creo que habria que ver que onda con que casos de error prevenir
 	@Test(expected = JsonSyntaxException.class)
 	public void cargarUnArchivoDefectuosoProduceUnaFalla() throws FileNotFoundException{
-		repo.cargarClientes(pathClientesDefectuoso);
+		serializador.deserializarClientes(pathClientesDefectuoso);
 	}	
 }
