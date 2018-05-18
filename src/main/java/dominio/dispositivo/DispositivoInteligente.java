@@ -1,5 +1,8 @@
 package dominio.dispositivo;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 public class DispositivoInteligente {
 	
 	String nombreGenerico;
@@ -14,6 +17,11 @@ public class DispositivoInteligente {
 
 	public enum EstadoDispositivo{
 		ON, OFF, MODO_AHORRO;
+	}
+	
+	public long consumoEnElPeriodo(Date fecha1, Date fecha2) {
+		
+		return 0; //Falta implementar este metodo
 	}
 	
 	public double consumoEnUltimasHoras(int horas) {
@@ -31,7 +39,6 @@ public class DispositivoInteligente {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
 			this.estadoDispositivo = EstadoDispositivo.ON;
 		}
-		
 	}
 
 	public boolean estaEncendido() {

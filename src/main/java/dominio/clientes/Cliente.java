@@ -79,7 +79,19 @@ public class Cliente {
 		return dispositivos.size();
 	}
 	
-	public double calcularConsumoTotal() {
+	public double calcularConsumoTotal(){
+		return this.calcularConsumoDispositivosEstandar() + this.calcularConsumoDispositivosInteligentes();
+		
+	}
+	
+	public double calcularConsumoDispositivosEstandar() {
+		return dispositivosEstandar.stream()
+				.mapToDouble(disp -> disp.getConsumo())
+				.sum();
+				
+	}
+	
+	public double calcularConsumoDispositivosInteligentes() {
 		return dispositivos.stream()
 				.filter(disp -> disp.estaEncendido())
 				.mapToDouble(disp -> disp.getConsumo())
