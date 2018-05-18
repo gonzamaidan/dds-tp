@@ -36,6 +36,7 @@ public class Cliente {
 		this.fechaDeAlta = fechaDeAlta;
 		this.usuario = usuario;
 		this.dispositivos = new ArrayList<>();
+		this.puntaje = 0;
 		
 	}
 	
@@ -52,6 +53,10 @@ public class Cliente {
 
 	public void agregarDispositivo(DispositivoInteligente dispositivoInteligenteAdaptado) {
 		dispositivos.add(dispositivoInteligenteAdaptado);
+	}
+	
+	public void agregarDispositivoEstandar(DispositivoEstandar dispositivo) {
+		dispositivosEstandar.add(dispositivo);
 	}
 
 	public boolean tieneAlgunDispositivoEncendido() {
