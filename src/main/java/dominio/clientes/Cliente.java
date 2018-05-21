@@ -2,6 +2,7 @@ package dominio.clientes;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 import dominio.Categoria;
 import dominio.dispositivo.DispositivoEstandar;
@@ -20,9 +21,9 @@ public class Cliente {
 	private String domicilio;
 	private LocalDate fechaDeAlta;
 	private String usuario;
-	private ArrayList<DispositivoInteligente> dispositivos;
+	private List<DispositivoInteligente> dispositivos;
 	//agrego la otra lista de dispositivos estandar
-	private ArrayList<DispositivoEstandar> dispositivosEstandar;
+	private List<DispositivoEstandar> dispositivosEstandar;
 	private Categoria categoria = Categoria.R1;
 	private Categorizador asignador = new Categorizador();
 	//agrego atributo de puntaje
@@ -50,7 +51,7 @@ public class Cliente {
 		return categoria;
 	}
 	
-	public ArrayList<DispositivoInteligente> getDispositivosInteligentes() {
+	public List<DispositivoInteligente> getDispositivosInteligentes() {
 		return this.dispositivos;
 	}
 

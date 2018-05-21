@@ -2,9 +2,8 @@ package dominio.dispositivo;
 
 public class DispositivoInteligenteAdaptado extends DispositivoInteligente {
 	
-	DispositivoEstandar dispositivoConvertido;
-	
-	
+	private DispositivoEstandar dispositivoConvertido;
+
 	public DispositivoInteligenteAdaptado(DispositivoEstandar dispositivo) {
 		super(dispositivo);
 		this.dispositivoConvertido = dispositivo;

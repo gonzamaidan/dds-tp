@@ -5,9 +5,9 @@ import java.time.temporal.ChronoUnit;
 
 public class DispositivoInteligente {
 	
-	String nombreGenerico;
-	Double consumo;
-	EstadoDispositivo estadoDispositivo;
+	protected String nombreGenerico;
+	protected Double consumo;
+	protected EstadoDispositivo estadoDispositivo;
 	
 		public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
 		this.nombreGenerico = nombreGenerico;
