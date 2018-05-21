@@ -97,7 +97,7 @@ public class Cliente {
 	}
 
 	public double calcularFactura(double consumo) {
-		return this.categoria.calcularMontoMensual(consumo);
+		return this.consultarCategoria().calcularMontoMensual(consumo);
 	}
 	
 	public void sumarPuntos(Integer puntos) {
