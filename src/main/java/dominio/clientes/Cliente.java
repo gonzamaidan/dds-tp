@@ -41,8 +41,8 @@ public class Cliente {
 		
 	}
 	
-	public void consultarCategoria() {
-		this.categoria = asignador.calcularCategoriaSegun(this.calcularConsumoTotal());
+	public Categoria consultarCategoria() {
+		return asignador.calcularCategoriaSegun(this.calcularConsumoTotal());
 	}
 	
 
