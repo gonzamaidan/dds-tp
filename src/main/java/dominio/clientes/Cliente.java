@@ -24,7 +24,6 @@ public class Cliente {
 	private List<DispositivoInteligente> dispositivos;
 	//agrego la otra lista de dispositivos estandar
 	private List<DispositivoEstandar> dispositivosEstandar;
-	private Categoria categoria = Categoria.R1;
 	private Categorizador asignador = new Categorizador();
 	//agrego atributo de puntaje
 	private Integer puntaje;
