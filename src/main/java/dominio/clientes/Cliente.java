@@ -46,9 +46,7 @@ public class Cliente {
 	}
 	
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+	
 	
 	public List<DispositivoInteligente> getDispositivosInteligentes() {
 		return this.dispositivos;
