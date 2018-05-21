@@ -3,10 +3,10 @@ package dominio;
 import java.util.List;
 
 public class SensorTemperatura implements Sensor {
-	String id_fabricante; 
-	Magnitud magnitud;
-	double medicion;
-	List<Regla> reglas; // son los observadores
+	private String idFabricante; 
+	private Magnitud magnitud;
+	private Double medicion;
+	private List<Regla> reglas; // son los observadores
 	@Override	
 	public void medirMagnitud(int segundos) {
 		System.out.println("Midiendo");

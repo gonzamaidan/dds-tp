@@ -5,11 +5,12 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import dominio.dispositivo.DispositivoInteligente;
 import dominio.Magnitud;
 import dominio.Regla;
-import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import dominio.actuadores.comandos.ComandoApagar;
+import dominio.dispositivo.DispositivoInteligente;
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
+import dominio.dispositivo.fisicos.Lampara;
 import fixture.Dispositivos;
 
 public class ReglasTest {
@@ -20,7 +21,7 @@ public class ReglasTest {
 	@Before
 	public void before() {
 		dispositivoGenerico = new Dispositivos().dispositivoGenerico();
-		apagar = new Actuador(new ComandoApagar(), dispositivoGenerico);
+		apagar = new Actuador(new ComandoApagar(new Lampara()), dispositivoGenerico);
 		regla = new Regla((medicion,  magnitud) -> {
 			return medicion > 1.0 && Magnitud.Luminusidad.equals(magnitud);
 		}, apagar);

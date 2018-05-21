@@ -5,10 +5,11 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import dominio.dispositivo.DispositivoInteligente;
-import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import dominio.actuadores.comandos.ComandoApagar;
 import dominio.actuadores.comandos.ComandoEncender;
+import dominio.dispositivo.DispositivoInteligente;
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
+import dominio.dispositivo.fisicos.Lampara;
 import fixture.Dispositivos;
 
 public class ActuadorTest {
@@ -22,7 +23,7 @@ public class ActuadorTest {
 	
 	@Test
 	public void ComandoApagarTest() {
-		Actuador actuador = new Actuador(new ComandoApagar(), dispositivoGenerico);
+		Actuador actuador = new Actuador(new ComandoApagar(new Lampara()), dispositivoGenerico);
 		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.ON);
 
 		actuador.actuar();
@@ -31,7 +32,7 @@ public class ActuadorTest {
 	
 	@Test
 	public void ComandoEncenderTest() {
-		Actuador actuador = new Actuador(new ComandoEncender(), dispositivoGenerico);
+		Actuador actuador = new Actuador(new ComandoEncender(new Lampara()), dispositivoGenerico);
 		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.OFF);
 
 		actuador.actuar();
