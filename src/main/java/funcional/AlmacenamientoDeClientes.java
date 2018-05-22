@@ -1,18 +1,21 @@
 package funcional;
 
-import java.io.FileNotFoundException;
-import java.nio.file.Path;
 import java.util.List;
 
 import dominio.clientes.Cliente;
+import dominio.excepciones.FalloTraduccionException;
 
 public class AlmacenamientoDeClientes {
 
-	private SerializadorJson serializador = new SerializadorJson();
+	private InterpreteAlmacenamiento interprete;
 	private List<Cliente> clientes;
 	
-	public AlmacenamientoDeClientes(Path archivoClientes) throws FileNotFoundException {
-		clientes = serializador.deserializarClientes(archivoClientes);
+	public AlmacenamientoDeClientes(InterpreteAlmacenamiento interprete) {
+		this.interprete = interprete;
+	}
+	
+	public void cargarClientes(String formaAlmacenamiento) throws FalloTraduccionException {
+		this.clientes = interprete.traducirAClientes(formaAlmacenamiento);
 	}
 	
 	public List<Cliente> getClientes() {
