@@ -9,4 +9,8 @@ import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 public class UsoDeDispositivo {
 	//lista con fecha y estado
 	Map<LocalDate, EstadoDispositivo> estados = new TreeMap<LocalDate, EstadoDispositivo>();
+
+	public void agregarCambioDeEstado(EstadoDispositivo estadoDispositivo) {
+		estados.put(LocalDate.now(), estadoDispositivo);
+	}
 }
