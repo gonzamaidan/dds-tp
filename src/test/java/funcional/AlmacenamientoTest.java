@@ -18,8 +18,8 @@ public class AlmacenamientoTest {
 	
 	@Test
 	public void InicializarAlmacenamientoParaUnArchivoValidoTraeClientes() throws URISyntaxException, FalloTraduccionException {
-		AlmacenamientoDeClientes store = new AlmacenamientoDeClientes(new SerializadorJson());
-		store.cargarClientes(this.obtenerPathString("archivoClientes.json"));
+		String archivoClientes = this.obtenerPathString("archivoClientes.json");
+		AlmacenamientoDeClientes store = new AlmacenamientoDeClientes(new SerializadorJson(archivoClientes));
 		
 		assertNotNull(store.getClientes());
 	}
