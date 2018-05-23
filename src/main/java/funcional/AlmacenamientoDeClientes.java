@@ -8,17 +8,16 @@ import dominio.excepciones.FalloTraduccionException;
 public class AlmacenamientoDeClientes {
 
 	private InterpreteAlmacenamiento interprete;
-	private List<Cliente> clientes;
+	private List<Cliente> clientes = null;
 	
 	public AlmacenamientoDeClientes(InterpreteAlmacenamiento interprete) {
 		this.interprete = interprete;
 	}
 	
-	public void cargarClientes(String formaAlmacenamiento) throws FalloTraduccionException {
-		this.clientes = interprete.traducirAClientes(formaAlmacenamiento);
-	}
-	
-	public List<Cliente> getClientes() {
+	public List<Cliente> getClientes() throws FalloTraduccionException {
+		if (clientes == null) {
+			clientes = interprete.traducirAClientes();
+		}
 		return clientes;
 	}
 }
