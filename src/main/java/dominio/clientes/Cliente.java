@@ -24,8 +24,7 @@ public class Cliente {
 	private List<DispositivoInteligente> dispositivos;
 	//agrego la otra lista de dispositivos estandar
 	private List<DispositivoEstandar> dispositivosEstandar;
-	private Categoria categoria = Categoria.R1;
-	private Categorizador asignador = new Categorizador();
+	private Categorizador categorizador = new Categorizador();
 	//agrego atributo de puntaje
 	private Integer puntaje;
 	
@@ -42,14 +41,12 @@ public class Cliente {
 		
 	}
 	
-	public void consultarCategoria() {
-		this.categoria = asignador.calcularCategoriaSegun(this.calcularConsumoTotal());
+	public Categoria consultarCategoria() {
+		return categorizador.calcularCategoriaSegun(this.calcularConsumoTotal());
 	}
 	
 
-	public Categoria getCategoria() {
-		return categoria;
-	}
+	
 	
 	public List<DispositivoInteligente> getDispositivosInteligentes() {
 		return this.dispositivos;
@@ -100,7 +97,7 @@ public class Cliente {
 	}
 
 	public double calcularFactura(double consumo) {
-		return this.categoria.calcularMontoMensual(consumo);
+		return this.consultarCategoria().calcularMontoMensual(consumo);
 	}
 	
 	public void sumarPuntos(Integer puntos) {

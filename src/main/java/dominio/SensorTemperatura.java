@@ -1,6 +1,11 @@
 package dominio;
 
 import java.util.List;
+/**
+ * Esta clase representa la conexion con un sensor de temperatura.
+ * .
+ *
+ */
 
 public class SensorTemperatura implements Sensor {
 	private String idFabricante; 
