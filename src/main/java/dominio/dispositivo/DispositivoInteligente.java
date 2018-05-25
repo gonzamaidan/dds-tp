@@ -44,24 +44,37 @@ public class DispositivoInteligente {
 		return horas * consumo;
 	}
 
-	public void apagarse() {
-		if (!this.estaApagado()) {
-			this.estadoDispositivo = EstadoDispositivo.OFF;
-			// agregar a una lista la hora y que se paso a OFF
-		}
-
-	}
+	
 
 	public void encenderse() {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
 			this.estadoDispositivo = EstadoDispositivo.ON;
-			
-			//this.usoDispositivoActual = new UsoDeDispositivo();
-			//usoDispositivoActual.setFechaHoraInicio(LocalDateTime.now());
-			
-			//agregar a una lista la hora y que se paso a ON
+			this.ejecutarUsoDeDispositivo();
 		}
 	}
+	
+	public void ejecutarUsoDeDispositivo() {
+		this.usoDispositivoActual = new UsoDeDispositivo();
+		usoDispositivoActual.setFechaHoraInicio(LocalDateTime.now());
+	}
+	
+	
+	
+	
+	public void apagarse() {
+		if (!this.estaApagado()) {
+			this.estadoDispositivo = EstadoDispositivo.OFF;
+			this.terminarUsoDeDispositivo();
+		}
+	}
+	
+	public void terminarUsoDeDispositivo() {
+		usoDispositivoActual.setFechaHoraFin(LocalDateTime.now());
+		todosLosUsos.add(usoDispositivoActual);
+	}
+	
+	
+	
 
 	public boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
