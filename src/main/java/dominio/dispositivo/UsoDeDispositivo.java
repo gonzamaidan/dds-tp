@@ -1,16 +1,9 @@
 package dominio.dispositivo;
-
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
-import java.util.Map;
-import java.util.TreeMap;
 
-import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 
 public class UsoDeDispositivo {
-	//lista con fecha y estado
-	//Map<LocalDate, EstadoDispositivo> estados = new TreeMap<LocalDate, EstadoDispositivo>();
 
 	LocalDateTime fechaHoraInicio;
 	LocalDateTime fechaHoraFin;
@@ -27,10 +20,4 @@ public class UsoDeDispositivo {
 		this.fechaHoraFin = fechaHoraFin;
 	}
 	
-	
-	
-	/*
-	public void agregarCambioDeEstado(EstadoDispositivo estadoDispositivo) {
-		estados.put(LocalDate.now(), estadoDispositivo);
-	}*/
 }
