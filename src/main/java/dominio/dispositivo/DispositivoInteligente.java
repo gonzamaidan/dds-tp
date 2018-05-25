@@ -1,20 +1,24 @@
 package dominio.dispositivo;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 public class DispositivoInteligente {
 
 	String nombreGenerico;
 	Double consumo;
 	EstadoDispositivo estadoDispositivo;
-	UsoDeDispositivo usoDeDispositivo;
+	//UsoDeDispositivo usoDeDispositivo; crear la lista de usos
+	UsoDeDispositivo usoDispositivoActual;
+	List<UsoDeDispositivo> todosLosUsos;
 
 	public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
-		crearUsoDeDispositivo(estadoDispositivo);
+		//crearUsoDeDispositivo(estadoDispositivo);
 	}
 
 	public DispositivoInteligente(DispositivoEstandar dispositivo) {
@@ -24,11 +28,12 @@ public class DispositivoInteligente {
 		ON, OFF, MODO_AHORRO;
 	}
 	
+	/*
 	public void crearUsoDeDispositivo(EstadoDispositivo estadoDispositivo) {
 		this.usoDeDispositivo = new UsoDeDispositivo();
 		this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo);
 	}
-
+*/
 	public double consumoEnElPeriodo(LocalDate fechaInicio, LocalDate fechaFin) {
 
 		double horasConsumindas = ChronoUnit.HOURS.between(fechaInicio, fechaFin);
@@ -50,6 +55,10 @@ public class DispositivoInteligente {
 	public void encenderse() {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
 			this.estadoDispositivo = EstadoDispositivo.ON;
+			
+			//this.usoDispositivoActual = new UsoDeDispositivo();
+			//usoDispositivoActual.setFechaHoraInicio(LocalDateTime.now());
+			
 			//agregar a una lista la hora y que se paso a ON
 		}
 	}
