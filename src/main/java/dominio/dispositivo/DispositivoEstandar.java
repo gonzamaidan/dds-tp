@@ -11,8 +11,13 @@ public class DispositivoEstandar {
 		this.consumo = consumo;
 	}
 	
+	/* Preguntar si esto esta bien, no se por que recibe un inteligente adaptado
 	public Double darConsumo(DispositivoInteligenteAdaptado dispositivo) {
 		return dispositivo.getConsumo();
+	} */
+	
+	public Double darConsumo() {
+		return this.getConsumo() * this.horasDeUsoPromedio;
 	}
 
 	public Double getConsumo() {

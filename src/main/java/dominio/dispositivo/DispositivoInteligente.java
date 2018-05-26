@@ -1,65 +1,94 @@
 package dominio.dispositivo;
 
-import java.time.LocalDate;
-import java.time.temporal.ChronoUnit;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DispositivoInteligente {
-	
-	protected String nombreGenerico;
-	protected Double consumo;
-	protected EstadoDispositivo estadoDispositivo;
-	
-		public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
+
+	String nombreGenerico;
+	Double consumo;
+	EstadoDispositivo estadoDispositivo;
+	// UsoDeDispositivo usoDeDispositivo; crear la lista de usos
+	UsoDeDispositivo usoDispositivoActual;
+	List<UsoDeDispositivo> todosLosUsos;
+
+	public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
+		this.todosLosUsos = new ArrayList<UsoDeDispositivo>();
 	}
 
-	public DispositivoInteligente(DispositivoEstandar dispositivo) {}
+	public DispositivoInteligente(DispositivoEstandar dispositivo) {
+	}
 
-	public enum EstadoDispositivo{
+	public enum EstadoDispositivo {
 		ON, OFF, MODO_AHORRO;
 	}
+
+	/*
+	public void crearUsoDeDispositivo(EstadoDispositivo estadoDispositivo) {
+		this.usoDeDispositivo = new UsoDeDispositivo();
+		this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo);
+	}
+*/
+	public Double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
+		return horasDeConsumo * consumo;
+	}
 	
-	public double consumoEnElPeriodo(LocalDate fechaInicio, LocalDate fechaFin) {
+	public Double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		
-		double horasConsumindas = ChronoUnit.HOURS.between(fechaInicio, fechaFin);
-		return this.consumoEnUltimasHoras(horasConsumindas);
+		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
-	
-	public double consumoEnUltimasHoras(double horas) {
-		return horas * consumo;
-	}
-	
-	public void apagarse() {
-		if (!this.estaApagado()) {
-			this.estadoDispositivo = EstadoDispositivo.OFF;
-		}
+
+	public Double consumoEnUltimasHoras(Long horas) {
+		LocalDateTime horaActual = LocalDateTime.now();
+		LocalDateTime horaInicial = horaActual.minusHours(horas); 
+		return consumoEnElPeriodo(horaInicial, horaActual);
 		
 	}
-	
+
 	public void encenderse() {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
 			this.estadoDispositivo = EstadoDispositivo.ON;
+			ejecutarUsoDeDispositivo();
 		}
 	}
 
-	public boolean estaEncendido() {
-		return estadoDispositivo.equals(EstadoDispositivo.ON);
-		
+	public void ejecutarUsoDeDispositivo() {
+		this.usoDispositivoActual = new UsoDeDispositivo();
+		usoDispositivoActual.setFechaHoraEncendido(LocalDateTime.now());
 	}
-	
-	public boolean estaApagado() {
+
+	public void apagarse() {
+		if (!this.estaApagado()) {
+			this.estadoDispositivo = EstadoDispositivo.OFF;
+			terminarUsoDeDispositivo();
+		}
+	}
+
+	public void terminarUsoDeDispositivo() {
+		usoDispositivoActual.setFechaHoraApagado(LocalDateTime.now());
+		todosLosUsos.add(usoDispositivoActual);
+	}
+
+	public Boolean estaEncendido() {
+		return estadoDispositivo.equals(EstadoDispositivo.ON);
+
+	}
+
+	public Boolean estaApagado() {
 		return estadoDispositivo.equals(EstadoDispositivo.OFF);
 	}
-	
-	public boolean estaEnModoAhorro() {
+
+	public Boolean estaEnModoAhorro() {
 		return estadoDispositivo.equals(EstadoDispositivo.MODO_AHORRO);
 	}
-	
-	
+
 	// SETTERS Y GETTERS (Accessors ;D)
-	
+
 	public String getNombreGenerico() {
 		return nombreGenerico;
 	}
@@ -87,7 +116,5 @@ public class DispositivoInteligente {
 	public DispositivoEstandar getDispositivoAdaptado() {
 		return null;
 	}
-	
-	
 
 }
