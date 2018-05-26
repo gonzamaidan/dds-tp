@@ -13,6 +13,11 @@ public class UsoDeDispositivo {
 	 * public double cantidadDehorasUsado() { return
 	 * ChronoUnit.HOURS.between(fechaHoraEncendido, fechaHoraApagado); }
 	 */
+	
+	public UsoDeDispositivo() {
+		this.fechaHoraEncendido = LocalDateTime.now();
+		this.fechaHoraApagado = LocalDateTime.now();
+	}
 
 	public double horasDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		LocalDateTime fechaMenor = this.maximoEntre(fechaInicio, fechaHoraEncendido);

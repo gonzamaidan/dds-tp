@@ -1,6 +1,7 @@
 package dominio.dispositivo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DispositivoInteligente {
@@ -16,7 +17,7 @@ public class DispositivoInteligente {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
-
+		this.todosLosUsos = new ArrayList<UsoDeDispositivo>();
 	}
 
 	public DispositivoInteligente(DispositivoEstandar dispositivo) {
@@ -67,7 +68,7 @@ public class DispositivoInteligente {
 	public void encenderse() {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
 			this.estadoDispositivo = EstadoDispositivo.ON;
-			this.ejecutarUsoDeDispositivo();
+			ejecutarUsoDeDispositivo();
 		}
 	}
 
@@ -79,7 +80,7 @@ public class DispositivoInteligente {
 	public void apagarse() {
 		if (!this.estaApagado()) {
 			this.estadoDispositivo = EstadoDispositivo.OFF;
-			this.terminarUsoDeDispositivo();
+			terminarUsoDeDispositivo();
 		}
 	}
 
