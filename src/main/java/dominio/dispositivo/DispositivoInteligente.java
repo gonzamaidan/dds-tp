@@ -3,6 +3,8 @@ package dominio.dispositivo;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class DispositivoInteligente {
@@ -34,10 +36,10 @@ public class DispositivoInteligente {
 		this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo);
 	}
 */
-	public double consumoEnElPeriodo(LocalDate fechaInicio, LocalDate fechaFin) {
+	public double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 
-		//double horasConsumindas = ChronoUnit.HOURS.between(fechaInicio, fechaFin);
-		//return this.consumoEnUltimasHoras(horasConsumindas);
+		double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
+		return horasDeConsumo * consumo;
 	}
 	
 	public double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
@@ -46,7 +48,17 @@ public class DispositivoInteligente {
 	}
 
 	public double consumoEnUltimasHoras(double horas) {
-		return horas * consumo;
+		/*
+		Este metodo recibe N horas, la idea es restarle esas N horas
+		a la hora actual, y pasar como parametros la hora actual, y la "horaActual - N horas"
+		como parametro al metodo consumoEnElPeriodo(...)
+		*/
+		
+		LocalDateTime horaActual = LocalDateTime.now();
+		//LocalDateTime horaInicial = horaActual - horas; (NO PUDE CALCULAR ESTO)
+		
+		
+		return consumoEnElPeriodo(horaInicial, horaActual);
 	}
 
 	
