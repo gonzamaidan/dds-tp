@@ -43,20 +43,11 @@ public class DispositivoInteligente {
 		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
 
-	public double consumoEnUltimasHoras(double horas) {
-		/*
-		Este metodo recibe N horas, la idea es restarle esas N horas
-		a la hora actual, y pasar como parametros la hora actual y la "horaActual - N horas"
-		como parametro al metodo consumoEnElPeriodo(...)
-		*/
-		
+	public Double consumoEnUltimasHoras(Long horas) {
 		LocalDateTime horaActual = LocalDateTime.now();
-		//LocalDateTime horaInicial = horaActual - horas; (NO PUDE CALCULAR ESTO)
+		LocalDateTime horaInicial = horaActual.minusHours(horas); 
+		return consumoEnElPeriodo(horaInicial, horaActual);
 		
-		
-		//return consumoEnElPeriodo(horaInicial, horaActual);
-		
-		return 0; //Agrego esto para que no rompa
 	}
 
 	
