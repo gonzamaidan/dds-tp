@@ -2,9 +2,9 @@ package dominio.dispositivo;
 
 public class DispositivoEstandar {
 	
-	String nombreGenerico;
-	Double consumo;
-	int horasDeUsoPromedio;
+	private String nombreGenerico;
+	private Double consumo;
+	private Integer horasDeUsoPromedio;
 
 	public DispositivoEstandar(String nombreGenerico, Double consumo) {
 		this.nombreGenerico = nombreGenerico;
