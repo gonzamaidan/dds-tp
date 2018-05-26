@@ -40,7 +40,7 @@ public class DispositivoInteligente {
 		return this.consumoEnUltimasHoras(horasConsumindas);
 	}
 	
-	public double cantidadTotalDeUsoEntre(LocalDate fechaInicio, LocalDate fechaFin) {
+	public double cantidadTotalDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		
 		return 0; //todosLosUsos.stream().map(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin));
 	}

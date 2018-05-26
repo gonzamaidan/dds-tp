@@ -1,6 +1,6 @@
 package dominio.dispositivo;
 import java.time.LocalDateTime;
-import java.time.ZoneOffset;
+
 import java.time.temporal.ChronoUnit;
 
 
@@ -9,12 +9,18 @@ public class UsoDeDispositivo {
 	LocalDateTime fechaHoraEncendido;
 	LocalDateTime fechaHoraApagado;
 	
+	/*
 	public double cantidadDehorasUsado() {
 		return ChronoUnit.HOURS.between(fechaHoraEncendido, fechaHoraApagado);
-	}
+	}*/
 	
 	public double horasDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		return 0;
+		LocalDateTime fechaMenor = this.maximoEntre(fechaInicio, fechaHoraEncendido);
+		LocalDateTime fechaMayor = this.minimoEntre(fechaFin, fechaHoraApagado);
+				
+				
+		return ChronoUnit.HOURS.between(fechaMayor, fechaMenor);
+	
 	}
 	
 	public LocalDateTime maximoEntre(LocalDateTime fecha1, LocalDateTime fecha2) {
