@@ -1,10 +1,6 @@
 package dominio.dispositivo;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class DispositivoInteligente {
@@ -36,13 +32,13 @@ public class DispositivoInteligente {
 		this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo);
 	}
 */
-	public double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+	public Double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 
 		double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
 		return horasDeConsumo * consumo;
 	}
 	
-	public double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+	public Double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		
 		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
@@ -95,16 +91,16 @@ public class DispositivoInteligente {
 	
 	
 
-	public boolean estaEncendido() {
+	public Boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
 
 	}
 
-	public boolean estaApagado() {
+	public Boolean estaApagado() {
 		return estadoDispositivo.equals(EstadoDispositivo.OFF);
 	}
 
-	public boolean estaEnModoAhorro() {
+	public Boolean estaEnModoAhorro() {
 		return estadoDispositivo.equals(EstadoDispositivo.MODO_AHORRO);
 	}
 
