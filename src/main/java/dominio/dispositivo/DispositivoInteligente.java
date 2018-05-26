@@ -18,7 +18,7 @@ public class DispositivoInteligente {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
-		//crearUsoDeDispositivo(estadoDispositivo);
+		
 	}
 
 	public DispositivoInteligente(DispositivoEstandar dispositivo) {
@@ -39,6 +39,11 @@ public class DispositivoInteligente {
 		double horasConsumindas = ChronoUnit.HOURS.between(fechaInicio, fechaFin);
 		return this.consumoEnUltimasHoras(horasConsumindas);
 	}
+	
+	public double cantidadTotalDeUsoEntre(LocalDate fechaInicio, LocalDate fechaFin) {
+		
+		return 0; //todosLosUsos.stream().map(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin));
+	}
 
 	public double consumoEnUltimasHoras(double horas) {
 		return horas * consumo;
@@ -55,7 +60,7 @@ public class DispositivoInteligente {
 	
 	public void ejecutarUsoDeDispositivo() {
 		this.usoDispositivoActual = new UsoDeDispositivo();
-		usoDispositivoActual.setFechaHoraInicio(LocalDateTime.now());
+		usoDispositivoActual.setFechaHoraEncendido(LocalDateTime.now());
 	}
 	
 	
@@ -69,7 +74,7 @@ public class DispositivoInteligente {
 	}
 	
 	public void terminarUsoDeDispositivo() {
-		usoDispositivoActual.setFechaHoraFin(LocalDateTime.now());
+		usoDispositivoActual.setFechaHoraApagado(LocalDateTime.now());
 		todosLosUsos.add(usoDispositivoActual);
 	}
 	
