@@ -5,8 +5,8 @@ import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 
 public class Dispositivos {
 
-	public DispositivoInteligente dispositivoGenerico() {
-		return new DispositivoInteligente("X", new Double(1), EstadoDispositivo.ON);
+	public static DispositivoInteligente dispositivoGenerico() {
+		return new DispositivoInteligente("X", new Double(1), EstadoDispositivo.OFF);
 	}
 	
 	public DispositivoInteligente dipositivoConConsumo(Double consumo) {

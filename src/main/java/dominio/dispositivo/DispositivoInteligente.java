@@ -1,6 +1,7 @@
 package dominio.dispositivo;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DispositivoInteligente {
@@ -8,7 +9,7 @@ public class DispositivoInteligente {
 	String nombreGenerico;
 	Double consumo;
 	EstadoDispositivo estadoDispositivo;
-	//UsoDeDispositivo usoDeDispositivo; crear la lista de usos
+	// UsoDeDispositivo usoDeDispositivo; crear la lista de usos
 	UsoDeDispositivo usoDispositivoActual;
 	List<UsoDeDispositivo> todosLosUsos;
 
@@ -16,7 +17,7 @@ public class DispositivoInteligente {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
-		
+		this.todosLosUsos = new ArrayList<UsoDeDispositivo>();
 	}
 
 	public DispositivoInteligente(DispositivoEstandar dispositivo) {
@@ -25,7 +26,7 @@ public class DispositivoInteligente {
 	public enum EstadoDispositivo {
 		ON, OFF, MODO_AHORRO;
 	}
-	
+
 	/*
 	public void crearUsoDeDispositivo(EstadoDispositivo estadoDispositivo) {
 		this.usoDeDispositivo = new UsoDeDispositivo();
@@ -33,7 +34,6 @@ public class DispositivoInteligente {
 	}
 */
 	public Double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-
 		double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
 		return horasDeConsumo * consumo;
 	}
@@ -50,37 +50,29 @@ public class DispositivoInteligente {
 		
 	}
 
-	
-
 	public void encenderse() {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
 			this.estadoDispositivo = EstadoDispositivo.ON;
-			this.ejecutarUsoDeDispositivo();
+			ejecutarUsoDeDispositivo();
 		}
 	}
-	
+
 	public void ejecutarUsoDeDispositivo() {
 		this.usoDispositivoActual = new UsoDeDispositivo();
 		usoDispositivoActual.setFechaHoraEncendido(LocalDateTime.now());
 	}
-	
-	
-	
-	
+
 	public void apagarse() {
 		if (!this.estaApagado()) {
 			this.estadoDispositivo = EstadoDispositivo.OFF;
-			this.terminarUsoDeDispositivo();
+			terminarUsoDeDispositivo();
 		}
 	}
-	
+
 	public void terminarUsoDeDispositivo() {
 		usoDispositivoActual.setFechaHoraApagado(LocalDateTime.now());
 		todosLosUsos.add(usoDispositivoActual);
 	}
-	
-	
-	
 
 	public Boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
