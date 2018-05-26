@@ -17,50 +17,58 @@ import org.junit.Test;
 import com.google.gson.JsonSyntaxException;
 
 import dominio.clientes.Cliente;
+import dominio.excepciones.FalloTraduccionException;
 
 public class SerializadorJsonTest {
 
-	Path pathClientes;
-	Path pathClientesDefectuoso;
+	String pathClientes;
+	String pathClientesDefectuoso;
 	SerializadorJson serializador;
-	
+
 	@Before
 	public void TestSetup() throws URISyntaxException {
 		pathClientes = obtenerPath("archivoClientes.json");
 		pathClientesDefectuoso = obtenerPath("archivoClientesDefectuoso.json");
-		serializador = new SerializadorJson();
 	}
 
-	private Path obtenerPath(String pathString) throws URISyntaxException {
-		return Paths.get(this.getClass().getClassLoader().getResource(pathString).toURI());
-	}
-	
-	@Test
-	public void elSerializadorPuedeDeserializarElArchivoDeClientes() throws FileNotFoundException {
-		assertNotNull(serializador.deserializarClientes(pathClientes));
+	private String obtenerPath(String pathString) throws URISyntaxException {
+		return Paths.get(this.getClass().getClassLoader().getResource(pathString).toURI()).toString();
 	}
 
 	@Test
-	public void elSerializadorPuedeDeserializarArchivosDeClientesVacios() throws FileNotFoundException, IOException{
+	public void elSerializadorPuedeDeserializarElArchivoDeClientes() throws FalloTraduccionException, FileNotFoundException {
+		serializador = new SerializadorJson(pathClientes);
+
+		assertNotNull(serializador.deserializarClientes());
+	}
+
+	@Test
+	public void elSerializadorPuedeDeserializarArchivosDeClientesVacios() throws FalloTraduccionException, FileNotFoundException, IOException {
 		File dummyFile = new File("clientesDummy.json");
 		dummyFile.createNewFile();
-		Path dummyJson = Paths.get(dummyFile.getAbsolutePath());
+		String dummyJson = Paths.get(dummyFile.getAbsolutePath()).toString();
+		serializador = new SerializadorJson(dummyJson);
 
-		serializador.deserializarClientes(dummyJson);
+		serializador.deserializarClientes();
 		dummyFile.delete();
 	}
 
-	// TODO: este test estaria muy acoplado al archivo del dominio, que va a cambiar mucho...
+	// TODO: este test estaria muy acoplado al archivo del dominio, que va a cambiar
+	// mucho...
 	@Test
-	public void deserializarUnArchivoConTresClientesTraeLosTres() throws FileNotFoundException{
+	public void deserializarUnArchivoConTresClientesTraeLosTres() throws FalloTraduccionException, FileNotFoundException {
 		int cantidadEsperada = 3;
-		List<Cliente> clientes = serializador.deserializarClientes(pathClientes);		
+		serializador = new SerializadorJson(pathClientes);
+		List<Cliente> clientes = serializador.deserializarClientes();
+
 		assertEquals(cantidadEsperada, clientes.size());
 	}
 
 	// TODO: creo que habria que ver que onda con que casos de error prevenir
 	@Test(expected = JsonSyntaxException.class)
-	public void cargarUnArchivoDefectuosoProduceUnaFalla() throws FileNotFoundException{
-		serializador.deserializarClientes(pathClientesDefectuoso);
-	}	
+	public void cargarUnArchivoDefectuosoProduceUnaFalla() throws FalloTraduccionException, FileNotFoundException {
+		serializador = new SerializadorJson(pathClientesDefectuoso);
+
+		serializador.deserializarClientes();
+	}
 }
