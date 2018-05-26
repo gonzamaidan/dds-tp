@@ -47,7 +47,7 @@ public class DispositivoInteligente {
 		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
 
-	public double consumoEnUltimasHoras(double horas) {
+	public double consumoEnUltimasHoras(int horas) {
 		/*
 		Este metodo recibe N horas, la idea es restarle esas N horas
 		a la hora actual, y pasar como parametros la hora actual y la "horaActual - N horas"
@@ -56,11 +56,18 @@ public class DispositivoInteligente {
 		
 		LocalDateTime horaActual = LocalDateTime.now();
 		//LocalDateTime horaInicial = horaActual - horas; (NO PUDE CALCULAR ESTO)
+		int anio = horaActual.getYear();
+		int mes = horaActual.getMonthValue();
+		int dia = horaActual.getDayOfMonth();
+		int hora = horaActual.getHour() - horas;
+		int minutos = horaActual.getMinute();
+		
+		LocalDateTime horaInicial = LocalDateTime.of(anio, mes, dia, hora, minutos);
+		
+		return consumoEnElPeriodo(horaInicial, horaActual);
 		
 		
-		//return consumoEnElPeriodo(horaInicial, horaActual);
-		
-		return 0; //Agrego esto para que no rompa
+		//return 0; //Agrego esto para que no rompa
 	}
 
 	
