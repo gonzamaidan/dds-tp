@@ -1,10 +1,6 @@
 package dominio.dispositivo;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 public class DispositivoInteligente {
@@ -12,7 +8,7 @@ public class DispositivoInteligente {
 	String nombreGenerico;
 	Double consumo;
 	EstadoDispositivo estadoDispositivo;
-	//UsoDeDispositivo usoDeDispositivo; crear la lista de usos
+	// UsoDeDispositivo usoDeDispositivo; crear la lista de usos
 	UsoDeDispositivo usoDispositivoActual;
 	List<UsoDeDispositivo> todosLosUsos;
 
@@ -20,7 +16,7 @@ public class DispositivoInteligente {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
 		this.estadoDispositivo = estadoDispositivo;
-		
+
 	}
 
 	public DispositivoInteligente(DispositivoEstandar dispositivo) {
@@ -29,48 +25,44 @@ public class DispositivoInteligente {
 	public enum EstadoDispositivo {
 		ON, OFF, MODO_AHORRO;
 	}
-	
+
 	/*
-	public void crearUsoDeDispositivo(EstadoDispositivo estadoDispositivo) {
-		this.usoDeDispositivo = new UsoDeDispositivo();
-		this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo);
-	}
-*/
+	 * public void crearUsoDeDispositivo(EstadoDispositivo estadoDispositivo) {
+	 * this.usoDeDispositivo = new UsoDeDispositivo();
+	 * this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo); }
+	 */
 	public double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 
 		double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
 		return horasDeConsumo * consumo;
 	}
-	
+
 	public double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		
+
 		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
 
 	public double consumoEnUltimasHoras(int horas) {
 		/*
-		Este metodo recibe N horas, la idea es restarle esas N horas
-		a la hora actual, y pasar como parametros la hora actual y la "horaActual - N horas"
-		como parametro al metodo consumoEnElPeriodo(...)
-		*/
-		
+		 * Este metodo recibe N horas, la idea es restarle esas N horas a la hora
+		 * actual, y pasar como parametros la hora actual y la "horaActual - N horas"
+		 * como parametro al metodo consumoEnElPeriodo(...)
+		 */
+
 		LocalDateTime horaActual = LocalDateTime.now();
-		//LocalDateTime horaInicial = horaActual - horas; (NO PUDE CALCULAR ESTO)
+		// LocalDateTime horaInicial = horaActual - horas; (NO PUDE CALCULAR ESTO)
 		int anio = horaActual.getYear();
 		int mes = horaActual.getMonthValue();
 		int dia = horaActual.getDayOfMonth();
 		int hora = horaActual.getHour() - horas;
 		int minutos = horaActual.getMinute();
-		
-		LocalDateTime horaInicial = LocalDateTime.of(anio, mes, dia, hora, minutos);
-		
-		return consumoEnElPeriodo(horaInicial, horaActual);
-		
-		
-		//return 0; //Agrego esto para que no rompa
-	}
 
-	
+		LocalDateTime horaInicial = LocalDateTime.of(anio, mes, dia, hora, minutos);
+
+		return consumoEnElPeriodo(horaInicial, horaActual);
+
+		// return 0; //Agrego esto para que no rompa
+	}
 
 	public void encenderse() {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
@@ -78,29 +70,23 @@ public class DispositivoInteligente {
 			this.ejecutarUsoDeDispositivo();
 		}
 	}
-	
+
 	public void ejecutarUsoDeDispositivo() {
 		this.usoDispositivoActual = new UsoDeDispositivo();
 		usoDispositivoActual.setFechaHoraEncendido(LocalDateTime.now());
 	}
-	
-	
-	
-	
+
 	public void apagarse() {
 		if (!this.estaApagado()) {
 			this.estadoDispositivo = EstadoDispositivo.OFF;
 			this.terminarUsoDeDispositivo();
 		}
 	}
-	
+
 	public void terminarUsoDeDispositivo() {
 		usoDispositivoActual.setFechaHoraApagado(LocalDateTime.now());
 		todosLosUsos.add(usoDispositivoActual);
 	}
-	
-	
-	
 
 	public boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
