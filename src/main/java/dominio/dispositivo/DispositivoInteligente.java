@@ -36,13 +36,13 @@ public class DispositivoInteligente {
 */
 	public double consumoEnElPeriodo(LocalDate fechaInicio, LocalDate fechaFin) {
 
-		double horasConsumindas = ChronoUnit.HOURS.between(fechaInicio, fechaFin);
-		return this.consumoEnUltimasHoras(horasConsumindas);
+		//double horasConsumindas = ChronoUnit.HOURS.between(fechaInicio, fechaFin);
+		//return this.consumoEnUltimasHoras(horasConsumindas);
 	}
 	
-	public double cantidadTotalDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+	public double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		
-		return 0; //todosLosUsos.stream().map(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin));
+		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
 
 	public double consumoEnUltimasHoras(double horas) {
