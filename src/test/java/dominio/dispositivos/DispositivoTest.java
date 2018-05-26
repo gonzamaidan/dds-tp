@@ -47,7 +47,7 @@ public class DispositivoTest {
 		dispositivo.encenderse();
 		dispositivo.apagarse();
 		
-		assertEquals(0, dispositivo.consumoEnUltimasHoras(3), 0.0000001);
+		assertEquals(0, dispositivo.consumoEnUltimasHoras(3L), 0.0000001);
 		
 	}
 }

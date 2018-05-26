@@ -28,41 +28,26 @@ public class DispositivoInteligente {
 	}
 
 	/*
-	 * public void crearUsoDeDispositivo(EstadoDispositivo estadoDispositivo) {
-	 * this.usoDeDispositivo = new UsoDeDispositivo();
-	 * this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo); }
-	 */
-	public double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-
+	public void crearUsoDeDispositivo(EstadoDispositivo estadoDispositivo) {
+		this.usoDeDispositivo = new UsoDeDispositivo();
+		this.usoDeDispositivo.agregarCambioDeEstado(estadoDispositivo);
+	}
+*/
+	public Double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
 		double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
 		return horasDeConsumo * consumo;
 	}
-
-	public double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-
+	
+	public Double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
+		
 		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
 
-	public double consumoEnUltimasHoras(int horas) {
-		/*
-		 * Este metodo recibe N horas, la idea es restarle esas N horas a la hora
-		 * actual, y pasar como parametros la hora actual y la "horaActual - N horas"
-		 * como parametro al metodo consumoEnElPeriodo(...)
-		 */
-
+	public Double consumoEnUltimasHoras(Long horas) {
 		LocalDateTime horaActual = LocalDateTime.now();
-		// LocalDateTime horaInicial = horaActual - horas; (NO PUDE CALCULAR ESTO)
-		int anio = horaActual.getYear();
-		int mes = horaActual.getMonthValue();
-		int dia = horaActual.getDayOfMonth();
-		int hora = horaActual.getHour() - horas;
-		int minutos = horaActual.getMinute();
-
-		LocalDateTime horaInicial = LocalDateTime.of(anio, mes, dia, hora, minutos);
-
+		LocalDateTime horaInicial = horaActual.minusHours(horas); 
 		return consumoEnElPeriodo(horaInicial, horaActual);
-
-		// return 0; //Agrego esto para que no rompa
+		
 	}
 
 	public void encenderse() {
@@ -89,16 +74,16 @@ public class DispositivoInteligente {
 		todosLosUsos.add(usoDispositivoActual);
 	}
 
-	public boolean estaEncendido() {
+	public Boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
 
 	}
 
-	public boolean estaApagado() {
+	public Boolean estaApagado() {
 		return estadoDispositivo.equals(EstadoDispositivo.OFF);
 	}
 
-	public boolean estaEnModoAhorro() {
+	public Boolean estaEnModoAhorro() {
 		return estadoDispositivo.equals(EstadoDispositivo.MODO_AHORRO);
 	}
 
