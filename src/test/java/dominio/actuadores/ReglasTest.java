@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import dominio.Magnitud;
 import dominio.Regla;
+import dominio.ReglasBuilder;
 import dominio.actuadores.comandos.ComandoApagar;
 import dominio.dispositivo.DispositivoInteligente;
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
@@ -15,18 +16,22 @@ import fixture.Dispositivos;
 
 public class ReglasTest {
 
+	private ReglasBuilder reglas;
 	private DispositivoInteligente dispositivoGenerico;
-	private Actuador apagar;
 	private Regla regla;
+
 	@Before
 	public void before() {
+		reglas = new ReglasBuilder();
 		dispositivoGenerico = new Dispositivos().dispositivoGenerico();
-		apagar = new Actuador(new ComandoApagar(new Lampara()), dispositivoGenerico);
-		regla = new Regla((medicion,  magnitud) -> {
-			return medicion > 1.0 && Magnitud.Luminusidad.equals(magnitud);
-		}, apagar);
+
+		regla = reglas.conDispositivoLogico(dispositivoGenerico)
+				.conDispositivoFisico(new Lampara())
+				.conCondicion((medicion,  magnitud) -> {
+					return medicion > 1.0 && Magnitud.Luminusidad.equals(magnitud);
+				})
+				.crearApagar();
 	}
-	
 	
 	@Test
 	public void ReglaDeberiaEjecutarseTest() {
