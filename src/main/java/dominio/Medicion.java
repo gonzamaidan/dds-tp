@@ -1,6 +1,7 @@
 package dominio;
 
 import java.util.function.DoublePredicate;
+import java.util.function.Predicate;
 
 public class Medicion {
 
@@ -12,8 +13,12 @@ public class Medicion {
 		this.valor = valor;
 	}
 
-	public Boolean comparar(DoublePredicate condicion) {
-		return condicion.test(valor);
+	public Boolean verificar(Predicate<Double> condicion) {
+		return condicion.test(this.valor);
+	}
+	
+	public Boolean comparar(Predicate<Medicion> condicion) {
+		return condicion.test(this);
 	}
 
 	public Double getValor() {
@@ -22,5 +27,9 @@ public class Medicion {
 	
 	public Magnitud getMagnitud() {
 		return this.magnitud;
+	}
+
+	public boolean esDeMagnitud(Magnitud otraMagnitud) {
+		return this.magnitud.equals(otraMagnitud);
 	}
 }
