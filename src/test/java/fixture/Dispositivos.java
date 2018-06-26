@@ -2,6 +2,8 @@ package fixture;
 
 import dominio.dispositivo.DispositivoInteligente;
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
+import dominio.dispositivo.fisicos.DispositivoFisico;
+import dominio.dispositivo.fisicos.Lampara;
 
 public class Dispositivos {
 
@@ -19,5 +21,9 @@ public class Dispositivos {
 		DispositivoInteligente dispositivo = dispositivoGenerico();
 		dispositivo.setEstadoDispositivo(estado);
 		return dispositivo;
+	}
+	
+	public DispositivoFisico dispositivoFisico() {
+		return new Lampara();
 	}
 }
