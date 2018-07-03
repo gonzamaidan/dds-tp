@@ -27,7 +27,8 @@ public class Cliente {
 	private Categorizador categorizador = new Categorizador();
 	//agrego atributo de puntaje
 	private Integer puntaje;
-	
+	private double posicionX;
+	private double posicionY;
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
 		this.documento = documento;
@@ -118,5 +119,9 @@ public class Cliente {
 
 	public int cantidadDeDispositivosInteligentes() {
 		return this.dispositivos.size();
+	}
+	
+	public void buscaryConectarATransformadorCercano() {
+		//debe encontrar al transformador mas cercano y conectarse
 	}
 }
