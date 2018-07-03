@@ -14,4 +14,11 @@ public class Transformador {
 		return usuariosConectados.stream().mapToDouble(u->u.calcularConsumoTotal()).sum();
 	}
 	
+	public void conectarCliente(Cliente cliente) {
+		this.usuariosConectados.add(cliente);
+	}
+	
+	public void desconectarCliente(Cliente cliente) {
+		this.usuariosConectados.remove(cliente);
+	}
 }
