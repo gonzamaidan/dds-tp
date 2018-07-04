@@ -22,7 +22,7 @@ public class Transformador {
 		this.usuariosConectados.remove(cliente);
 	}
 	
-	private double calcularKilometrosDesde(Double unaLongitud, Double unaLatitud) {
+	public  double calcularKilometrosDesde(Double unaLongitud, Double unaLatitud) {
 		
 		double radioTerrestre = 6371.00;
 		
