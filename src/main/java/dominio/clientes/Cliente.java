@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dominio.Categoria;
+import dominio.ZonaGeografica;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
 import funcional.Categorizador;
@@ -27,8 +28,9 @@ public class Cliente {
 	private Categorizador categorizador = new Categorizador();
 	//agrego atributo de puntaje
 	private Integer puntaje;
-	private double posicionX;
-	private double posicionY;
+	private ZonaGeografica zonaGeo;
+	private double longitud;
+	private double latitud;
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
 		this.documento = documento;
@@ -124,4 +126,5 @@ public class Cliente {
 	public void buscaryConectarATransformadorCercano() {
 		//debe encontrar al transformador mas cercano y conectarse
 	}
+	
 }

@@ -11,5 +11,7 @@ public class ZonaGeografica {
 		return transformadores.stream().mapToDouble(u->u.calcularConsumoTotal()).sum();
 	}
 	
-	
+	public Transformador transformadorMasCercano(Double unaLongitud, Double unaLatitud) {
+		
+	}
 }
