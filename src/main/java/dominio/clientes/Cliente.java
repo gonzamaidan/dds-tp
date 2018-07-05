@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dominio.Categoria;
+import dominio.Transformador;
 import dominio.ZonaGeografica;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
@@ -124,7 +125,9 @@ public class Cliente {
 	}
 	
 	public void buscaryConectarATransformadorCercano() {
-		//debe encontrar al transformador mas cercano y conectarse
+		Transformador transformador;
+		transformador=this.zonaGeo.transformadorMasCercano(this.longitud, this.latitud);
+		transformador.conectarCliente(this);
 	}
 	
 }
