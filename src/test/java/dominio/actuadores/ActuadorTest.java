@@ -10,33 +10,33 @@ import dominio.actuadores.comandos.ComandoEncender;
 import dominio.dispositivo.DispositivoInteligente;
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import dominio.dispositivo.fisicos.Lampara;
-import fixture.Dispositivos;
+import dominio.dispositivo.fisicos.TipoConcreto;
 
 public class ActuadorTest {
 
-	private DispositivoInteligente dispositivoGenerico;
+	private DispositivoInteligente dispositivo;
 	
 	@Before
 	public void before() {
-		dispositivoGenerico = new Dispositivos().dispositivoGenerico();
+		dispositivo = new DispositivoInteligente(new Lampara(TipoConcreto.De11W));
 	}
 	
 	@Test
 	public void ComandoApagarTest() {
-		Actuador actuador = new Actuador(new ComandoApagar(new Lampara()), dispositivoGenerico);
-		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.ON);
+		Actuador actuador = new Actuador(new ComandoApagar(), dispositivo);
+		dispositivo.encenderse();
 
 		actuador.actuar();
-		assertEquals("El dispositivo esta apagado despues de ejecutar el actuador", EstadoDispositivo.OFF, dispositivoGenerico.getEstadoDispositivo());
+		assertEquals("El dispositivo esta apagado despues de ejecutar el actuador", EstadoDispositivo.OFF, dispositivo.getEstadoDispositivo());
 	}
 	
 	@Test
 	public void ComandoEncenderTest() {
-		Actuador actuador = new Actuador(new ComandoEncender(new Lampara()), dispositivoGenerico);
-		dispositivoGenerico.setEstadoDispositivo(EstadoDispositivo.OFF);
+		Actuador actuador = new Actuador(new ComandoEncender(), dispositivo);
+		dispositivo.apagarse();
 
 		actuador.actuar();
-		assertEquals("El dispositivo esta encendido despues de ejecutar el actuador", EstadoDispositivo.ON, dispositivoGenerico.getEstadoDispositivo());
+		assertEquals("El dispositivo esta encendido despues de ejecutar el actuador", EstadoDispositivo.ON, dispositivo.getEstadoDispositivo());
 	}
 	
 }
