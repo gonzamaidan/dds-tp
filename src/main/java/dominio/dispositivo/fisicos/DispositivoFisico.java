@@ -10,9 +10,33 @@ package dominio.dispositivo.fisicos;
  *  con ese aire acondicionado.
  *
  */
-public interface DispositivoFisico {
+public abstract class DispositivoFisico {
 
-	public void apagar();
-	public void encender();
+	protected TipoGenerico tipoGenerico;
+	protected TipoConcreto tipoConcreto;
+	
+	public DispositivoFisico(TipoGenerico tipoGenerico, TipoConcreto tipoConcreto) {
+		this.tipoGenerico = tipoGenerico;
+		this.tipoConcreto = tipoConcreto;
+	}
+	
+	public TipoGenerico getNombreGenerico() {
+		return this.tipoGenerico;
+	}
+	
+	public TipoConcreto getSubtipo() {
+		return this.tipoConcreto;
+	}
+	
+	public Boolean esInteligente() {
+		return this.tipoConcreto.esInteligente();
+	}
+	
+	public Double getConsumo() {
+		return this.tipoConcreto.getConsumo();
+	}
+	
+	public abstract void apagar();
+	public abstract void encender();
 	
 }
