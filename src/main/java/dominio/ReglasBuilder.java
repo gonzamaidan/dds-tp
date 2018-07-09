@@ -3,23 +3,17 @@ package dominio;
 import java.util.function.BiFunction;
 
 import dominio.actuadores.Actuador;
-import dominio.actuadores.comandos.*;
-import dominio.dispositivo.fisicos.*;
-import dominio.dispositivo.*;
+import dominio.actuadores.comandos.ComandoApagar;
+import dominio.actuadores.comandos.ComandoEncender;
+import dominio.dispositivo.DispositivoInteligente;
 
 public class ReglasBuilder {
 
 	private BiFunction<Double, Magnitud, Boolean>  condicion;
-	private DispositivoFisico fisico;
 	private DispositivoInteligente logico;
 
 	public ReglasBuilder conDispositivoLogico(DispositivoInteligente logico) {
 		this.logico = logico;
-		return this;
-	}
-	
-	public ReglasBuilder conDispositivoFisico(DispositivoFisico fisico) {
-		this.fisico = fisico;
 		return this;
 	}
 	
@@ -29,12 +23,12 @@ public class ReglasBuilder {
 	}
 	
 	public Regla crearApagar() {
-		Actuador act = new Actuador(new ComandoApagar(fisico), logico);
+		Actuador act = new Actuador(new ComandoApagar(), logico);
 		return new Regla(condicion, act);
 	}
 
 	public Regla crearEncender() {
-		Actuador act = new Actuador(new ComandoEncender(fisico), logico);
+		Actuador act = new Actuador(new ComandoEncender(), logico);
 		return new Regla(condicion, act);
 	}
 }
