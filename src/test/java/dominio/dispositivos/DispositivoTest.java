@@ -15,9 +15,11 @@ public class DispositivoTest {
 	private UsoDeDispositivo uso;
 	private LocalDateTime fechaHoraEncendido;
 	private LocalDateTime fechaHoraApagado;
+	private Dispositivos dispositivos;
 	
 	@Before
 	public void inicializar() {
+		dispositivos = new Dispositivos();
 		uso = new UsoDeDispositivo();
 		fechaHoraEncendido = LocalDateTime.of(2000, 5, 5, 1, 0);
 		fechaHoraApagado = LocalDateTime.of(2000, 5, 5, 5, 0);
@@ -43,7 +45,7 @@ public class DispositivoTest {
 	
 	@Test
 	public void consumoEnLasUltimasNHorasDentroDelRangoDeConsumo() {
-		DispositivoInteligente dispositivo = Dispositivos.dispositivoGenerico();
+		DispositivoInteligente dispositivo = dispositivos.inteligenteGenerico();
 		dispositivo.encenderse();
 		dispositivo.apagarse();
 		

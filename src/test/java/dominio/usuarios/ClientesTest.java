@@ -17,7 +17,7 @@ public class ClientesTest {
 	
 	@Test
 	public void clienteSabeSiAlgunoDeSusDispositivosEstaEncendido() {
-		Cliente cliente = clientes.clienteConDispositivos(3);
+		Cliente cliente = clientes.clienteConDispositivosInteligentes(3);
 		cliente.agregarDispositivo(dispositivos.dipositivoConEstado(EstadoDispositivo.ON));
 
 		assertTrue(cliente.tieneAlgunDispositivoEncendido());
@@ -35,14 +35,14 @@ public class ClientesTest {
 	@Test
 	public void clienteSabeLaCantidadDeDispositivosAgregados() {
 		int cantidad = 5;
-		Cliente cliente = clientes.clienteConDispositivos(cantidad);
+		Cliente cliente = clientes.clienteConDispositivosInteligentes(cantidad);
 
 		assertEquals(cantidad, cliente.cantidadTotalDeDispositivos());
 	}
 	
 	@Test
 	public void clienteTieneDosDispositivos() {
-		Cliente cliente = clientes.clienteConDispositivos(2);
+		Cliente cliente = clientes.clienteConDispositivosInteligentes(2);
 
 		assertEquals(2, cliente.cantidadTotalDeDispositivos());
 	}
