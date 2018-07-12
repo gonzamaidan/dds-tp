@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dominio.Categoria;
+import dominio.Posicion;
 import dominio.Transformador;
 import dominio.ZonaGeografica;
 import dominio.dispositivo.DispositivoEstandar;
@@ -29,9 +30,9 @@ public class Cliente {
 	private Categorizador categorizador = new Categorizador();
 	//agrego atributo de puntaje
 	private Integer puntaje;
-	private ZonaGeografica zonaGeo;
-	private double longitud;
-	private double latitud;
+	public ZonaGeografica zonaGeo;
+	public Posicion posicion;
+	
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
 		this.documento = documento;
@@ -124,10 +125,6 @@ public class Cliente {
 		return this.dispositivos.size();
 	}
 	
-	public void buscaryConectarATransformadorCercano() {
-		Transformador transformador;
-		transformador=this.zonaGeo.transformadorMasCercano(this.longitud, this.latitud);
-		transformador.conectarCliente(this);
-	}
+	
 	
 }
