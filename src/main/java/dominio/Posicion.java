@@ -5,15 +5,15 @@ public class Posicion {
 	private Double  longitud;
 	private Double latitud;
 	
-public  Double calcularKilometrosDesde(Double unaLongitud, Double unaLatitud) {
+public  Double calcularKilometrosDesde(Posicion posicion) {
 		
 	Double radioTerrestre = 6371.00;
 		
-	Double latitudOrigen = unaLatitud;
+	Double latitudOrigen = posicion.getLatitud();
 		
 	Double latitudDestino = this.latitud;
 		
-	Double longitudOrigen = unaLongitud;
+	Double longitudOrigen = posicion.getLongitud();
 		
 	Double longitudDestino = this.longitud;
 		

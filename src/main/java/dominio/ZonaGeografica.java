@@ -14,10 +14,10 @@ public class ZonaGeografica {
 		return transformadores.stream().mapToDouble(t->t.calcularConsumoTotal()).sum();
 	}
 	
-	public Transformador transformadorMasCercano(Double unaLongitud, Double unaLatitud) {
+	public Transformador transformadorMasCercano(Posicion posicion) {
 	Transformador transformador;
 	transformador=transformadores.stream()
-		.sorted(Comparator.comparing(t->t.getPosicion().calcularKilometrosDesde(unaLongitud,unaLatitud)))
+		.sorted(Comparator.comparing(t->t.getPosicion().calcularKilometrosDesde(posicion)))
 		.findFirst().get();
 		
 	return transformador;
@@ -25,7 +25,7 @@ public class ZonaGeografica {
 	
 	public void buscaryConectarATransformadorCercano(Cliente cliente) {
 		Transformador transformador;
-		transformador=cliente.zonaGeo.transformadorMasCercano(cliente.getPosicion().getLongitud(), cliente.getPosicion().getLatitud());
+		transformador=cliente.zonaGeo.transformadorMasCercano(cliente.getPosicion());
 		transformador.conectarCliente(cliente);
 	}
 }
