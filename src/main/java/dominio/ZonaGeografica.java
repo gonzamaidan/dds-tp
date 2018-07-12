@@ -17,7 +17,7 @@ public class ZonaGeografica {
 	public Transformador transformadorMasCercano(Double unaLongitud, Double unaLatitud) {
 	Transformador transformador;
 	transformador=transformadores.stream()
-		.sorted(Comparator.comparing(t->t.posicion.calcularKilometrosDesde(unaLongitud,unaLatitud)))
+		.sorted(Comparator.comparing(t->t.getPosicion().calcularKilometrosDesde(unaLongitud,unaLatitud)))
 		.findFirst().get();
 		
 	return transformador;
@@ -25,7 +25,7 @@ public class ZonaGeografica {
 	
 	public void buscaryConectarATransformadorCercano(Cliente cliente) {
 		Transformador transformador;
-		transformador=cliente.zonaGeo.transformadorMasCercano(cliente.posicion.longitud, cliente.posicion.latitud);
+		transformador=cliente.zonaGeo.transformadorMasCercano(cliente.getPosicion().getLongitud(), cliente.getPosicion().getLatitud());
 		transformador.conectarCliente(cliente);
 	}
 }

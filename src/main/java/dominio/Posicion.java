@@ -2,8 +2,8 @@ package dominio;
 
 public class Posicion {
 
-	public Double  longitud;
-	public Double latitud;
+	private Double  longitud;
+	private Double latitud;
 	
 public  Double calcularKilometrosDesde(Double unaLongitud, Double unaLatitud) {
 		
@@ -28,4 +28,12 @@ public  Double calcularKilometrosDesde(Double unaLongitud, Double unaLatitud) {
 		
 		return radioTerrestre * c;
 	}
+
+public Double getLongitud() {
+	return longitud;
+}
+
+public Double getLatitud() {
+	return latitud;
+}
 }

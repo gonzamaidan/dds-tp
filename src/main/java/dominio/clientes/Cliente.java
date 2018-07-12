@@ -31,7 +31,7 @@ public class Cliente {
 	//agrego atributo de puntaje
 	private Integer puntaje;
 	public ZonaGeografica zonaGeo;
-	public Posicion posicion;
+	private Posicion posicion;
 	
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
@@ -123,6 +123,10 @@ public class Cliente {
 
 	public int cantidadDeDispositivosInteligentes() {
 		return this.dispositivos.size();
+	}
+
+	public Posicion getPosicion() {
+		return posicion;
 	}
 	
 	

@@ -7,7 +7,7 @@ import dominio.clientes.Cliente;
 public class Transformador {
 	
 	private List<Cliente> usuariosConectados;
-	public Posicion posicion;
+	private Posicion posicion;
 	
 	public double calcularConsumoTotal() {
 	
@@ -21,6 +21,11 @@ public class Transformador {
 	public void desconectarCliente(Cliente cliente) {
 		this.usuariosConectados.remove(cliente);
 	}
+
+	public Posicion getPosicion() {
+		return posicion;
+	}
+
 	
 	
 }
