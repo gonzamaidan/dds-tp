@@ -9,8 +9,6 @@ import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
  */
 public class Lampara extends DispositivoFisico {
 
-	private EstadoDispositivo estado;
-
 	public Lampara(TipoConcreto subtipo) {
 		super(TipoGenerico.Lampara, subtipo);
 	}
@@ -25,9 +23,5 @@ public class Lampara extends DispositivoFisico {
 
 	public void encender() {
 		estado = EstadoDispositivo.ON;
-	}
-
-	public EstadoDispositivo getEstado() {
-		return estado;
 	}
 }
