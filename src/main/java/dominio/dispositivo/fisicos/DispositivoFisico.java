@@ -1,4 +1,7 @@
 package dominio.dispositivo.fisicos;
+
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
+
 /**
  * 
  * Esta clase representa a un elemento fisico concreto y la conexion con este dispositivo,
@@ -14,14 +17,19 @@ public abstract class DispositivoFisico {
 
 	protected TipoGenerico tipoGenerico;
 	protected TipoConcreto tipoConcreto;
+	protected EstadoDispositivo estado;
 	
 	public DispositivoFisico(TipoGenerico tipoGenerico, TipoConcreto tipoConcreto) {
 		this.tipoGenerico = tipoGenerico;
 		this.tipoConcreto = tipoConcreto;
 	}
 	
-	public TipoGenerico getNombreGenerico() {
+	public TipoGenerico getTipoGenerico() {
 		return this.tipoGenerico;
+	}
+
+	public String getNombreGenerico() {
+		return this.tipoGenerico.toString();
 	}
 	
 	public TipoConcreto getSubtipo() {
@@ -31,12 +39,16 @@ public abstract class DispositivoFisico {
 	public Boolean esInteligente() {
 		return this.tipoConcreto.esInteligente();
 	}
-	
+
 	public Double getConsumo() {
 		return this.tipoConcreto.getConsumo();
 	}
-	
+
+	public EstadoDispositivo getEstado() {
+		return estado;
+	}
+
 	public abstract void apagar();
+
 	public abstract void encender();
-	
 }

@@ -49,7 +49,6 @@ public class DispositivoInteligente {
 		LocalDateTime horaActual = LocalDateTime.now();
 		LocalDateTime horaInicial = horaActual.minusHours(horas); 
 		return consumoEnElPeriodo(horaInicial, horaActual);
-		
 	}
 
 	public void encenderse() {
@@ -92,10 +91,14 @@ public class DispositivoInteligente {
 
 	// SETTERS Y GETTERS (Accessors ;D)
 
-	public TipoGenerico getNombreGenerico() {
+	public String getNombreGenerico() {
 		return dispositivoFisico.getNombreGenerico();
 	}
-
+	
+	public TipoGenerico getTipoGenerico() {
+		return dispositivoFisico.getTipoGenerico();
+	}
+	
 	public Double getConsumo() {
 		return dispositivoFisico.getConsumo();
 	}

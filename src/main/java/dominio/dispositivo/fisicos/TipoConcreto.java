@@ -1,5 +1,7 @@
 package dominio.dispositivo.fisicos;
 
+import java.util.EnumMap;
+
 public enum TipoConcreto {
 
 	// Aires Acondicionados
@@ -53,6 +55,17 @@ public enum TipoConcreto {
 		this.esInteligente = esInteligente;
 		this.esBajoConsumo = esBajoConsumo;
 		this.consumo = consumo;
+	}
+	
+	public static EnumMap<TipoGenerico, TipoConcreto> tiposConcretos = new EnumMap<>(TipoGenerico.class);
+	static {
+		for (TipoConcreto registro : TipoConcreto.values()) {
+			tiposConcretos.put(registro.getTipo(), registro);
+		}
+	}
+
+	public TipoGenerico getTipo() {
+		return this.tipoGenerico;
 	}
 
 	public Double getConsumo() {
