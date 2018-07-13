@@ -2,6 +2,7 @@ package dominio.recomendador;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.EnumMap;
 import java.util.List;
 
 import org.apache.commons.math3.optim.MaxIter;
@@ -15,8 +16,8 @@ import org.apache.commons.math3.optim.linear.Relationship;
 import org.apache.commons.math3.optim.linear.SimplexSolver;
 import org.apache.commons.math3.optim.nonlinear.scalar.GoalType;
 
-import dominio.dispositivo.fisicos.DispositivoFisico;
-import dominio.dispositivo.fisicos.TipoConcreto;
+import dominio.dispositivo.DispositivoInteligente;
+import dominio.dispositivo.fisicos.TipoGenerico;
 
 /**
  * Este seria el adapter contra el SimplexSolver de apache. Hay ciertos
@@ -24,62 +25,88 @@ import dominio.dispositivo.fisicos.TipoConcreto;
  * dispositivos. Podriamos retornar el valor maximo de horas y en otro metodo
  * retornar las horas para cada dispositivo
  */
-public class OptimizadorSimplex {
+public class OptimizadorSimplex implements Recomendador {
 
-	private Integer cantDispositivos = 8;
-	private Double maximoConsumo = 612.0;
+	private Integer cantDispositivos;
+	private Double maximoConsumo;
+	private Double cotaDeError;
+	private Integer limiteIteraciones;
 
-	public PointValuePair optimizar(List<DispositivoFisico> dispositivos) {
-		SimplexSolver solver = new SimplexSolver(0.0001);
-		OptimizationData linearConstraints = this.getRestricciones(dispositivos);
+	public OptimizadorSimplex(Double maximoConsumo) {
+		this.cantDispositivos = MapaDispositivos.values().length;
+		this.maximoConsumo = maximoConsumo;
+		this.cotaDeError = 0.0001;
+		this.limiteIteraciones = 1000;
+	}
+
+	@Override
+	public Recomendacion obtenerRecomendacion(List<DispositivoInteligente> dispositivos) {
+		PointValuePair valorOptimo = this.optimizar(dispositivos);
+		return new Recomendacion(valorOptimo.getValue(), this.consumosPorDispositivo(valorOptimo.getPoint()));
+	}
+	
+	private EnumMap<TipoGenerico, Double> consumosPorDispositivo(double[] consumosOptimos) {
+		EnumMap<TipoGenerico, Double> consumosDispositivo = new EnumMap<>(TipoGenerico.class);
+		
+		for (MapaDispositivos mdisp : MapaDispositivos.values()) {
+			consumosDispositivo.put(mdisp.getTipo(), consumosOptimos[mdisp.ordinal()]);
+		}
+		
+		return consumosDispositivo;
+	}
+
+	private PointValuePair optimizar(List<DispositivoInteligente> dispositivos) {
+		SimplexSolver solver = new SimplexSolver(cotaDeError);
+
 		OptimizationData objectiveFunction = this.getFuncion(dispositivos);
+		OptimizationData linearConstraints = this.getRestricciones(dispositivos);
 		OptimizationData criterio = GoalType.MAXIMIZE;
 		OptimizationData sinNegativas = new NonNegativeConstraint(Boolean.FALSE);
-		OptimizationData maxIteraciones = new MaxIter(1000);
+		OptimizationData maxIteraciones = new MaxIter(limiteIteraciones);
+
 		return solver.optimize(objectiveFunction, linearConstraints, criterio, sinNegativas, maxIteraciones);
 	}
 
-	public LinearObjectiveFunction getFuncion(List<DispositivoFisico> dispositivos) {
+	private LinearObjectiveFunction getFuncion(List<DispositivoInteligente> dispositivos) {
 
 		double[] coeficientes = new double[cantDispositivos];
-		for (DispositivoFisico d : dispositivos) {
-			int posicion = MapaDispositivos.mapa.get(d.getNombreGenerico()).ordinal();
-			TipoConcreto conc = TipoConcreto.tiposConcretos.get(d.getNombreGenerico());
+		for (DispositivoInteligente d : dispositivos) {
+			int posicion = MapaDispositivos.obtenerPorTipo(d.getTipoGenerico()).ordinal();
 
-			coeficientes[posicion] += conc.getConsumo();
+			coeficientes[posicion] += d.getConsumo();
 		}
 
 		LinearObjectiveFunction function = new LinearObjectiveFunction(coeficientes, 0.0);
 		return function;
 	}
 
-	public LinearConstraintSet getRestricciones(List<DispositivoFisico> dispositivos) {
+	private LinearConstraintSet getRestricciones(List<DispositivoInteligente> dispositivos) {
 
 		Collection<LinearConstraint> restricciones = new ArrayList<LinearConstraint>();
-		for (DispositivoFisico d : dispositivos) {
-			
+		for (DispositivoInteligente disp : dispositivos) {
+
 			double[] coefRestriccion = new double[cantDispositivos];
-			MapaDispositivos reg = MapaDispositivos.mapa.get(d.getNombreGenerico());
-			coefRestriccion[reg.ordinal()] = 1;
+			TipoGenerico tipoDispositivo = disp.getTipoGenerico();
+			coefRestriccion[MapaDispositivos.getPosicionDe(tipoDispositivo)] += 1;
 
-			restricciones.add(new LinearConstraint(coefRestriccion, Relationship.GEQ, reg.getMin()));
-			restricciones.add(new LinearConstraint(coefRestriccion, Relationship.LEQ, reg.getMax()));
+			restricciones.add(new LinearConstraint(coefRestriccion, Relationship.GEQ, MapaDispositivos.horasMinimasDe(tipoDispositivo)));
+			restricciones.add(new LinearConstraint(coefRestriccion, Relationship.LEQ, MapaDispositivos.horasMaximasDe(tipoDispositivo)));
 		}
-		
-		restricciones.add(this.obtenerRestriccionBasica(dispositivos));
 
+		restricciones.add(this.obtenerRestriccionBasica(dispositivos));
 		return new LinearConstraintSet(restricciones);
 	}
 
-	private LinearConstraint obtenerRestriccionBasica(List<DispositivoFisico> dispositivos) {
-		
-		double[] coefRestriccion = new double[cantDispositivos];
-		for (DispositivoFisico disp : dispositivos) {
+	private LinearConstraint obtenerRestriccionBasica(List<DispositivoInteligente> dispositivos) {
 
-			int posicion = MapaDispositivos.mapa.get(disp.getNombreGenerico()).ordinal();
+		double[] coefRestriccion = new double[cantDispositivos];
+		for (DispositivoInteligente disp : dispositivos) {
+
+			int posicion = MapaDispositivos.getPosicionDe(disp.getTipoGenerico());
 			coefRestriccion[posicion] += disp.getConsumo();
 		}
-		
+
 		return new LinearConstraint(coefRestriccion, Relationship.LEQ, maximoConsumo);
 	}
+
 }
