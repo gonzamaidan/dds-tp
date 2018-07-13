@@ -4,10 +4,8 @@ import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import dominio.dispositivo.fisicos.AireAcondicionado;
-import dominio.dispositivo.fisicos.DispositivoFisico;
 import dominio.dispositivo.fisicos.Lampara;
 import dominio.dispositivo.fisicos.TipoConcreto;
-import dominio.dispositivo.fisicos.TipoGenerico;
 
 public class Dispositivos {
 	
@@ -29,10 +27,10 @@ public class Dispositivos {
 		return new DispositivoInteligente(new Lampara(TipoConcreto.De20W));
 	}
 	
-	public DispositivoFisico fisicoL(TipoConcreto tipo) {
-		return new Lampara(tipo);
+	public DispositivoInteligente lampara(TipoConcreto subTipo) {
+		return new DispositivoInteligente(new Lampara(subTipo));
 	}
-	public DispositivoFisico fisicoAC(TipoConcreto subTipo) {
-		return new AireAcondicionado(subTipo);
+	public DispositivoInteligente aireAcondicionado(TipoConcreto subTipo) {
+		return new DispositivoInteligente(new AireAcondicionado(subTipo));
 	}
 }
