@@ -24,8 +24,12 @@ public abstract class DispositivoFisico {
 		this.tipoConcreto = tipoConcreto;
 	}
 	
-	public TipoGenerico getNombreGenerico() {
+	public TipoGenerico getTipoGenerico() {
 		return this.tipoGenerico;
+	}
+
+	public String getNombreGenerico() {
+		return this.tipoGenerico.toString();
 	}
 	
 	public TipoConcreto getSubtipo() {
