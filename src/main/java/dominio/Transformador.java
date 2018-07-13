@@ -25,6 +25,10 @@ public class Transformador {
 	public Posicion getPosicion() {
 		return posicion;
 	}
+	
+	public Integer cantidadDeUsuariosConectados() {
+		return usuariosConectados.size();
+	}
 
 	
 	

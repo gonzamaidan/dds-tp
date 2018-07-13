@@ -39,4 +39,8 @@ public class Dispositivos {
 	public DispositivoInteligente dispoitivo5() {
 		return new DispositivoInteligente("Lavarropas", 18.4, EstadoDispositivo.OFF);
 	}
+	
+	public DispositivoInteligente dispoitivo6() {
+		return new DispositivoInteligente("Pava electrica", 11.4, EstadoDispositivo.ON);
+	}
 }
