@@ -1,6 +1,6 @@
 package dominio;
 
-import java.util.function.BiFunction;
+import java.util.function.Predicate;
 
 import dominio.actuadores.Actuador;
 import dominio.actuadores.comandos.ComandoApagar;
@@ -9,7 +9,7 @@ import dominio.dispositivo.DispositivoInteligente;
 
 public class ReglasBuilder {
 
-	private BiFunction<Double, Magnitud, Boolean>  condicion;
+	private Predicate<Medicion> condicion;
 	private DispositivoInteligente logico;
 
 	public ReglasBuilder conDispositivoLogico(DispositivoInteligente logico) {
@@ -17,7 +17,7 @@ public class ReglasBuilder {
 		return this;
 	}
 	
-	public ReglasBuilder conCondicion(BiFunction<Double, Magnitud, Boolean>  condicion) {
+	public ReglasBuilder conCondicion(Predicate<Medicion> condicion) {
 		this.condicion = condicion;
 		return this;
 	}

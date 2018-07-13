@@ -17,4 +17,44 @@ public class Clientes {
 		}
 		return cliente;
 	}
+	
+	public Cliente clienteCon1Dispositivo() {
+		Cliente cliente = clienteGenerico();
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo1());
+		return cliente;
+	}
+	
+	public Cliente clienteCon5Dispositivos() {
+		Cliente cliente = clienteGenerico();
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo1());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo2());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo3());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo4());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo5());
+		return cliente;
+	}
+	
+	public Cliente clienteCon2Dispositivos() {
+		Cliente cliente = clienteGenerico();
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo1());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo2());
+		return cliente;
+	}
+	
+	public Cliente clienteCon3Dispositivos() {
+		Cliente cliente = clienteGenerico();
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo1());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo2());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo3());
+		return cliente;
+	}
+	
+	public Cliente clienteCon4Dispositivos() {
+		Cliente cliente = clienteGenerico();
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo1());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo2());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo3());
+		cliente.agregarDispositivo(new Dispositivos().dispoitivo4());
+		return cliente;
+	}
 }
