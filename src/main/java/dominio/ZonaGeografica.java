@@ -36,5 +36,5 @@ public class ZonaGeografica {
 		transformador.conectarCliente(cliente);
 	}
 	
-	public agregarTransformador()
+	
 }

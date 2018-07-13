@@ -1,12 +1,13 @@
 package dominio;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import dominio.clientes.Cliente;
 
 public class Transformador {
 	
-	private List<Cliente> usuariosConectados;
+	private List<Cliente> usuariosConectados = new ArrayList<Cliente>();
 	private Posicion posicion;
 	
 	
