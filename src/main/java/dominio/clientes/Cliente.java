@@ -7,6 +7,7 @@ import java.util.List;
 import dominio.Categoria;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
+import dominio.recomendador.Recomendacion;
 import funcional.Categorizador;
 
 /*
@@ -25,6 +26,7 @@ public class Cliente {
 	//agrego la otra lista de dispositivos estandar
 	private List<DispositivoEstandar> dispositivosEstandar;
 	private Categorizador categorizador = new Categorizador();
+	private Recomendacion recomendacion;
 	//agrego atributo de puntaje
 	private Integer puntaje;
 	
@@ -119,4 +121,14 @@ public class Cliente {
 	public int cantidadDeDispositivosInteligentes() {
 		return this.dispositivos.size();
 	}
+
+	public Recomendacion getRecomendacion() {
+		return recomendacion;
+	}
+
+	public void setRecomendacion(Recomendacion recomendacion) {
+		this.recomendacion = recomendacion;
+	}
+	
+	
 }
