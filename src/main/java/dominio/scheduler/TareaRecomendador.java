@@ -3,7 +3,7 @@ package dominio.scheduler;
 import dominio.clientes.Cliente;
 import dominio.recomendador.Recomendacion;
 import dominio.recomendador.Recomendador;
-
+//TODO: Agregarle cuando el cliente tenga las reglas de actuar por si solo
 public class TareaRecomendador implements Tarea {
 
 	private Recomendador recomendador;
