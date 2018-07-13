@@ -1,0 +1,727 @@
+[33mcommit 1d9ad7d03781bba1e21ef4cc594240c03aa1b5da[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Thu Jul 5 11:58:04 2018 -0300
+
+    Cliente se conecta a transformador
+    
+    Se tienen las siguientes consideraciones
+    - El cliente o usuario se encuentra en una región  geografica
+    - El transformador más cercano debe estar en la misma región geográfica que el cliente
+    - La región sabe quien es el transformador más cercano dado una posición
+    - El transformador sabe calcular su distancia a una posición
+    - El cliente le pide a la región que le diga el transformador más cercano y luego se conecta.
+
+[33mcommit 2baf0b5246ca09ed71e8238d15cbc77ec74d0e55[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Wed Jul 4 18:02:52 2018 -0300
+
+    transformadorMasCercano
+
+[33mcommit 9810a6a43f624e5fa3a060d80687cc56fe25f9a3[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Wed Jul 4 14:55:24 2018 -0300
+
+    calcular distancia entre posiciones
+    
+    Se delega el caculo de distancia entre posiciones al transformador.
+
+[33mcommit ccb317008f45839c3dd01262deb24e7d6ea0f471[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon Jul 2 22:37:43 2018 -0300
+
+    agregoCoordenadas_al_cliente
+
+[33mcommit 98127b86885c086134845980b32b5b00021113ac[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon Jul 2 22:32:17 2018 -0300
+
+    conectarydesconectar
+
+[33mcommit 0362bad4e6a679d00b609a3ce92df62326bc70a1[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon Jul 2 22:21:21 2018 -0300
+
+    metodoParaCalcularConsumo
+
+[33mcommit 35d359398b3a9a0a451dbc2a95c937c246eb8825[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon Jul 2 21:52:18 2018 -0300
+
+    ZonaGeografica
+
+[33mcommit 7834e3c83d1d88f4a11c0faeef0545e2d8d770ab[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon Jul 2 21:48:46 2018 -0300
+
+    Transformador
+
+[33mcommit 55b6aa93304752c767442d1cbc395d27553e5b2e[m
+Merge: 324261f 384234d
+Author: Abdul <abdulganem@gmail.com>
+Date:   Sat Jun 23 13:12:16 2018 -0300
+
+    Merge pull request #18 from dds-utn/instanciacionSensores
+    
+    Instanciacion sensores
+
+[33mcommit 384234db169ec90eb8741fec01ffbcdc4051b75f[m
+Author: iña <isauri.github2@goat.si>
+Date:   Sat May 26 15:52:48 2018 -0300
+
+    Adapto test para usar el builder
+
+[33mcommit af6efbe9b930c5b43c9ee1443036c01d97ba7a03[m
+Author: iña <isauri.github2@goat.si>
+Date:   Sat May 26 15:52:33 2018 -0300
+
+    Agrego builder de reglas para facilitar el tema instanciacion
+
+[33mcommit 324261ff538588836a3b622f7c2232e848af93af[m
+Merge: d673d3d 46e912c
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Sat May 26 12:51:53 2018 -0300
+
+    Merge pull request #16 from dds-utn/conversorDeDispositivos
+    
+    Conversor de dispositivos
+
+[33mcommit 46e912c43a6a0ad63bec51021590ae1a11679b18[m
+Merge: a3ce6f4 d673d3d
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Sat May 26 12:50:11 2018 -0300
+
+    Merge branch 'master' into conversorDeDispositivos
+
+[33mcommit a3ce6f4afd13ddc474a93577f38dad1185c0fcbd[m
+Merge: b64d575 fbca8cf
+Author: gonzamaidan <gonzalo_maidan@hotmail.com>
+Date:   Sat May 26 12:34:26 2018 -0300
+
+    Merge pull request #17 from dds-utn/n-horas
+    
+    N horas
+
+[33mcommit fbca8cf6a426585eae81bcd2554ea609efc58367[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Sat May 26 12:33:39 2018 -0300
+
+    Corrijo test
+
+[33mcommit fe739de4e004660a2d278ee2d38b5c166ce489a1[m
+Merge: 465fd49 b64d575
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Sat May 26 12:33:22 2018 -0300
+
+    Resuelvo conflicto
+
+[33mcommit d673d3df5659325c365c73738c2dbf2a659eebdb[m
+Merge: 40e6b43 0ed00d2
+Author: gonzamaidan <gonzalo_maidan@hotmail.com>
+Date:   Sat May 26 12:03:44 2018 -0300
+
+    Merge pull request #14 from dds-utn/almacenamientoClientes
+    
+    Almacenamiento clientes
+
+[33mcommit b64d5754831c52a6d8975bf8bed7deec14060a71[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Sat May 26 11:23:15 2018 -0300
+
+    agrego test del consumo en un periodo de tiempo
+
+[33mcommit cf4df9d925e0dd81c7a4e2e782221a187f972953[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Sat May 26 01:26:42 2018 -0300
+
+    calculo la hora inicial para el consumoEnUltimasHoras
+
+[33mcommit abae6e4e0a1d30843e1e77d2396d588f4820737d[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Sat May 26 01:25:59 2018 -0300
+
+    corrijo el between del horasDeUsoEntre porque sino da negativo
+
+[33mcommit 465fd49c3d3fd05cd009102b0bd21d198b46eec8[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Sat May 26 01:21:10 2018 -0300
+
+    Agrego metodo con consumo en las ultimas n horas
+
+[33mcommit 9f71693ab5fbc12cb1ce4a2287817e3d9da5e743[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Sat May 26 01:20:23 2018 -0300
+
+    Primitivos por objectos
+
+[33mcommit 2d7dc4de9ee20092860a447775095db343cf0d34[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Sat May 26 01:09:51 2018 -0300
+
+    agrego funcionalidad para calcular consumo en N horas
+
+[33mcommit d79b628d96774de923a92cd4a061c5c4dd8161e5[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Sat May 26 00:35:51 2018 -0300
+
+    Dejo el metodo consumoEnUltimasHoras sin implemenar porque no pude restar N horas a la hora actual
+
+[33mcommit 971c1f3ccd1cd742dfe6ae4f13266bd6efff1d6f[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Sat May 26 00:20:00 2018 -0300
+
+    Agrego metodo para calcular consumo en ultimas N horas, pero no funciona, esta aclarado en un comentario
+
+[33mcommit 91326d173e2a0224e71fbc14124aec536e97bb39[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 25 23:47:20 2018 -0300
+
+    Agrego metodo para calcular la cantidad total de horas que fue usado un disp inteligene
+
+[33mcommit d8d50540afe034c497c6cbc09b3adaa100a950f4[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 25 23:38:29 2018 -0300
+
+    Agrego metodo para saber la cantidad de horas que fue usado un dispositivo
+
+[33mcommit 54ff0540da28fa6745f5622f3a9f91594a05b2c1[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 25 23:06:44 2018 -0300
+
+    Agrego metodos para retornar maximos y minimos entre dos fechas
+
+[33mcommit 2c0b76af11c59545516c9db5bb3b5ba60c7094fc[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 25 20:20:46 2018 -0300
+
+    Borro imports innecesarios
+
+[33mcommit aff7e6a9dd7f794db4841eea7af6ab0a44070c67[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 25 20:17:55 2018 -0300
+
+    En el metodo apagarse, agrego el seteo de la fecha fin del uso y lo agrego a la lista de usos
+
+[33mcommit 941e257d51a0da3b292779070d87ea18c77bbebe[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 25 20:11:09 2018 -0300
+
+    Agrego listado de usos y el uso actual de los dispositivos inteligentes, y ademas los atributos y el metodo para calcular las horas en la clase UsoDeDispositivo
+
+[33mcommit 40e6b43c790f76aaaad9c668c661163b2e938f09[m
+Merge: b7f2737 9ea0054
+Author: Abdul <abdulganem@gmail.com>
+Date:   Fri May 25 11:42:35 2018 -0300
+
+    Merge pull request #15 from dds-utn/Cliente-sin-categoria
+    
+    Cliente sin categoria
+
+[33mcommit 0ed00d2d5d583e78f41c05f307d4eb03bf1a9b9d[m
+Author: iña <isauri.github2@goat.si>
+Date:   Wed May 23 19:55:35 2018 -0300
+
+    Refactor tests
+
+[33mcommit 3121adcb57efcdc8de1943d8daf58b22c0dfd9dd[m
+Author: iña <isauri.github2@goat.si>
+Date:   Wed May 23 19:54:54 2018 -0300
+
+    Refactor forma de levantar clientes de almacenamiento, un solo metodo de entrada
+
+[33mcommit 1c38a416ae41cfa9610f3746e1f802a15fb3b71b[m
+Author: iña <isauri.github2@goat.si>
+Date:   Wed May 23 19:53:51 2018 -0300
+
+    Cambio constructor Serializador y metodo ya no toma un archivo por parametro.
+
+[33mcommit af5fc4e2ebbf9e674b4bda39f23d9939f3c98ed5[m
+Author: iña <isauri.github2@goat.si>
+Date:   Tue May 22 17:02:54 2018 -0300
+
+    Actualizo Serializador para ser un interprete de almacenamiento, adapto el AlmacenamientoDeClientes para usar un interprete, actualizo test con los cambios pertinentes
+
+[33mcommit 5a63b06d9dec805516a98fb5fec31b3ffb5857cd[m
+Author: iña <isauri.github2@goat.si>
+Date:   Tue May 22 16:57:18 2018 -0300
+
+    Creo la interfaz para los interpretadores de medios de almacenaje
+
+[33mcommit 9112a4e6e0f62ba7ef623b664457e2caf68ef7d3[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Mon May 21 22:26:17 2018 -0300
+
+    creo el metodo que guarda los cambios en los estados de los dispositivos
+
+[33mcommit 3f0aca23ca092c7bc2c46158acc62e62d100ce6e[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Mon May 21 22:22:44 2018 -0300
+
+    agrego atributo para guardar los cambios de estado y lo incluyo en el constructor
+
+[33mcommit d387ab769955b36ff223e93cf191d0f1fa9fba90[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Mon May 21 22:20:19 2018 -0300
+
+    cambio el metodo para calcular el consumo, no se aplica lo mismo que inteligente ya que se da un estimativo de cuanto consume
+
+[33mcommit 3fae5b1eee271f11c3873ff24dd5cfc23a68c26f[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Mon May 21 22:19:30 2018 -0300
+
+    Agrego clase para obtener los momentos en que se cambia de estado el dispositivo
+
+[33mcommit 9ea00544c8c8bf484e5c265e972ea25aea9109c8[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 21 17:25:28 2018 -0300
+
+    sensor de temperatura adapter
+    
+    Se añade descripción
+
+[33mcommit 6bdf2741e631143d8ac49c09cb4153ce92befbc4[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 21 17:13:14 2018 -0300
+
+    calcularFactura
+    
+    Se reformula el método
+
+[33mcommit 721bf244a449db3bdda8e0692ec21582f11c7175[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 21 17:11:34 2018 -0300
+
+    Categorizador
+    
+    el atributo asignador pasa a llamarse categorizador
+
+[33mcommit 62fc3888f273a90a00bb15675cc18138689a68b6[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 21 17:09:16 2018 -0300
+
+    borrar getCategoria
+    
+    Borro el método getCategoría ya que el cliente no tiene dicho atributo.
+
+[33mcommit 1f975cda6c58fac06ca01d0d9d59568bd292a939[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 21 17:08:09 2018 -0300
+
+    ConsultarCategoria
+    
+    - Cambio el tipo que devuelve consultarCategoria, y ya no asignará una categoría al cliente.
+
+[33mcommit 8d4fce5348a9f4ffd12bce81674e22e5f5687df8[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 21 17:06:18 2018 -0300
+
+    Borro categoria del cliente
+    
+    Borro la categoría del cliente
+
+[33mcommit b7f27371568837ce0cdfbf6846125a216c71d5c9[m
+Merge: e191d11 ecb0c3a
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 21 16:51:39 2018 -0300
+
+    Merge pull request #13 from dds-utn/dispositivos-fisicos
+    
+    Dispositivos fisicos
+
+[33mcommit 2e6dcd1319bbae8c86eb29687d1243f175011601[m
+Author: iña <isauri.github2@goat.si>
+Date:   Mon May 21 15:20:19 2018 -0300
+
+    Agrego test del almacenamiento.
+
+[33mcommit 384be3d374fe4f86bb8c9b8a870b5dcdca60e653[m
+Author: iña <isauri.github2@goat.si>
+Date:   Mon May 21 15:19:43 2018 -0300
+
+    Agrego funcionalidad para retener objetos Cliente en memoria
+
+[33mcommit ecb0c3a354413c89467a5cf2e65b4479ba6a8bd2[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Mon May 21 11:13:18 2018 -0300
+
+    Correcciones de identacion, falta de private o protected, y primitivas por clases
+
+[33mcommit 91a699284d0f0d9ba8dcf10ce6bc74a2e774a3ef[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Mon May 21 11:07:04 2018 -0300
+
+    Actualizo comandos para que tengan dispositivos fisicos y actualizo tests
+
+[33mcommit 428d964805d7e7b11fef9f871212133b98ee6347[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Mon May 21 11:06:31 2018 -0300
+
+    Actualizo gitignore
+
+[33mcommit 972da444e5d0593c8a1cd5e74103bf2a306d5048[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Mon May 21 11:04:23 2018 -0300
+
+    Agrego representacion e implementacion de dispositivos fisicos
+
+[33mcommit e191d11831bbdc1d0b1918fe2add0dac607adcf3[m
+Merge: 5066bc1 24f9e47
+Author: gonzamaidan <gonzalo_maidan@hotmail.com>
+Date:   Fri May 18 20:13:49 2018 -0300
+
+    Merge pull request #11 from dds-utn/conversorDeDispositivos
+    
+    Conversor de dispositivos
+
+[33mcommit 24f9e47e3bc29a7bdd2ec5ac0302e215097b29ef[m
+Merge: 6d25e7f 5066bc1
+Author: iña <isauri.github2@goat.si>
+Date:   Fri May 18 17:56:01 2018 -0300
+
+    Merge branch 'master' into conversorDeDispositivos
+
+[33mcommit 6d25e7f5f71ca811e75a8386eaa1d9925c962335[m
+Author: iña <isauri.github2@goat.si>
+Date:   Fri May 18 17:39:09 2018 -0300
+
+    Agrego constructores a los Dispositivos porque no se seteaban sus atributos. Tests corregidos.
+
+[33mcommit 980cae0b25ed1d583d2ad06a31e852fe2dc9038f[m
+Author: iña <isauri.github2@goat.si>
+Date:   Fri May 18 17:21:33 2018 -0300
+
+    Agrego seteo de atributos al DispositivoAdaptado
+
+[33mcommit 5066bc1584f0cca8df6e17ae12e8d478d308155f[m
+Merge: 1fe5374 49bb327
+Author: iruasi <isauri.github2@goat.si>
+Date:   Fri May 18 16:53:49 2018 -0300
+
+    Merge pull request #12 from dds-utn/Sensores
+    
+    Sensores, Actuadores y Reglas. Todo polenta.
+
+[33mcommit 49bb3273d2d6a836c9bfe01c7cc90121b5cd33ca[m
+Merge: 34407e3 ec0d9ff
+Author: iruasi <isauri.github2@goat.si>
+Date:   Fri May 18 16:49:00 2018 -0300
+
+    Merge pull request #10 from dds-utn/sensores-reglas-actuadores
+    
+    Sensores reglas actuadores
+
+[33mcommit ec0d9ff9efea0c542a865e042a41e23329980686[m
+Author: iña <isauri.github2@goat.si>
+Date:   Fri May 18 16:29:27 2018 -0300
+
+    Refactor de testing con clases estaticas. Se adaptan los tests
+
+[33mcommit 1fe53740bf04be5147dd2db6fa133b47727df27d[m
+Merge: f25ca68 274b7e0
+Author: iruasi <isauri.github2@goat.si>
+Date:   Fri May 18 14:40:15 2018 -0300
+
+    Merge pull request #9 from dds-utn/mejorarLecturaJSON
+    
+    Mejorar lectura json
+
+[33mcommit 2954d885fe19baffd453f6f08d0b8b2238e4a7ba[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 18 00:24:03 2018 -0300
+
+    Agrego el metodo para saber el consumo en un periodo
+
+[33mcommit 08e0059e4fa2118716fbc5e6665ba3093b288965[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Fri May 18 00:18:44 2018 -0300
+
+    Agrego funcionalidad para saber el consumo total discriminando por tipo de dispositivo
+
+[33mcommit 913b80997b1992ceea4ce6a886f6881d6a56057b[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Thu May 17 23:33:18 2018 -0300
+
+    Agrego metodos encenderse y apagarse para el dispositivo inteligente
+
+[33mcommit 879a6cf0ed6b16888792411df531faf5c5c5391b[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Thu May 17 23:25:45 2018 -0300
+
+    Agrego el consumo en las ultimas N horas para los dispositivos inteligentes
+
+[33mcommit 62919a7097639bc934ebe59e88f4352204bef7b5[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Thu May 17 23:20:35 2018 -0300
+
+    Cambio logica de estaApagado porque ahora esta el estado MODO_AHORRO
+
+[33mcommit 3eb1442f715ab3460da77434b0f90ca2bb906588[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Thu May 17 23:16:36 2018 -0300
+
+    Agrego estado MODO_AHORRO al enum EstadoDispositivo
+
+[33mcommit d1acdacf911c580e62e7ebdf61049f69c757c727[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 22:36:38 2018 -0300
+
+    agrego test para comprobar que cuando convierto un dispositivo se guarda como referencia en el nuevo dispositivo inteligente
+
+[33mcommit d153871ffc36c98bd081f8fc8ac8c7a2798c0ddd[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 22:08:02 2018 -0300
+
+    agrego test para comprobar que se agrega dispositivo a la lista de inteligentes cuando se convierte
+
+[33mcommit 6c20dece63d0652b60e8783a13eca4044bf6013a[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 22:05:25 2018 -0300
+
+    agrego test para comprobar que se elimina dispositivo estandar de la lista cuando se convierte
+
+[33mcommit 3b14a857ee108ad1c72810bff704295c9def8959[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 22:02:17 2018 -0300
+
+    agrego test de sumar puntos al cliente
+
+[33mcommit 6fc16a73e29d3c4638646a435b019e897b292283[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 21:57:32 2018 -0300
+
+    logica para agregar dispositivos estandar en un cliente
+
+[33mcommit 471989c298d582f6bdd3faca0324c85149ac8149[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 21:42:12 2018 -0300
+
+    modifico detalles pequeños
+
+[33mcommit 91befb377f5052abf1d14fe395824a5a5895fd6a[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 21:41:41 2018 -0300
+
+    creo clase para hacer test del conversor
+
+[33mcommit 566eecf9c2cc9f5900b66d7a625dcc8487a43cb3[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 21:37:21 2018 -0300
+
+    creo los metodos necesarios para realizar la conversion de dispositivos
+
+[33mcommit cbd65490e1883a63e0872c54d06fff0946d072c4[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 21:18:07 2018 -0300
+
+    agrego funcionalidad para sacar dispositivo estandar del cliente
+
+[33mcommit a6b48d6a634b42a68651eb218e68e6b59abcf3af[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 21:16:12 2018 -0300
+
+    agrego funcionalidad para sumar puntos al cliente
+
+[33mcommit 0946ce94f8fb5341b9eecb8f18dfc25d226f37ab[m
+Author: Taiel Deluermoz <tdeluermoz@est.frba.utn.edu.ar>
+Date:   Thu May 17 21:15:08 2018 -0300
+
+    modifico los nombres de las clases para crear el conversor de dispositivos
+
+[33mcommit 9baa463ce0221eafdb3368451051dd20041a37d6[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Wed May 16 19:58:21 2018 -0300
+
+    Agrego test de reglas
+
+[33mcommit 155b0b2bea4c02743578be1249ddf63d7dcf0529[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Wed May 16 19:58:05 2018 -0300
+
+    Agrego test de actuador
+
+[33mcommit 4f08b8a7cae257712f853be6cb18f22ea99d2464[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Wed May 16 19:57:37 2018 -0300
+
+    Cambio el actuador existente por Regla, que se construye con la funcion de condicion y el comando a ejecutar
+
+[33mcommit 343a2db26e0ec9eeceaf288e1d6ad1d5400277bd[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Wed May 16 19:56:40 2018 -0300
+
+    Agrego actuador que usa comandos
+
+[33mcommit 19c205db9931a6f66c1c28b64349cdf06dce1462[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Wed May 16 19:56:08 2018 -0300
+
+    Agrego comandos para encender o apagar un dispositivo
+
+[33mcommit 78cccfcd1cb11c54da3999055075cf832c95243c[m
+Author: Gonzalo Maidan <gonzalo_maidan@hotmail.com>
+Date:   Wed May 16 19:55:35 2018 -0300
+
+    Agrego interfaz de comando
+
+[33mcommit 34407e3d98c538ae24195e65e211b3b3e20199e8[m
+Merge: 7cbd795 f25ca68
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 14 13:52:32 2018 -0300
+
+    Merge branch 'master' into Sensores
+
+[33mcommit 586b10cc88e9d5110c88d17d4657ff372cd644f3[m
+Author: iña <isauri.github2@goat.si>
+Date:   Sun May 13 21:24:01 2018 -0300
+
+    Desarrollo de Dispositivos usando State Pattern.
+
+[33mcommit 7cbd7956abfb2a3714a1510cf9e646c82de40a83[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Sun May 13 17:13:23 2018 -0300
+
+    Actuador a interface
+    
+    Cambio la clase Actuador a una interface. Si tomamos el modelo de macowins y las tarjetas de credito, Actuador es el equivalete a medios de pago, luego se debe modelar un adaptador para cada actuador en particular ya que los mismos son externos.
+
+[33mcommit f25ca6886c0e782a1afae5cf94d01c97ece6d24f[m
+Merge: 7ce1e51 bb9675d
+Author: gonzamaidan <gonzalo_maidan@hotmail.com>
+Date:   Sun May 13 15:59:24 2018 -0300
+
+    Merge pull request #8 from dds-utn/Refactor-Asignador
+    
+    Refactor de AsignadorCategoria
+
+[33mcommit 32db24a5c8f11b9991088f4669dadf3eaa62c5a4[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Fri May 11 14:41:29 2018 -0300
+
+    Se crea la clase ReglasStrategy
+    
+    Se crea para poder interectuar segun cada caso presentado por la regla que se  use.
+
+[33mcommit 274b7e0cfdab4a9aeac6609783640019cbad463d[m
+Merge: 418c2b9 a4d8d60
+Author: iña <isauri.github2@goat.si>
+Date:   Wed May 9 17:14:41 2018 -0300
+
+    Merge branch 'mejorarLecturaJSON' of https://github.com/dds-utn/2018-vn-group-17 into mejorarLecturaJSON
+
+[33mcommit 418c2b913a0aa42a31cc7fc9161fb9b392db60d3[m
+Author: iña <isauri.github2@goat.si>
+Date:   Wed May 9 17:08:25 2018 -0300
+
+    Refactor nombres test Repositorio, ahora es del Serializador
+
+[33mcommit cc068972b2437de3928e1b7dde348d7ab33d06ec[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Tue May 8 13:12:28 2018 -0300
+
+    Revert "Revert "Se modifica el metodo enviarMedicion""
+    
+    This reverts commit fbcd4338a9f2f471d416bcf60fccd51d5f44e636.
+
+[33mcommit fbcd4338a9f2f471d416bcf60fccd51d5f44e636[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Tue May 8 13:12:18 2018 -0300
+
+    Revert "Se modifica el metodo enviarMedicion"
+    
+    This reverts commit d32d8765b47ee4f3cf44c6cb37a344bdbb049b79.
+
+[33mcommit d32d8765b47ee4f3cf44c6cb37a344bdbb049b79[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Tue May 8 13:11:28 2018 -0300
+
+    Se modifica el metodo enviarMedicion
+    
+    enviarMedicion envia la medicion y la magnitud a cada actuador en la lista del sensor.
+
+[33mcommit bb9675d3c054e0fd20306b2ca4b6eeeb8223a6ee[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 7 16:33:31 2018 -0300
+
+    Refactor de AsignadorCategoria
+    
+    Se cambia el nombre de AsignadorCategoria a Categorizador.
+    
+    Categorizardor : Se cambia el nombre del método   asignarCategoriaSegun  a calcularCategoriaSegun
+    
+    Cliente : Se cambia el nombre del método  asignarCategoria a consultarCategoria
+    
+    Se cambia el nombre del la clase de test: AsignadorEntrega0Test a CategorizadorEntrega0Test
+
+[33mcommit 7ce1e517f5889287bda104b74fe3206c67d7a004[m
+Merge: 545e591 b49f3be
+Author: Abdul <abdulganem@gmail.com>
+Date:   Mon May 7 16:11:21 2018 -0300
+
+    Merge pull request #7 from dds-utn/remodelacion-datos-usuario
+    
+    Remodelacion datos usuario
+
+[33mcommit a4d8d60820af7e4ed99e957ab4c934a6723a6ffe[m
+Author: iña <isauri.github2@goat.si>
+Date:   Sat May 5 19:43:13 2018 -0300
+
+    Remuevo Repository, la verdad es que de momento ni se usa
+
+[33mcommit 01603f946948f73b0717fded0a2ecadc3d09e7a9[m
+Author: iña <isauri.github2@goat.si>
+Date:   Sat May 5 19:42:26 2018 -0300
+
+    Adapto tests para usar el serializador.
+
+[33mcommit 0b3b5b703a035b3651ca14db3f0359aeaabbf4ef[m
+Author: iña <isauri.github2@goat.si>
+Date:   Thu May 3 23:50:47 2018 -0300
+
+    Agrego una clase para serializaciones de Json.
+
+[33mcommit b49f3beded857add231b0aa39ae2a250cce0563c[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Wed May 2 22:18:37 2018 -0300
+
+    Cambio el metodo estaApagado en Dispositivo para no repetir logica
+
+[33mcommit e38cbb46c770e8b065a3b8f570fd5387e310fdd0[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Wed May 2 22:16:37 2018 -0300
+
+    Agrego los atributos a Administrador
+
+[33mcommit 3e15202ee6cd2cec1a79498d55f889e3b762b6fc[m
+Author: Federico Lloves <fede.lloves@gmail.com>
+Date:   Wed May 2 21:52:51 2018 -0300
+
+    Elimino clase DatosUsuarios y agrego los atributos a Cliente
+
+[33mcommit 545e591e732160d7d025d7a1679a3ed9accbbdc1[m
+Author: Abdul <abdulganem@gmail.com>
+Date:   Fri Apr 27 12:29:12 2018 -0300
+
+    agrego Test en asignadorCategoria
+    
+    Agrego un test que verifica que una excepción es lanzada si el monto pasado por párametro esta fuera de los rangos de las cátegorías.
+
+[33mcommit 37dad5f0fb9b411623e5fd406865219a0d0c2879[m
+Author: Gonzalo Agustín Maidán <gmaidan@intranet.certant.com>
+Date:   Fri Apr 27 11:14:19 2018 -0300
+
+    Los paths se obtienen relativos en el test
+
+[33mcommit 00fdd4fcfaba9a7edc2db58f12e811827d5e83d2[m
+Author: Gonzalo Agustín Maidán <gmaidan@intranet.certant.com>
+Date:   Fri Apr 27 11:00:20 2018 -0300
+
+    Corrijo error al pasar tabla de decisiones
+
+[33mcommit b90e2a6d3a0af39510e123c592c9a5182295041f[m
+Author: Gonzalo Agustín Maidán <gmaidan@intranet.certant.com>
+Date:   Fri Apr 27 10:54:17 2018 -0300
+
+    Corrijo imagen para que no tenga fondo transparente
+
+[33mcommit 449f98b9f99b9b1b788014dd48b9da0c79f1ca35[m
+Author: Gonzalo Agustín Maidán <gmaidan@intranet.certant.com>
+Date:   Fri Apr 27 10:52:29 2
