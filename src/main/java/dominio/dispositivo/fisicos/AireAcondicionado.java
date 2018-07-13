@@ -2,15 +2,10 @@ package dominio.dispositivo.fisicos;
 
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 
-/**
- * Esta clase representa la conexion con una lampara real, deberia existir una
- * libreria para manejar esta lampara con la cual tenemos que interactuar.
- *
- */
-public class Lampara extends DispositivoFisico {
+public class AireAcondicionado extends DispositivoFisico {
 
-	public Lampara(TipoConcreto subtipo) {
-		super(TipoGenerico.Lampara, subtipo);
+	public AireAcondicionado(TipoConcreto subTipo) {
+		super(TipoGenerico.AireAcondicionado, subTipo);
 	}
 
 	public Double getConsumo() {

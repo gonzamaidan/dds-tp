@@ -2,12 +2,9 @@ package dominio.zonaGeografica;
 
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import dominio.clientes.Cliente;
-import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import fixture.Transformadores;
 import fixture.ZonasGeograficas;
 
@@ -31,8 +28,6 @@ public class zonaGeogafricaTest {
 
 		assertEquals(1, cantidadUsuarios);
 	}
-	
-
 	
 	@Test
 	public void transformadorCon1ClienteConsume12con3Kw() {

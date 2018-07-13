@@ -4,22 +4,25 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import dominio.dispositivo.fisicos.DispositivoFisico;
+import dominio.dispositivo.fisicos.TipoGenerico;
+
 public class DispositivoInteligente {
 
-	String nombreGenerico;
-	Double consumo;
+	DispositivoFisico dispositivoFisico;
 	EstadoDispositivo estadoDispositivo;
-	// UsoDeDispositivo usoDeDispositivo; crear la lista de usos
 	UsoDeDispositivo usoDispositivoActual;
 	List<UsoDeDispositivo> todosLosUsos;
 
-	public DispositivoInteligente(String nombreGenerico, Double consumo, EstadoDispositivo estadoDispositivo) {
-		this.nombreGenerico = nombreGenerico;
-		this.consumo = consumo;
-		this.estadoDispositivo = estadoDispositivo;
+	public DispositivoInteligente(DispositivoFisico dispositivo) {
+		this.dispositivoFisico = dispositivo;
+		this.estadoDispositivo = EstadoDispositivo.OFF;
 		this.todosLosUsos = new ArrayList<UsoDeDispositivo>();
 	}
 
+	/**
+	 * Existe para garantizar compatibilidad con el DispositivoInteligenteAdaptado
+	 */
 	public DispositivoInteligente(DispositivoEstandar dispositivo) {
 	}
 
@@ -34,12 +37,11 @@ public class DispositivoInteligente {
 	}
 */
 	public Double consumoEnElPeriodo(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
-		return horasDeConsumo * consumo;
+		Double horasDeConsumo = this.cantidadHorasTotalesDeUsoEntre(fechaInicio, fechaFin);
+		return horasDeConsumo * this.getConsumo();
 	}
 	
 	public Double cantidadHorasTotalesDeUsoEntre(LocalDateTime fechaInicio, LocalDateTime fechaFin) {
-		
 		return todosLosUsos.stream().mapToDouble(uso -> uso.horasDeUsoEntre(fechaInicio, fechaFin)).sum();
 	}
 
@@ -47,26 +49,27 @@ public class DispositivoInteligente {
 		LocalDateTime horaActual = LocalDateTime.now();
 		LocalDateTime horaInicial = horaActual.minusHours(horas); 
 		return consumoEnElPeriodo(horaInicial, horaActual);
-		
 	}
 
 	public void encenderse() {
 		if (this.estaApagado() || this.estaEnModoAhorro()) {
 			this.estadoDispositivo = EstadoDispositivo.ON;
 			ejecutarUsoDeDispositivo();
+			dispositivoFisico.encender();
+		}
+	}
+	
+	public void apagarse() {
+		if (!this.estaApagado()) {
+			this.estadoDispositivo = EstadoDispositivo.OFF;
+			terminarUsoDeDispositivo();
+			dispositivoFisico.apagar();
 		}
 	}
 
 	public void ejecutarUsoDeDispositivo() {
 		this.usoDispositivoActual = new UsoDeDispositivo();
 		usoDispositivoActual.setFechaHoraEncendido(LocalDateTime.now());
-	}
-
-	public void apagarse() {
-		if (!this.estaApagado()) {
-			this.estadoDispositivo = EstadoDispositivo.OFF;
-			terminarUsoDeDispositivo();
-		}
 	}
 
 	public void terminarUsoDeDispositivo() {
@@ -76,7 +79,6 @@ public class DispositivoInteligente {
 
 	public Boolean estaEncendido() {
 		return estadoDispositivo.equals(EstadoDispositivo.ON);
-
 	}
 
 	public Boolean estaApagado() {
@@ -90,19 +92,15 @@ public class DispositivoInteligente {
 	// SETTERS Y GETTERS (Accessors ;D)
 
 	public String getNombreGenerico() {
-		return nombreGenerico;
+		return dispositivoFisico.getNombreGenerico();
 	}
-
-	public void setNombreGenerico(String nombreGenerico) {
-		this.nombreGenerico = nombreGenerico;
+	
+	public TipoGenerico getTipoGenerico() {
+		return dispositivoFisico.getTipoGenerico();
 	}
-
+	
 	public Double getConsumo() {
-		return consumo;
-	}
-
-	public void setConsumo(Double consumo) {
-		this.consumo = consumo;
+		return dispositivoFisico.getConsumo();
 	}
 
 	public EstadoDispositivo getEstadoDispositivo() {
@@ -112,7 +110,7 @@ public class DispositivoInteligente {
 	public void setEstadoDispositivo(EstadoDispositivo estadoDispositivo) {
 		this.estadoDispositivo = estadoDispositivo;
 	}
-
+	
 	public DispositivoEstandar getDispositivoAdaptado() {
 		return null;
 	}

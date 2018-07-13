@@ -6,10 +6,10 @@ import java.util.List;
 
 import dominio.Categoria;
 import dominio.Posicion;
-import dominio.Transformador;
 import dominio.ZonaGeografica;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
+import dominio.recomendador.Recomendacion;
 import funcional.Categorizador;
 
 /*
@@ -25,16 +25,17 @@ public class Cliente {
 	private LocalDate fechaDeAlta;
 	private String usuario;
 	private List<DispositivoInteligente> dispositivos;
-	//agrego la otra lista de dispositivos estandar
+	// agrego la otra lista de dispositivos estandar
 	private List<DispositivoEstandar> dispositivosEstandar;
 	private Categorizador categorizador = new Categorizador();
-	//agrego atributo de puntaje
+	private Recomendacion recomendacion;
+	// agrego atributo de puntaje
 	private Integer puntaje;
 	public ZonaGeografica zonaGeo;
 	private Posicion posicion;
-	
 
-	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
+	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio,
+			LocalDate fechaDeAlta, String usuario) {
 		this.documento = documento;
 		this.nombreYApellido = nombreYApellido;
 		this.telefono = telefono;
@@ -43,25 +44,21 @@ public class Cliente {
 		this.dispositivos = new ArrayList<>();
 		this.puntaje = 0;
 		this.dispositivosEstandar = new ArrayList<>();
-		
+
 	}
-	
+
 	public Categoria consultarCategoria() {
 		return categorizador.calcularCategoriaSegun(this.calcularConsumoTotal());
 	}
-	
 
-	
-	
 	public List<DispositivoInteligente> getDispositivosInteligentes() {
 		return this.dispositivos;
 	}
 
-
 	public void agregarDispositivo(DispositivoInteligente dispositivoInteligenteAdaptado) {
 		dispositivos.add(dispositivoInteligenteAdaptado);
 	}
-	
+
 	public void agregarDispositivoEstandar(DispositivoEstandar dispositivo) {
 		dispositivosEstandar.add(dispositivo);
 	}
@@ -81,30 +78,25 @@ public class Cliente {
 	public int cantidadTotalDeDispositivos() {
 		return dispositivos.size();
 	}
-	
-	public double calcularConsumoTotal(){
+
+	public double calcularConsumoTotal() {
 		return this.calcularConsumoDispositivosEstandar() + this.calcularConsumoDispositivosInteligentes();
-		
+
 	}
-	
+
 	public double calcularConsumoDispositivosEstandar() {
-		return dispositivosEstandar.stream()
-				.mapToDouble(disp -> disp.getConsumo())
-				.sum();
-				
+		return dispositivosEstandar.stream().mapToDouble(disp -> disp.getConsumo()).sum();
+
 	}
-	
+
 	public double calcularConsumoDispositivosInteligentes() {
-		return dispositivos.stream()
-				.filter(disp -> disp.estaEncendido())
-				.mapToDouble(disp -> disp.getConsumo())
-				.sum();
+		return dispositivos.stream().filter(disp -> disp.estaEncendido()).mapToDouble(disp -> disp.getConsumo()).sum();
 	}
 
 	public double calcularFactura(double consumo) {
 		return this.consultarCategoria().calcularMontoMensual(consumo);
 	}
-	
+
 	public void sumarPuntos(Integer puntos) {
 		this.puntaje += puntos;
 	}
@@ -125,10 +117,15 @@ public class Cliente {
 		return this.dispositivos.size();
 	}
 
+	public Recomendacion getRecomendacion() {
+		return recomendacion;
+	}
+
+	public void setRecomendacion(Recomendacion recomendacion) {
+		this.recomendacion = recomendacion;
+	}
+
 	public Posicion getPosicion() {
 		return posicion;
 	}
-	
-	
-	
 }

@@ -41,7 +41,7 @@ public class SensoresTest {
 	public void unSensorPuedeEnviarUnaMedicionASusReglas() {
 		MatrizInteraccionEntorno matriz = new MatrizTemperatura();
 		Sensor sensorTemperatura = matriz.crearSensor();
-		Regla regla = matriz.crearRegla(valor -> { return valor > 1.5;}, actuadores.actuadorApagar(dispositivos.dispositivoFisico(), dispositivos.dispositivoGenerico()));
+		Regla regla = matriz.crearRegla(valor -> { return valor > 1.5;}, actuadores.actuadorApagar(dispositivos.dispositivoReal()));
 		
 		sensorTemperatura.registrarRegla(regla);
 		

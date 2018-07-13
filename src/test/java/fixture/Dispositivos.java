@@ -1,52 +1,66 @@
 package fixture;
 
+import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
+import dominio.dispositivo.fisicos.AireAcondicionado;
 import dominio.dispositivo.fisicos.DispositivoFisico;
 import dominio.dispositivo.fisicos.Lampara;
+import dominio.dispositivo.fisicos.TipoConcreto;
 
 public class Dispositivos {
 
-	public static DispositivoInteligente dispositivoGenerico() {
-		return new DispositivoInteligente("X", new Double(1), EstadoDispositivo.OFF);
+	public DispositivoInteligente inteligenteGenerico() {
+		return new DispositivoInteligente(new DispositivoFisicoMockup());
 	}
-	
-	public DispositivoInteligente dipositivoConConsumo(Double consumo) {
-		DispositivoInteligente dispositivo = dispositivoGenerico();
-		dispositivo.setConsumo(consumo);
-		return dispositivo;
+
+	public DispositivoEstandar estandarGenerico() {
+		return new DispositivoEstandar(new DispositivoFisicoMockup());
 	}
-	
+
 	public DispositivoInteligente dipositivoConEstado(EstadoDispositivo estado) {
-		DispositivoInteligente dispositivo = dispositivoGenerico();
+		DispositivoInteligente dispositivo = inteligenteGenerico();
 		dispositivo.setEstadoDispositivo(estado);
 		return dispositivo;
 	}
-	
+
+	public DispositivoInteligente dispositivoReal() {
+		return new DispositivoInteligente(new Lampara(TipoConcreto.De20W));
+	}
+
+	public DispositivoInteligente lampara(TipoConcreto subTipo) {
+		return new DispositivoInteligente(new Lampara(subTipo));
+	}
+
+	public DispositivoInteligente aireAcondicionado(TipoConcreto subTipo) {
+		return new DispositivoInteligente(new AireAcondicionado(subTipo));
+	}
+
 	public DispositivoFisico dispositivoFisico() {
-		return new Lampara();
+		return new Lampara(TipoConcreto.De11W);
 	}
-	
+
 	public DispositivoInteligente dispoitivo1() {
-		return new DispositivoInteligente("Televisor", 12.3, EstadoDispositivo.ON);
+		return new DispositivoInteligente(new Lampara(TipoConcreto.De11W));
 	}
-	
+
 	public DispositivoInteligente dispoitivo2() {
-		return new DispositivoInteligente("Cafetera", 1.1, EstadoDispositivo.OFF);
+		return new DispositivoInteligente(new Lampara(TipoConcreto.De12W));
 	}
-		
+
 	public DispositivoInteligente dispoitivo3() {
-		return new DispositivoInteligente("Computadora", 4.2, EstadoDispositivo.ON);
+		return new DispositivoInteligente(new Lampara(TipoConcreto.De20W));
 	}
+
 	public DispositivoInteligente dispoitivo4() {
-		return new DispositivoInteligente("Plancha", 7.9, EstadoDispositivo.ON);
+		return new DispositivoInteligente(new AireAcondicionado(TipoConcreto.De2200Frigorias));
 	}
-	
+
 	public DispositivoInteligente dispoitivo5() {
-		return new DispositivoInteligente("Lavarropas", 18.4, EstadoDispositivo.OFF);
+		return new DispositivoInteligente(new AireAcondicionado(TipoConcreto.De2200Frigorias));
 	}
-	
+
 	public DispositivoInteligente dispoitivo6() {
-		return new DispositivoInteligente("Pava electrica", 11.4, EstadoDispositivo.ON);
+		return new DispositivoInteligente(new AireAcondicionado(TipoConcreto.De2200Frigorias));
 	}
 }

@@ -1,11 +1,15 @@
 package dominio.dispositivo;
 
+import dominio.dispositivo.fisicos.DispositivoFisico;
+
 public class DispositivoEstandar {
 	
 	private String nombreGenerico;
 	private Double consumo;
 	private Integer horasDeUsoPromedio;
-
+	private DispositivoFisico dispositivoFisico;
+	
+	
 	public DispositivoEstandar(String nombreGenerico, Double consumo) {
 		this.nombreGenerico = nombreGenerico;
 		this.consumo = consumo;
@@ -16,8 +20,12 @@ public class DispositivoEstandar {
 		return dispositivo.getConsumo();
 	} */
 	
+	public DispositivoEstandar(DispositivoFisico dispositivoFisico) {
+		this.dispositivoFisico = dispositivoFisico;
+	}
+
 	public Double darConsumo() {
-		return this.getConsumo() * this.horasDeUsoPromedio;
+		return dispositivoFisico.getConsumo() * this.horasDeUsoPromedio;
 	}
 
 	public Double getConsumo() {

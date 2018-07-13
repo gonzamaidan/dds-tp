@@ -1,4 +1,7 @@
 package dominio.dispositivo.fisicos;
+
+import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
+
 /**
  * 
  * Esta clase representa a un elemento fisico concreto y la conexion con este dispositivo,
@@ -10,9 +13,42 @@ package dominio.dispositivo.fisicos;
  *  con ese aire acondicionado.
  *
  */
-public interface DispositivoFisico {
+public abstract class DispositivoFisico {
 
-	public void apagar();
-	public void encender();
+	protected TipoGenerico tipoGenerico;
+	protected TipoConcreto tipoConcreto;
+	protected EstadoDispositivo estado;
 	
+	public DispositivoFisico(TipoGenerico tipoGenerico, TipoConcreto tipoConcreto) {
+		this.tipoGenerico = tipoGenerico;
+		this.tipoConcreto = tipoConcreto;
+	}
+	
+	public TipoGenerico getTipoGenerico() {
+		return this.tipoGenerico;
+	}
+
+	public String getNombreGenerico() {
+		return this.tipoGenerico.toString();
+	}
+	
+	public TipoConcreto getSubtipo() {
+		return this.tipoConcreto;
+	}
+	
+	public Boolean esInteligente() {
+		return this.tipoConcreto.esInteligente();
+	}
+
+	public Double getConsumo() {
+		return this.tipoConcreto.getConsumo();
+	}
+
+	public EstadoDispositivo getEstado() {
+		return estado;
+	}
+
+	public abstract void apagar();
+
+	public abstract void encender();
 }

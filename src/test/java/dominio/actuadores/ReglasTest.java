@@ -9,34 +9,24 @@ import dominio.Actuadores;
 import dominio.Magnitud;
 import dominio.Medicion;
 import dominio.Regla;
-import dominio.ReglasBuilder;
-import dominio.actuadores.comandos.ComandoApagar;
 import dominio.dispositivo.DispositivoInteligente;
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
-import dominio.dispositivo.fisicos.DispositivoFisico;
-import dominio.dispositivo.fisicos.Lampara;
 import fixture.Dispositivos;
-import funcional.MatrizHumedad;
 import funcional.MatrizLuminosidad;
-import funcional.MatrizTemperatura;
 
 public class ReglasTest {
 
+	private DispositivoInteligente dispositivo;
 	private Actuadores actuadores = new Actuadores();
 	private MatrizLuminosidad matrizLuminosidad = new MatrizLuminosidad();
-	private MatrizHumedad matrizHumedad = new MatrizHumedad();
-	private MatrizTemperatura matrizTemperatura = new MatrizTemperatura();
-	private DispositivoInteligente logico;
-	private DispositivoFisico fisico;
 	private Regla regla;
 
 	@Before
 	public void before() {
-		logico = new Dispositivos().dispositivoGenerico();
-		logico.setEstadoDispositivo(EstadoDispositivo.ON);
-		fisico = new Dispositivos().dispositivoFisico();
+		dispositivo = new Dispositivos().dispositivoReal();
+		dispositivo.encenderse();
 	
-		regla = matrizLuminosidad.crearRegla(valor -> {return valor > 1.0;}, actuadores.actuadorApagar(fisico, logico));
+		regla = matrizLuminosidad.crearRegla(valor -> {return valor > 1.0;}, actuadores.actuadorApagar(dispositivo));
 	}
 	
 	@Test
@@ -44,19 +34,20 @@ public class ReglasTest {
 
 		regla.ejecutarSi(new Medicion(Magnitud.Luminusidad, 5.0));
 		
-		assertEquals("Se ejecuta la regla de apagar", EstadoDispositivo.OFF, logico.getEstadoDispositivo());
+		assertEquals("Se ejecuta la regla de apagar", EstadoDispositivo.OFF, dispositivo.getEstadoDispositivo());
 	}
 	
 	@Test
 	public void ReglaNoDeberiaEjecutarsePorMagnitudTest() {
-
 		regla.ejecutarSi(new Medicion(Magnitud.Humedad, 5.0));
-		assertEquals("No se ejecuta la regla de apagar", EstadoDispositivo.ON, logico.getEstadoDispositivo());
+
+		assertEquals("No se ejecuta la regla de apagar", EstadoDispositivo.ON, dispositivo.getEstadoDispositivo());
 	}
+	
 	@Test
 	public void ReglaNoDeberiaEjecutarsePorMedicionTest() {
 
 		regla.ejecutarSi(new Medicion(Magnitud.Luminusidad, 1.0));
-		assertEquals("No se ejecuta la regla de apagar", EstadoDispositivo.ON, logico.getEstadoDispositivo());
+		assertEquals("No se ejecuta la regla de apagar", EstadoDispositivo.ON, dispositivo.getEstadoDispositivo());
 	}
 }
