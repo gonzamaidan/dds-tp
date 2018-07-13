@@ -15,41 +15,48 @@ public enum MapaDispositivos {
 	x7(TipoGenerico.Microondas, 3.0, 15.0),
 	x8(TipoGenerico.Plancha, 3.0, 30.0);
 	
-	
 	private TipoGenerico tipo;
-	private Double min;
-	private Double max;
+	private Double horasMin;
+	private Double horasMax;
+	static public EnumMap<TipoGenerico, MapaDispositivos> mapa = new EnumMap<>(TipoGenerico.class);
 
-	MapaDispositivos(TipoGenerico tipo, Double min, Double max) {
+	MapaDispositivos(TipoGenerico tipo, Double horasMin, Double horasMax) {
 		this.tipo = tipo;
-		this.min = min;
-		this.max = max;
+		this.horasMin = horasMin;
+		this.horasMax = horasMax;
 	}
 	
-	static public EnumMap<TipoGenerico, MapaDispositivos> mapa = new EnumMap<>(TipoGenerico.class);
 	static {
 		for (MapaDispositivos registro : MapaDispositivos.values()) {
 			mapa.put(registro.getTipo(), registro);
 		}
 	}
+
+	static public MapaDispositivos obtenerPorTipo(TipoGenerico tipoGenerico) {
+		return mapa.get(tipoGenerico);
+	}
 	
-	static public Double consumoMaximoDe(TipoGenerico tipo) {
-		return mapa.get(tipo).getMax();
+	static public Integer getPosicionDe(TipoGenerico tipo) {
+		return mapa.get(tipo).ordinal();
+	}
+	
+	static public Double horasMaximasDe(TipoGenerico tipo) {
+		return mapa.get(tipo).getHorasMax();
 	}
 
-	static public Double consumoMinimoDe(TipoGenerico tipo) {
-		return mapa.get(tipo).getMin();
+	static public Double horasMinimasDe(TipoGenerico tipo) {
+		return mapa.get(tipo).getHorasMin();
 	}
 	
 	public TipoGenerico getTipo() {
 		return tipo;
 	}
 	
-	public Double getMin() {
-		return min;
+	public Double getHorasMin() {
+		return horasMin;
 	}
 	
-	public Double getMax() {
-		return max;
+	public Double getHorasMax() {
+		return horasMax;
 	}
 }

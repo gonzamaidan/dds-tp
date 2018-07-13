@@ -2,8 +2,6 @@ package dominio.dispositivo.fisicos;
 
 import java.util.EnumMap;
 
-import dominio.recomendador.MapaDispositivos;
-
 public enum TipoConcreto {
 
 	// Aires Acondicionados
