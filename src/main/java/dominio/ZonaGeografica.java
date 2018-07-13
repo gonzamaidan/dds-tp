@@ -1,5 +1,6 @@
 package dominio;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -11,9 +12,11 @@ public class ZonaGeografica {
 	
 	
 	
-	public ZonaGeografica(Double radio) {
-		this.radio = radio;
 	
+
+	public ZonaGeografica(Double radio, List<Transformador> transformadores) {
+		this.radio = radio;
+		this.transformadores = transformadores;
 	}
 
 	public Double calcularConsumoTotal() {

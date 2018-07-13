@@ -9,10 +9,12 @@ import org.junit.Test;
 import dominio.clientes.Cliente;
 import dominio.dispositivo.DispositivoInteligente.EstadoDispositivo;
 import fixture.Transformadores;
+import fixture.ZonasGeograficas;
 
 public class zonaGeogafricaTest {
 
 	private Transformadores transformadores = new Transformadores();
+	private ZonasGeograficas zonas = new ZonasGeograficas();
 	
 	@Test
 	public void transformadorTiene4ClientesConectados() {
@@ -47,6 +49,24 @@ public class zonaGeogafricaTest {
 		
 		assertEquals(73.4, consumoTotal, 0);
 	}
+	
+	@Test
+	public void zonaCon2Transformadores() {
+	
+		double consumoTotalZona = zonas.zonaCon2Transformadores().calcularConsumoTotal();
+		
+		assertEquals(65.5, consumoTotalZona, 0);
+	}
+	
+	@Test
+	public void zonaCon3Transformadores() {
+	
+		double consumoTotalZona = zonas.zonaCon3Transformadores().calcularConsumoTotal();
+		
+		assertEquals(138.9, consumoTotalZona, 0);
+	}
+	
+	
 	
 	
 }
