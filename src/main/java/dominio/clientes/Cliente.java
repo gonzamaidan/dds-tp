@@ -5,6 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dominio.Categoria;
+import dominio.Posicion;
+import dominio.Transformador;
+import dominio.ZonaGeografica;
 import dominio.dispositivo.DispositivoEstandar;
 import dominio.dispositivo.DispositivoInteligente;
 import funcional.Categorizador;
@@ -27,6 +30,8 @@ public class Cliente {
 	private Categorizador categorizador = new Categorizador();
 	//agrego atributo de puntaje
 	private Integer puntaje;
+	public ZonaGeografica zonaGeo;
+	private Posicion posicion;
 	
 
 	public Cliente(Documento documento, String nombreYApellido, Integer telefono, String domicilio, LocalDate fechaDeAlta, String usuario) {
@@ -119,4 +124,11 @@ public class Cliente {
 	public int cantidadDeDispositivosInteligentes() {
 		return this.dispositivos.size();
 	}
+
+	public Posicion getPosicion() {
+		return posicion;
+	}
+	
+	
+	
 }
