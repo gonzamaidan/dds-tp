@@ -5,6 +5,13 @@ public class Posicion {
 	private Double  longitud;
 	private Double latitud;
 	
+	
+	
+public Posicion(Double longitud, Double latitud) {
+		this.longitud = longitud;
+		this.latitud = latitud;
+	}
+
 public  Double calcularKilometrosDesde(Posicion posicion) {
 		
 	Double radioTerrestre = 6371.00;

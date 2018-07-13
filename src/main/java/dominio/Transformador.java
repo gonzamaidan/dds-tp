@@ -9,6 +9,12 @@ public class Transformador {
 	private List<Cliente> usuariosConectados;
 	private Posicion posicion;
 	
+	
+	
+	public Transformador(Posicion posicion) {
+		this.posicion = posicion;
+	}
+
 	public double calcularConsumoTotal() {
 	
 		return usuariosConectados.stream().mapToDouble(u->u.calcularConsumoTotal()).sum();

@@ -9,6 +9,13 @@ public class ZonaGeografica {
 	private Double radio;
 	private List<Transformador> transformadores;
 	
+	
+	
+	public ZonaGeografica(Double radio) {
+		this.radio = radio;
+	
+	}
+
 	public Double calcularConsumoTotal() {
 		
 		return transformadores.stream().mapToDouble(t->t.calcularConsumoTotal()).sum();
@@ -28,4 +35,6 @@ public class ZonaGeografica {
 		transformador=cliente.zonaGeo.transformadorMasCercano(cliente.getPosicion());
 		transformador.conectarCliente(cliente);
 	}
+	
+	public agregarTransformador()
 }
